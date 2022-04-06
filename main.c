@@ -4,13 +4,19 @@ int	main(int argc, char *argv[])
 {
 	t_stack	s;
 
-	
+
+	ft_bzero(&s, sizeof(t_stack));
 	if (mkenv(argc, argv, &s))
 	{
 		free(s.freefrom);
 		return (1);
 	}
-	if ()
+	if (push_swap(&s, _a_first))
+	{
+		free(s.freefrom);
+		return (1);
+	}
+	return (0);
 }
 
 void	mkgoal(int	*nums, int	len)

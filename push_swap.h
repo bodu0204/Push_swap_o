@@ -17,6 +17,10 @@ typedef struct s_stack
 	size_t	b_len;
 	int		*goal;
 	size_t	g_len;
+	int		*ra_back;
+	size_t	ra_len;
+	int		*rb;
+	size_t	rb_len;
 	void	*freefrom;
 }	t_stack;
 
