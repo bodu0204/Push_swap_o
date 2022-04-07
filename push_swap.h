@@ -11,11 +11,13 @@ enum
 
 typedef struct s_stack
 {
+	int		*a_base;
+	int		*b_base;
 	int		*a;
 	size_t	a_len;
 	int		*b;
 	size_t	b_len;
-	int		*goal;
+	int		*g;
 	size_t	g_len;
 	int		*ra_back;
 	size_t	ra_len;

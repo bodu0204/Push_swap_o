@@ -3,6 +3,7 @@
 int	main(int argc, char *argv[])
 {
 	t_stack	s;
+	int		r;
 
 
 	ft_bzero(&s, sizeof(t_stack));
@@ -11,11 +12,10 @@ int	main(int argc, char *argv[])
 		free(s.freefrom);
 		return (1);
 	}
-	if (push_swap(&s, _a_first))
-	{
-		free(s.freefrom);
+	r = push_swap(&s, _a_first);
+	//ここに結果を出力する関数を書ける
+	if (r)
 		return (1);
-	}
 	return (0);
 }
 
