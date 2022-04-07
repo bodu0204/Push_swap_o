@@ -4,9 +4,8 @@
 
 enum
 {
-	_a_first = -1,
-	_a = 0,
-	_b = 1,
+	_a,
+	_b,
 };
 
 typedef struct s_stack
@@ -25,5 +24,14 @@ typedef struct s_stack
 	size_t	rb_len;
 	void	*freefrom;
 }	t_stack;
+
+typedef struct s_dividing
+{
+	int		dn;
+	size_t	for_a;
+	size_t	for_b;
+	size_t	dm;
+	size_t	inc;
+}	t_dividing;
 
 void	ft_bzero(void *s, size_t n);
