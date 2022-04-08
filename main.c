@@ -12,7 +12,7 @@ int	main(int argc, char *argv[])
 		free(s.freefrom);
 		return (1);
 	}
-	r = push_swap(&s, _a_first);
+	r = push_swap(&s, _a);
 	//ここに結果を出力する関数を書ける
 	if (r)
 		return (1);

@@ -66,23 +66,28 @@ int devide(t_stack	*s, t_dividing *d, int ms)
 
 int divide_from_a(t_stack	*s, t_dividing *d)
 {
-	size_t	ib;/*  mount of push to b  */
-	size_t	ida;/* mount of divide-nuumber at a */
-	int		flag;/*  */
+	size_t		ib;/*  mount of push to b  */
+	size_t		ida;/* mount of divide-nuumber at a */
+	int			flag;/*  */
+	t_dividing	next;
 
 	ib = 0;
 	ida = 0;
+	mk_divide_fmt(&next, s->g + d->dm + d->inc, d->dm);
 	while(s->a_len > 0 && ib < d->dm)
 	{
 		if (s->a[s->a_len - 1] < d->dn \
 		|| (s->a[s->a_len - 1] == d->dn && ida < d->for_a))
 		{
+			if ()
 			/* a↓ */
+			if (s->a[s->a_len - 1] == d->dn)
+			ida++;
 		}
 		else
 		{
-			/* a→b */
 			ib++;
+			/* a→b */
 		}
 	}
 	if (flag)
