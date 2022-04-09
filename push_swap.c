@@ -195,3 +195,5 @@ int push_from_b(t_stack	*s, int *flag, t_dividing *next)
 	}
 	return (0);
 }
+
+int treatstac(t_stack	*s, int	ms)
