@@ -15,7 +15,7 @@ int push_swap(t_stack	*s, int ms)//ms: main_stack()
 	set_divide_fmt(&d, s->g, s->g_len);/* 分ける基準を決める(= うち片方にどれだけの量の数があるか) */
 	if (divide(s, &d, ms)) /* ２つに分ける処理 */
 		return (1);
-	if (treatstac(s, ms)) /* 底にあるものを上まで持ってくる処理 or スタックを整える処理(x = x_baseの時) */
+	if (treatstack(s, ms)) /* 底にあるものを上まで持ってくる処理 or スタックを整える処理(x = x_baseの時) */
 		return (1);
 	xxx(s, &next, ms);/* _aのためのnextを設定する処理(= mainじゃない方のベースポインターを上げる, ) */ /* bzeroを忘れすに */
 	if (push_swap(&next, _a))
@@ -196,4 +196,39 @@ int push_from_b(t_stack	*s, int *flag, t_dividing *next)
 	return (0);
 }
 
-int treatstac(t_stack	*s, int	ms)
+int treatstack(t_stack	*s, int ms)
+{
+	if (ms == _a && s->a == s->a_base \
+	|| ms == _b && s->b == s->b_base)
+	{
+		mvstack(s->a, &s->a_len, s->a_base, &s->a_back_len);
+		mvstack(s->b, &s->b_len, s->b_base, &s->b_back_len);
+		return (0);
+	}
+	while (s->a_back_len && s->b_back_len)
+		if (manipulate(s, rrr))
+			return(1);
+	while (s->a_back_len)
+		if (manipulate(s, rra))
+			return(1);
+	while (s->b_back_len)
+		if (manipulate(s, rrb))
+			return(1);
+	return (0);
+}
+
+void	mvstack(int *mst, size_t *msl, int *bst, size_t *bsl)
+{
+	size_t	i;
+
+	i = 0;
+	ft_memmove(mst + *bsl, mst, *msl * sizeof(int));
+	while (i < *bsl)
+	{
+		mst[*bsl - i] = bst[i];
+		i++;
+	}
+	*msl += *bsl;
+	*bsl = 0;
+	return ;
+}
