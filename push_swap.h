@@ -34,6 +34,7 @@ typedef struct s_dividing
 	size_t	for_b;
 	size_t	dm;
 	size_t	inc;
+	size_t	use;
 }	t_dividing;
 
 void	ft_bzero(void *s, size_t n);

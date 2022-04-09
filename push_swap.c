@@ -12,7 +12,7 @@ int push_swap(t_stack	*s, int ms)//ms: main_stack()
 		return(0);
 	}
 	ft_bzero(&next, sizeof(t_stack));
-	mk_divide_fmt(&d, s->g, s->g_len);/* 分ける基準を決める(= うち片方にどれだけの量の数があるか) */
+	set_divide_fmt(&d, s->g, s->g_len);/* 分ける基準を決める(= うち片方にどれだけの量の数があるか) */
 	if (divide(s, &d, ms)) /* ２つに分ける処理 */
 		return (1);
 	if (xxx()) /* 底にあるものを上まで持ってくる処理 or スタックを整える処理(x = x_baseの時) */
@@ -33,10 +33,11 @@ int pop_push(int *pops, size_t *pol, int *pushs, size_t *pul)
 	*pul++;
 }
 
-void	mk_divide_fmt(t_dividing	*d, int	*goal, size_t	l)/* 分ける基準を決める(= うち片方にどれだけの量の数があるか) */
+void	set_divide_fmt(t_dividing	*d, int	*goal, size_t	l)/* 分ける基準を決める(= うち片方にどれだけの量の数があるか) */
 {
 	size_t	i;
 
+	ft_bzero(d, sizeof(t_dividing));
 	d->dm = l / 2;
 	d->inc = l % 2;
 	i = d->dm + d->inc - 1;
@@ -59,38 +60,87 @@ void	mk_divide_fmt(t_dividing	*d, int	*goal, size_t	l)/* 分ける基準を決�
 
 int devide(t_stack	*s, t_dividing *d, int ms)
 {
-	if (ms == _a)
-		return (divide_from_a(s, d));
-	return(divide_from_b(s, d));
-}
-
-int divide_from_a(t_stack	*s, t_dividing *d)
-{
-	size_t		ib;/*  mount of push to b  */
-	size_t		ida;/* mount of divide-nuumber at a */
-	int			flag;/*  */
 	t_dividing	next;
 
+	if (ms == _a)
+	{
+		set_divide_fmt(&next, s->g + d->dm + d->inc, d->dm);
+		return (divide_from_a(s, d, &next));
+	}
+	set_divide_fmt(&next, s->g, d->dm + d->inc);
+	return(divide_from_b(s, d, &next));
+}
+
+int divide_from_a(t_stack	*s, t_dividing *d, t_dividing *next)
+{
+	size_t		ib;/*  mount of push to b  */
+	int			flag;/*  */
+
 	ib = 0;
-	ida = 0;
-	mk_divide_fmt(&next, s->g + d->dm + d->inc, d->dm);
 	while(s->a_len > 0 && ib < d->dm)
 	{
 		if (s->a[s->a_len - 1] < d->dn \
-		|| (s->a[s->a_len - 1] == d->dn && ida < d->for_a))
+		|| (s->a[s->a_len - 1] == d->dn && d->use < d->for_a))
 		{
-			if ()
-			/* a↓ */
+			if (rotate(s, &flag, _a))/* a↓ or ab↓ */
+				return (1);
 			if (s->a[s->a_len - 1] == d->dn)
-			ida++;
+				d->use++;
 		}
 		else
 		{
 			ib++;
-			/* a→b */
+			if (push_from_a(s, &flag, next))/* a→b */
+				return (1);
 		}
 	}
 	if (flag)
-		/* b↓ */
-	return(0)
+		if (/* b↓ */0)
+			return (1);
+	return(0);
+}
+
+int push_from_a(t_stack	*s, int *flag, t_dividing *next)
+{
+	int i;
+
+	if (*flag)
+		if (/* b↓ */0)
+			return (1);
+	*flag = 0;
+	i = s->a[s->a_len - 1];
+	if (/* a→b */0)
+		return (1);
+	if (s->b_len - 1 <= next->dm / 4 \
+	&& i <= next->dn && s->a != s->a_base)
+	{
+		if (i == next->dn && next->use < next->for_b)
+			*flag = 1;
+		else
+			next->use++;
+	}
+	return (0);
+}
+
+int rotate(t_stack *s, int *flag, int ms)
+{
+	if (*flag)
+	{
+		if(/* ab↓ */0)
+			return (1);
+	}
+	else if (ms == _a)
+	{
+		if(/* a↓ */0)
+			return (1);
+	}
+	else if (ms == _b)
+	{
+		if(/* b↓ */0)
+			return (1);
+	}
+	else
+		return (1);
+	*flag = 0;
+	return (0);
 }
