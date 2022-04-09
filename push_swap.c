@@ -5,22 +5,22 @@ int push_swap(t_stack	*s, int ms)//ms: main_stack()
 	t_stack		next;
 	t_dividing	d;
 
-	if (s->g_len <= 2)
-	{
-		if(swaptwo(s))//aのときは普通に入れ替え, bのときはaにpushしてaを再帰
-			return(1);
-		return(0);
-	}
 	ft_bzero(&next, sizeof(t_stack));
 	set_divide_fmt(&d, s->g, s->g_len);/* 分ける基準を決める(= うち片方にどれだけの量の数があるか) */
 	if (divide(s, &d, ms)) /* ２つに分ける処理 */
 		return (1);
 	if (treatstack(s, ms)) /* 底にあるものを上まで持ってくる処理 or スタックを整える処理(x = x_baseの時) */
 		return (1);
-	xxx(s, &next, ms);/* _aのためのnextを設定する処理(= mainじゃない方のベースポインターを上げる, ) */ /* bzeroを忘れすに */
+	if (s->g_len <= 4)
+	{
+		if(swaptwo(s))//aのときは普通に入れ替え, bのときはaにpushしてaを再帰
+			return(1);
+		return(0);
+	}
+	set_next_stack(s, &next, &d, ms);/* _aのためのnextを設定する処理(= mainじゃない方のベースポインターを上げる, ) */ /* bzeroを忘れすに */
 	if (push_swap(&next, _a))
 		return (1);
-	xxx(s, &next, ms);/* _bのためのnextを設定する処理 */
+	set_next_stack(s, &next, &d, ms);/* _bのためのnextを設定する処理 */
 	if (push_swap(&next, _b))
 		return (1);
 	return (0);
@@ -231,4 +231,51 @@ void	mvstack(int *mst, size_t *msl, int *bst, size_t *bsl)
 	*msl += *bsl;
 	*bsl = 0;
 	return ;
+}
+
+void set_next_stack(t_stack *s, t_stack *next, t_dividing *d, int ms)/* _a or _b のためのnextを設定する処理(= mainじゃない方のベースポインターを上げる, ) */ /* bzeroを忘れすに */
+{
+	ft_memcpy(next, s, sizeof(t_stack));
+	next->a_back_len = 0;
+	next->b_back_len = 0;
+	if (ms == _a)
+	{
+		next->b += d->dm;
+		next->b_len = 0;
+		next->g_len -= d->dm;
+	}
+	else
+	{
+		next->a += d->dm + d->inc;
+		next->b_len = 0;
+		next->g += d->dm + d->inc;
+	}
+	return ;
+}
+
+int swaptwo(t_stack *s)
+{
+	int i;
+
+	if ((s->a[s->a_len -1] < s->a[s->a_len -1]) \
+	&& (s->g_len == 4 && s->b[s->b_len - 1] < s->b[s->a_len - 2]))
+	{
+		if (manipulate(s, ss))
+			return(1);
+	}
+	else if (s->a[s->a_len -1] < s->a[s->a_len -1])
+	{
+		if (manipulate(s, sa))
+			return(1);
+	}
+	else if (s->g_len == 4 && s->b[s->b_len - 1] < s->b[s->a_len - 2])
+	{
+		if (manipulate(s, sb))
+			return(1);
+	}
+	i = s->g_len - 2;
+	while (i--)
+		if (manipulate(s, pa))
+			return (1);
+	return (0);
 }

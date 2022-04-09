@@ -12,6 +12,7 @@ int	main(int argc, char *argv[])
 		free(s.freefrom);
 		return (1);
 	}
+	//2ケ以下の時の処理必要
 	r = push_swap(&s, _a);
 	//ここに結果を出力する関数を書ける
 	if (r)
