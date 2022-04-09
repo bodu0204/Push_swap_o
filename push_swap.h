@@ -9,6 +9,20 @@ enum
 	_b,
 };
 
+enum
+{
+	sa,
+	sb,
+	ss,
+	pa,
+	pb,
+	ra,
+	rb,
+	rr,
+	rra,
+	rrb,
+	rrr
+};
 
 typedef struct s_stack
 {
@@ -38,3 +52,4 @@ typedef struct s_dividing
 }	t_dividing;
 
 void	ft_bzero(void *s, size_t n);
+int		manipulate(t_stack	*s, int cmd);

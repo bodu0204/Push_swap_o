@@ -15,12 +15,12 @@ int push_swap(t_stack	*s, int ms)//ms: main_stack()
 	set_divide_fmt(&d, s->g, s->g_len);/* 分ける基準を決める(= うち片方にどれだけの量の数があるか) */
 	if (divide(s, &d, ms)) /* ２つに分ける処理 */
 		return (1);
-	if (xxx()) /* 底にあるものを上まで持ってくる処理 or スタックを整える処理(x = x_baseの時) */
+	if (treatstac(s, ms)) /* 底にあるものを上まで持ってくる処理 or スタックを整える処理(x = x_baseの時) */
 		return (1);
-	xxx();/* _aのためのnextを設定する処理(= mainじゃない方のベースポインターを上げる, ) */
+	xxx(s, &next, ms);/* _aのためのnextを設定する処理(= mainじゃない方のベースポインターを上げる, ) */ /* bzeroを忘れすに */
 	if (push_swap(&next, _a))
 		return (1);
-	xxx();/* _bのためのnextを設定する処理 */
+	xxx(s, &next, ms);/* _bのためのnextを設定する処理 */
 	if (push_swap(&next, _b))
 		return (1);
 	return (0);
@@ -77,15 +77,15 @@ int divide_from_a(t_stack	*s, t_dividing *d, t_dividing *next)
 	int			flag;/*  */
 
 	ib = 0;
-	while(s->a_len > 0 && ib < d->dm)
+	while(s->a_len > 0 && ib < d->dm) /* "s->a_len > 0" 理論上いらない */
 	{
 		if (s->a[s->a_len - 1] < d->dn \
 		|| (s->a[s->a_len - 1] == d->dn && d->use < d->for_a))
 		{
-			if (rotate(s, &flag, _a))/* a↓ or ab↓ */
-				return (1);
 			if (s->a[s->a_len - 1] == d->dn)
 				d->use++;
+			if (rotate(s, &flag, _a)) /* a↓ or ab↓ */
+				return (1);
 		}
 		else
 		{
@@ -95,7 +95,7 @@ int divide_from_a(t_stack	*s, t_dividing *d, t_dividing *next)
 		}
 	}
 	if (flag)
-		if (/* b↓ */0)
+		if (manipulate(s, rb))
 			return (1);
 	return(0);
 }
@@ -105,11 +105,11 @@ int push_from_a(t_stack	*s, int *flag, t_dividing *next)
 	int i;
 
 	if (*flag)
-		if (/* b↓ */0)
+		if (manipulate(s, rb))
 			return (1);
 	*flag = 0;
 	i = s->a[s->a_len - 1];
-	if (/* a→b */0)
+	if (manipulate(s, pb))
 		return (1);
 	if (s->b_len - 1 <= next->dm / 4 \
 	&& i <= next->dn && s->a != s->a_base)
@@ -126,7 +126,7 @@ int rotate(t_stack *s, int *flag, int ms)
 {
 	if (*flag)
 	{
-		if(/* ab↓ */0)
+		if(manipulate(s, rr))
 			return (1);
 	}
 	else if (ms == _a)
@@ -142,5 +142,56 @@ int rotate(t_stack *s, int *flag, int ms)
 	else
 		return (1);
 	*flag = 0;
+	return (0);
+}
+
+int divide_from_b(t_stack	*s, t_dividing *d, t_dividing *next)
+{
+	size_t		ibb;/*  mount of push to b_back  */
+	int			flag;/*  */
+
+	ibb = 0;
+	while(s->b_len > 0 && ibb < d->dm)/* "s->b_len > 0" 理論上いらない */
+	{
+		if (s->b[s->b_len - 1] > d->dn \
+		|| (s->b[s->b_len - 1] == d->dn && d->use < d->for_b))
+		{
+			ibb++;
+			if (s->b[s->b_len - 1] == d->dn)
+				d->use++;
+			if (rotate(s, &flag, _b))/* b↓ or ab↓ */
+				return (1);
+		}
+		else
+		{
+			if (push_from_b(s, &flag, next))/* b→a */
+				return (1);
+		}
+	}
+	if (flag)
+		if (manipulate(s, ra))
+			return (1);
+	return(0);
+}
+
+int push_from_b(t_stack	*s, int *flag, t_dividing *next)
+{
+	int i;
+
+	if (*flag)
+		if (manipulate(s, ra))
+			return (1);
+	*flag = 0;
+	i = s->b[s->b_len - 1];
+	if (manipulate(s, pa))
+		return (1);
+	if (s->a_len - 1 <= next->dm / 4 \
+	&& i <= next->dn && s->b != s->b_base)
+	{
+		if (i == next->dn && next->use < next->for_a)
+			*flag = 1;
+		else
+			next->use++;
+	}
 	return (0);
 }
