@@ -5,7 +5,6 @@ int push_swap(t_stack	*s, int ms)//ms: main_stack()
 	t_stack		next;
 	t_dividing	d;
 
-	ft_bzero(&next, sizeof(t_stack));
 	set_divide_fmt(&d, s->g, s->g_len);/* 分ける基準を決める(= うち片方にどれだけの量の数があるか) */
 	if (divide(s, &d, ms)) /* ２つに分ける処理 */
 		return (1);
@@ -132,12 +131,12 @@ int rotate(t_stack *s, int *flag, int ms)
 	else if (ms == _a)
 	{
 		if(/* a↓ */0)
-			return (1);
+			return (1)
 	}
 	else if (ms == _b)
 	{
 		if(/* b↓ */0)
-			return (1);
+			return (1)
 	}
 	else
 		return (1);
