@@ -1,4 +1,5 @@
 #include "push_swap.h"
+#include "debug.h"/* test */
 int mkenv(int argc, char *argv[], t_stack *s);
 void	mkgoal(int	*nums, size_t	len);
 int set_stack(int argc, char *argv[], t_stack *s);
@@ -18,9 +19,10 @@ int	main(int argc, char *argv[])
 		free(s.freefrom);
 		return (1);
 	}
-	//2ケ以下の時の処理必要
 	r = push_swap(&s, _a);
 	//ここに結果を出力する関数を書ける
+	TEST tests(&s);
+	free(s.freefrom);
 	if (r)
 		return (1);
 	return (0);
@@ -30,7 +32,7 @@ int mkenv(int argc, char *argv[], t_stack *s)
 {
 	if (argc == 1 || checkarg(argc, argv))
 		return (1);
-	if (set_stack(argc, argv + 1, s))
+	if (set_stack(argc - 1, argv + 1, s))
 		return (1);
 	mkgoal(s->g, s->g_len);
 	return (0);
@@ -72,8 +74,8 @@ int set_stack(int argc, char *argv[], t_stack *s)
 		return (1);
 	s->a_base = s->freefrom;
 	s->b_base = s->freefrom + ((argc * sizeof(int)) + 8);
-	s->a = s->freefrom + (((argc * sizeof(int)) + 8) * 2);
-	s->b = s->freefrom + (((argc * sizeof(int)) + 8) * 3);
+	s->a_back = s->freefrom + (((argc * sizeof(int)) + 8) * 2);
+	s->b_back = s->freefrom + (((argc * sizeof(int)) + 8) * 3);
 	s->g = s->freefrom + (((argc * sizeof(int)) + 8) * 4);
 	i = 0;
 	while (i < argc)
@@ -82,6 +84,8 @@ int set_stack(int argc, char *argv[], t_stack *s)
 		i++;
 	}
 	ft_memcpy(s->a_base, s->g, (argc * sizeof(int)));
+	s->a = s->a_base;
+	s->b = s->b_base;
 	s->g_len = argc;
 	s->a_len = argc;
 	return (0);
@@ -102,6 +106,7 @@ int checkarg(size_t argc, char *argv[])
 		{
 			if (s[ii] < '0' && s[ii] > '9')
 				return (1);
+			ii++;
 		}
 		i++;
 	}

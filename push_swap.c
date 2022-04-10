@@ -1,4 +1,5 @@
 #include "push_swap.h"
+#include "debug.h"/* test */
 void pop_push(int *pops, size_t *pol, int *pushs, size_t *pul);
 void	set_divide_fmt(t_dividing	*d, int	*goal, size_t	l);
 int divide(t_stack	*s, t_dividing *d, int ms);
@@ -19,24 +20,29 @@ int push_swap(t_stack	*s, int ms)//ms: main_stack()
 	t_stack		next;
 	t_dividing	d;
 
-	/* test */ 
 	if (little_push_swap(s))/* -> a_len != 1 a_len != 2 g_lenも同様*/ /* _a を上げる機能 + _a swap */
 		return (1);
 	set_divide_fmt(&d, s->g, s->g_len);/* 分ける基準を決める(= うち片方にどれだけの量の数があるか) */
 	if (divide(s, &d, ms)) /* ２つに分ける処理 */
 		return (1);
+//printf("-----------------");fflush(stdout); TEST/* test */
 	if (treatstack(s, ms)) /* 底にあるものを上まで持ってくる処理 or スタックを整える処理(x = x_baseの時) + _a を上げる機能(済) */
 		return (1);
-	if (s->b_len <= 2)
+//printf("-----------------s->a_len = %zu, b_len = %zu ",s->a_len, s->b_len);fflush(stdout); TEST/* test */
+	if (s->a_len <= 2 && s->b_len <= 2)
 	{
+		TEST
 		if(swaptwo(s))
 			return(1);
 		return(0);
 	}
-	set_next_stack(s, &next, ms);/* _aのためのnextを設定する処理(= mainじゃない方のベースポインターを上げる, ) */ /* bzeroを忘れすに */
+	set_next_stack(s, &next, _a);/* _aのためのnextを設定する処理(= mainじゃない方のベースポインターを上げる, ) */ /* bzeroを忘れすに */
+//printf("--------A--------\n");fflush(stdout);/* test */
 	if (push_swap(&next, _a))
 		return (1);
-	set_next_stack(s, &next, ms);/* _bのためのnextを設定する処理 */
+	set_next_stack(s, &next, _b);/* _bのためのnextを設定する処理 */
+	TEST tests(s);
+//printf("--------B--------\n");fflush(stdout);/* test */
 	if (push_swap(&next, _b))
 		return (1);
 	return (0);
@@ -93,11 +99,22 @@ int divide_from_a(t_stack	*s, t_dividing *d, t_dividing *next)
 	int			flag;/*  */
 
 	ib = 0;
-	while(s->a_len > 0 && ib < d->dm) /* "s->a_len > 0" 理論上いらない */
+	flag = 0;
+	while(/* s->a_len > 0 && */ ib < d->dm) /* "s->a_len > 0" 理論上いらない */
 	{
-		if (s->a[s->a_len - 1] < d->dn \
+		if (s->a[s->a_len - 1] > d->dn \
 		|| (s->a[s->a_len - 1] == d->dn && d->use < d->for_a))
 		{
+			//if (s->a[s->a_len - 1] < d->dn)/* test */
+			//{/* test */
+			//	printf("d->dn : %d  ", d->dn);/* test */
+			//	TEST/* test */
+			//}/* test */
+			//else if (s->a[s->a_len - 1] == d->dn && d->use < d->for_a)/* test */
+			//{/* test */
+			//	printf("d->dn : %d  ", d->dn);/* test */
+			//	TEST/* test */
+			//}/* test */
 			if (s->a[s->a_len - 1] == d->dn)
 				d->use++;
 			if (rotate(s, &flag, _a)) /* a↓ or ab↓ */
@@ -105,6 +122,7 @@ int divide_from_a(t_stack	*s, t_dividing *d, t_dividing *next)
 		}
 		else
 		{
+			//TEST
 			ib++;
 			if (push_from_a(s, &flag, next))/* a→b */
 				return (1);
@@ -167,11 +185,13 @@ int divide_from_b(t_stack	*s, t_dividing *d, t_dividing *next)
 	int			flag;/*  */
 
 	ibb = 0;
-	while(s->b_len > 0 && ibb < d->dm)/* "s->b_len > 0" 理論上いらない */
+	flag = 0;
+	while(/* s->b_len > 0 && */ ibb < d->dm)/* "s->b_len > 0" 理論上いらない */
 	{
-		if (s->b[s->b_len - 1] > d->dn \
+		if (s->b[s->b_len - 1] < d->dn \
 		|| (s->b[s->b_len - 1] == d->dn && d->use < d->for_b))
 		{
+			TEST
 			ibb++;
 			if (s->b[s->b_len - 1] == d->dn)
 				d->use++;
@@ -180,6 +200,7 @@ int divide_from_b(t_stack	*s, t_dividing *d, t_dividing *next)
 		}
 		else
 		{
+			TEST
 			if (push_from_b(s, &flag, next))/* b→a */
 				return (1);
 		}
@@ -217,8 +238,16 @@ int treatstack(t_stack	*s, int ms)
 	if ((ms == _a && s->a == s->a_base) \
 	|| (ms == _b && s->b == s->b_base))
 	{
-		mvstack(s->a, &s->a_len, s->a_base, &s->a_back_len);
-		mvstack(s->b, &s->b_len, s->b_base, &s->b_back_len);
+	//printf("s->a_base = %p\n", s->a_base);//tests(s);/* test */
+	//printf("[mvstack a->]\n");/* test */
+		mvstack(s->a_base, &s->a_len, s->a_back, &s->a_back_len);
+	//printf("[/mvstack a]\n");/* test */
+	//tests(s);/* test */
+	//printf("s->b_base = %p\n", s->b_base);//tests(s);/* test */
+	//printf("[mvstack b->]\n"); tests(s);/* test */
+		mvstack(s->b_base, &s->b_len, s->b_back, &s->b_back_len);
+	//printf("[/mvstack b]\n"); tests(s);/* test */
+	//tests(s);/* test */
 		raise_a(s);
 		return (0);
 	}
@@ -239,11 +268,24 @@ void	mvstack(int *mst, size_t *msl, int *bst, size_t *bsl)
 {
 	size_t	i;
 
+	//* test */printf("*msl = %zu, *bsl = %zu\n", *msl, *bsl);
+	//* test */printf("bst = %p\n", bst);
+	//* test */printf("*mst:");
+	//* test */for (size_t ii = 0; ii < *msl; ii++)
+	//* test */{
+	//* test */	printf("%d, ", mst[ii]);
+	//* test */}
+	//* test */printf("\n*bst:");
+	//* test */for (size_t ii = 0; ii < *bsl; ii++)
+	//* test */{
+	//* test */	printf("%d, ", bst[ii]);
+	//* test */}
+	//* test */printf("\n"); fflush(stdout);
 	i = 0;
 	ft_memmove(mst + *bsl, mst, *msl * sizeof(int));
 	while (i < *bsl)
 	{
-		mst[*bsl - i] = bst[i];
+		mst[*bsl - i - 1] = bst[i];
 		i++;
 	}
 	*msl += *bsl;
@@ -276,13 +318,13 @@ int swaptwo(t_stack *s)
 {
 	int i;
 
-	if (s->a_len == 2 && (s->a[s->a_len - 1] < s->a[s->a_len - 2]) \
-	&& (s->b_len == 2 && s->b[s->b_len - 1] > s->b[s->a_len - 2]))
+	if (s->a_len == 2 && (s->a[s->a_len - 1] > s->a[s->a_len - 2]) \
+	&& (s->b_len == 2 && s->b[s->b_len - 1] < s->b[s->a_len - 2]))
 	{
 		if (manipulate(s, ss))
 			return(1);
 	}
-	else if (s->a_len == 2 && s->a[s->a_len -1] < s->a[s->a_len -2])
+	else if (s->a_len == 2 && s->a[s->a_len -1] > s->a[s->a_len -2])
 	{
 		if (manipulate(s, sa))
 			return(1);
