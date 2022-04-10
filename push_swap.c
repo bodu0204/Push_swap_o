@@ -76,9 +76,15 @@ int divide(t_stack	*s, t_dividing *d, int ms)
 
 	if (ms == _a)
 	{
+TESTn(s->g_len)
+TESTn(d->dm)
+TESTn(d->inc)
 		set_divide_fmt(&next, s->g + d->dm + d->inc, d->dm);
 		return (divide_from_a(s, d, &next));
 	}
+TESTn(s->g_len)
+TESTn(d->dm)
+TESTn(d->inc)
 	set_divide_fmt(&next, s->g, d->dm + d->inc);
 	return(divide_from_b(s, d, &next));
 }
@@ -297,7 +303,6 @@ void set_next_stack(t_stack *s, t_stack *next, int ms)/* _a or _b のためのne
 	}
 	else
 	{
-		TESTn(next->a_len)
 		next->g += next->a_len;
 		next->g_len -= next->a_len;
 		next->a += next->a_len;
