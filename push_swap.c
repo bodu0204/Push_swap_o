@@ -22,6 +22,7 @@ int push_swap(t_stack	*s, int ms)//ms: main_stack()
 
 	if (little_push_swap(s))/* -> a_len != 1 a_len != 2 g_lenも同様*/ /* _a を上げる機能 + _a swap */
 		return (1);
+	TESTn(s->g_len)
 	set_divide_fmt(&d, s->g, s->g_len);/* 分ける基準を決める(= うち片方にどれだけの量の数があるか) */
 	if (divide(s, &d, ms)) /* ２つに分ける処理 */
 		return (1);
