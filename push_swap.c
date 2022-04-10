@@ -10,7 +10,7 @@ int divide_from_b(t_stack	*s, t_dividing *d, t_dividing *next);
 int push_from_b(t_stack	*s, int *flag, t_dividing *next);
 int treatstack(t_stack	*s, int ms);
 void	mvstack(int *mst, size_t *msl, int *bst, size_t *bsl);
-void set_next_stack(t_stack *s, t_stack *next, int ms);
+void set_next_stack(t_stack *s, t_stack *next, t_dividing *d, int ms);
 int swaptwo(t_stack *s);
 void raise_a(t_stack *s);
 int little_push_swap(t_stack *s);
@@ -37,11 +37,11 @@ int push_swap(t_stack	*s, int ms)//ms: main_stack()
 			return(1);
 		return(0);
 	}
-	set_next_stack(s, &next, _a);/* _aのためのnextを設定する処理(= mainじゃない方のベースポインターを上げる, ) */ /* bzeroを忘れすに */
+	set_next_stack(s, &next, &d, _a);/* _aのためのnextを設定する処理(= mainじゃない方のベースポインターを上げる, ) */ /* bzeroを忘れすに */
 //printf("--------A--------\n");fflush(stdout);/* test */
 	if (push_swap(&next, _a))
 		return (1);
-	set_next_stack(s, &next, _b);/* _bのためのnextを設定する処理 */
+	set_next_stack(s, &next, &d, _b);/* _bのためのnextを設定する処理 */
 	TEST tests(s);
 //printf("--------B--------\n");fflush(stdout);/* test */
 	if (push_swap(&next, _b))
@@ -290,22 +290,22 @@ void	mvstack(int *mst, size_t *msl, int *bst, size_t *bsl)
 	return ;
 }
 
-void set_next_stack(t_stack *s, t_stack *next, int ms)/* _a or _b のためのnextを設定する処理(= mainじゃない方のベースポインターを上げる, ) */ /* bzeroを忘れすに */
+void set_next_stack(t_stack *s, t_stack *next, t_dividing *d, int ms)/* _a or _b のためのnextを設定する処理(= mainじゃない方のベースポインターを上げる, ) */ /* bzeroを忘れすに */
 {
 	ft_memcpy(next, s, sizeof(t_stack));
 	next->a_back_len = 0;/* 前の処理がしっかりしていれば必要ない */
 	next->b_back_len = 0;/* 前の処理がしっかりしていれば必要ない */
 	if (ms == _a)
 	{
-		next->g_len -= next->b_len;
-		next->b += next->b_len;
+		next->g_len -= d->dm;
+		next->b += d->dm;
 		next->b_len = 0;
 	}
 	else
 	{
-		next->g += next->a_len;
-		next->g_len -= next->a_len;
-		next->a += next->a_len;
+		next->g += d->dm + d->inc;
+		next->g_len -= d->dm + d->inc;
+		next->a += d->dm + d->inc;
 		next->a_len = 0;
 	}
 	return ;
