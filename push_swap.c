@@ -115,6 +115,7 @@ int divide_from_a(t_stack	*s, t_dividing *d, t_dividing *next)
 			//	printf("d->dn : %d  ", d->dn);/* test */
 			//	TEST/* test */
 			//}/* test */
+			TESTn(d->dn)
 			if (s->a[s->a_len - 1] == d->dn)
 				d->use++;
 			if (rotate(s, &flag, _a)) /* a↓ or ab↓ */
@@ -122,7 +123,7 @@ int divide_from_a(t_stack	*s, t_dividing *d, t_dividing *next)
 		}
 		else
 		{
-			//TEST
+			TESTn(d->dn)
 			ib++;
 			if (push_from_a(s, &flag, next))/* a→b */
 				return (1);
@@ -191,7 +192,7 @@ int divide_from_b(t_stack	*s, t_dividing *d, t_dividing *next)
 		if (s->b[s->b_len - 1] < d->dn \
 		|| (s->b[s->b_len - 1] == d->dn && d->use < d->for_b))
 		{
-			TEST
+			TESTn(d->dn)
 			ibb++;
 			if (s->b[s->b_len - 1] == d->dn)
 				d->use++;
@@ -200,7 +201,7 @@ int divide_from_b(t_stack	*s, t_dividing *d, t_dividing *next)
 		}
 		else
 		{
-			TEST
+			TESTn(d->dn)
 			if (push_from_b(s, &flag, next))/* b→a */
 				return (1);
 		}
