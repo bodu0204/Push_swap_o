@@ -129,7 +129,7 @@ int manipulate4(t_stack	*s, int cmd)
 	}
 	else
 	{/* test */
-		write(fd, "error\n", 7);/* test */
+		write(fd, "manipulate　error\n", 20);/* test */
 		return (1);
 	}/* test */
 	return (0);

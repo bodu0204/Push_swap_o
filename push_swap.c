@@ -5,21 +5,23 @@ int push_swap(t_stack	*s, int ms)//ms: main_stack()
 	t_stack		next;
 	t_dividing	d;
 
+	if (little_push_swap(/* 未完 */))/* -> a_len != 1 a_len != 2 g_lenも同様*/ /* _a を上げる機能 + _a swap */
+		return (1);
 	set_divide_fmt(&d, s->g, s->g_len);/* 分ける基準を決める(= うち片方にどれだけの量の数があるか) */
 	if (divide(s, &d, ms)) /* ２つに分ける処理 */
 		return (1);
-	if (treatstack(s, ms)) /* 底にあるものを上まで持ってくる処理 or スタックを整える処理(x = x_baseの時) */
+	if (treatstack(s, ms)) /* 底にあるものを上まで持ってくる処理 or スタックを整える処理(x = x_baseの時) + _a を上げる機能 */
 		return (1);
-	if (s->g_len <= 4)
+	if (s->g_len <= 4)/* g以外で考える */
 	{
-		if(swaptwo(s))//aのときは普通に入れ替え, bのときはaにpushしてaを再帰
+		if(swaptwo(s))// 要修正
 			return(1);
 		return(0);
 	}
-	set_next_stack(s, &next, &d, ms);/* _aのためのnextを設定する処理(= mainじゃない方のベースポインターを上げる, ) */ /* bzeroを忘れすに */
+	set_next_stack(s, &next, ms);/* _aのためのnextを設定する処理(= mainじゃない方のベースポインターを上げる, ) */ /* bzeroを忘れすに */
 	if (push_swap(&next, _a))
 		return (1);
-	set_next_stack(s, &next, &d, ms);/* _bのためのnextを設定する処理 */
+	set_next_stack(s, &next, ms);/* _bのためのnextを設定する処理 */
 	if (push_swap(&next, _b))
 		return (1);
 	return (0);
@@ -57,7 +59,7 @@ void	set_divide_fmt(t_dividing	*d, int	*goal, size_t	l)/* 分ける基準を決�
 	return ;
 }
 
-int devide(t_stack	*s, t_dividing *d, int ms)
+int divide(t_stack	*s, t_dividing *d, int ms)
 {
 	t_dividing	next;
 
@@ -232,22 +234,23 @@ void	mvstack(int *mst, size_t *msl, int *bst, size_t *bsl)
 	return ;
 }
 
-void set_next_stack(t_stack *s, t_stack *next, t_dividing *d, int ms)/* _a or _b のためのnextを設定する処理(= mainじゃない方のベースポインターを上げる, ) */ /* bzeroを忘れすに */
+void set_next_stack(t_stack *s, t_stack *next, int ms)/* _a or _b のためのnextを設定する処理(= mainじゃない方のベースポインターを上げる, ) */ /* bzeroを忘れすに */
 {
 	ft_memcpy(next, s, sizeof(t_stack));
-	next->a_back_len = 0;
-	next->b_back_len = 0;
+	next->a_back_len = 0;/* 前の処理がしっかりしていれば必要ない */
+	next->b_back_len = 0;/* 前の処理がしっかりしていれば必要ない */
 	if (ms == _a)
 	{
-		next->b += d->dm;
+		next->g_len -= next->b_len;
+		next->b += next->b_len;
 		next->b_len = 0;
-		next->g_len -= d->dm;
 	}
 	else
 	{
-		next->a += d->dm + d->inc;
-		next->b_len = 0;
-		next->g += d->dm + d->inc;
+		next->g += next->a_len;
+		next->g_len -= next->a_len;
+		next->a += next->a_len;
+		next->a_len = 0;
 	}
 	return ;
 }
@@ -256,7 +259,7 @@ int swaptwo(t_stack *s)
 {
 	int i;
 
-	if ((s->a[s->a_len -1] < s->a[s->a_len -1]) \
+	if ((s->a[s->a_len - 1] < s->a[s->a_len - 1]) \
 	&& (s->g_len == 4 && s->b[s->b_len - 1] < s->b[s->a_len - 2]))
 	{
 		if (manipulate(s, ss))
