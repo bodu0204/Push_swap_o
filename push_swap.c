@@ -60,23 +60,12 @@ void	set_divide_fmt(t_dividing	*d, int	*goal, size_t	l)/* 分ける基準を決�
 	size_t	i;
 
 	ft_bzero(d, sizeof(t_dividing));
-	d->dm = l / 2;
-	d->inc = l % 2;
-	i = d->dm + d->inc - 1;
+	i = (l / 2) + (l % 2) - 1;
 	d->dn = goal[i];
-	d->for_b = 0;
 	while (goal[i] == d->dn && i < l)
-	{
 		i++;
-		d->for_b++;
-	}
-	i = d->dm + d->inc;
-	d->for_a = 1;
-	while (goal[i] == d->dn && i > 0)
-	{
-		i--;
-		d->for_a++;
-	}
+	d->dm = l - i;
+	d->inc = i - d->dm;
 	return ;
 }
 
@@ -102,8 +91,8 @@ int divide_from_a(t_stack	*s, t_dividing *d, t_dividing *next)
 	flag = 0;
 	while(/* s->a_len > 0 && */ ib < d->dm) /* "s->a_len > 0" 理論上いらない */
 	{
-		if (s->a[s->a_len - 1] > d->dn \
-		|| (s->a[s->a_len - 1] == d->dn && d->use < d->for_a))
+		if (s->a[s->a_len - 1] >= d->dn \
+		/* || (s->a[s->a_len - 1] == d->dn && d->use < d->for_a) */)
 		{
 			//if (s->a[s->a_len - 1] < d->dn)/* test */
 			//{/* test */
@@ -149,7 +138,7 @@ int push_from_a(t_stack	*s, int *flag, t_dividing *next)
 	if (s->b_len - 1 <= next->dm / 4 \
 	&& i <= next->dn && s->a != s->a_base)
 	{
-		if (i == next->dn && next->use < next->for_b)
+		if (i < next->dn /* && next->use < next->for_b */)
 			*flag = 1;
 		else
 			next->use++;
@@ -190,7 +179,7 @@ int divide_from_b(t_stack	*s, t_dividing *d, t_dividing *next)
 	while(/* s->b_len > 0 && */ ibb < d->dm)/* "s->b_len > 0" 理論上いらない */
 	{
 		if (s->b[s->b_len - 1] < d->dn \
-		|| (s->b[s->b_len - 1] == d->dn && d->use < d->for_b))
+		/* || (s->b[s->b_len - 1] == d->dn && d->use < d->for_b) */)
 		{
 			TESTn(d->dn)
 			ibb++;
@@ -226,7 +215,7 @@ int push_from_b(t_stack	*s, int *flag, t_dividing *next)
 	if (s->a_len - 1 <= next->dm / 4 \
 	&& i <= next->dn && s->b != s->b_base)
 	{
-		if (i == next->dn && next->use < next->for_a)
+		if (i >= next->dn /* && next->use < next->for_a */)
 			*flag = 1;
 		else
 			next->use++;
