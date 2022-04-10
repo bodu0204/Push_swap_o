@@ -297,6 +297,7 @@ void set_next_stack(t_stack *s, t_stack *next, int ms)/* _a or _b のためのne
 	}
 	else
 	{
+		TESTn(next->a_len)
 		next->g += next->a_len;
 		next->g_len -= next->a_len;
 		next->a += next->a_len;
