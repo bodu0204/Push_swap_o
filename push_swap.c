@@ -1,4 +1,18 @@
 #include "push_swap.h"
+int pop_push(int *pops, size_t *pol, int *pushs, size_t *pul);
+void	set_divide_fmt(t_dividing	*d, int	*goal, size_t	l);
+int divide(t_stack	*s, t_dividing *d, int ms);
+int divide_from_a(t_stack	*s, t_dividing *d, t_dividing *next);
+int push_from_a(t_stack	*s, int *flag, t_dividing *next);
+int rotate(t_stack *s, int *flag, int ms);
+int divide_from_b(t_stack	*s, t_dividing *d, t_dividing *next);
+int push_from_b(t_stack	*s, int *flag, t_dividing *next);
+int treatstack(t_stack	*s, int ms);
+void	mvstack(int *mst, size_t *msl, int *bst, size_t *bsl);
+void set_next_stack(t_stack *s, t_stack *next, int ms);
+int swaptwo(t_stack *s);
+void raise_a(t_stack *s);
+int little_push_swap(t_stack *s);
 
 int push_swap(t_stack	*s, int ms)//ms: main_stack()
 {

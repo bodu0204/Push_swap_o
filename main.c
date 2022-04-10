@@ -1,4 +1,8 @@
 #include "push_swap.h"
+int mkenv(int argc, char *argv[], t_stack *s);
+void	mkgoal(int	*nums, int	len);
+int set_stack(int argc, char *argv[], t_stack *s);
+int checkarg(int argc, char *argv[]);
 
 int	main(int argc, char *argv[])
 {
