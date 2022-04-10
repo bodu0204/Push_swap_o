@@ -1,5 +1,5 @@
 #include "push_swap.h"
-int pop_push(int *pops, size_t *pol, int *pushs, size_t *pul);
+void pop_push(int *pops, size_t *pol, int *pushs, size_t *pul);
 void	set_divide_fmt(t_dividing	*d, int	*goal, size_t	l);
 int divide(t_stack	*s, t_dividing *d, int ms);
 int divide_from_a(t_stack	*s, t_dividing *d, t_dividing *next);
@@ -19,6 +19,7 @@ int push_swap(t_stack	*s, int ms)//ms: main_stack()
 	t_stack		next;
 	t_dividing	d;
 
+	/* test */ 
 	if (little_push_swap(s))/* -> a_len != 1 a_len != 2 g_lenも同様*/ /* _a を上げる機能 + _a swap */
 		return (1);
 	set_divide_fmt(&d, s->g, s->g_len);/* 分ける基準を決める(= うち片方にどれだけの量の数があるか) */
@@ -41,11 +42,11 @@ int push_swap(t_stack	*s, int ms)//ms: main_stack()
 	return (0);
 }
 
-int pop_push(int *pops, size_t *pol, int *pushs, size_t *pul)
+void pop_push(int *pops, size_t *pol, int *pushs, size_t *pul)
 {
-	*pol--;
+	(*pol)--;
 	pushs[*pul] = pops[*pol];
-	*pul++;
+	(*pul)++;
 }
 
 void	set_divide_fmt(t_dividing	*d, int	*goal, size_t	l)/* 分ける基準を決める(= うち片方にどれだけの量の数があるか) */
@@ -213,8 +214,8 @@ int push_from_b(t_stack	*s, int *flag, t_dividing *next)
 
 int treatstack(t_stack	*s, int ms)
 {
-	if (ms == _a && s->a == s->a_base \
-	|| ms == _b && s->b == s->b_base)
+	if ((ms == _a && s->a == s->a_base) \
+	|| (ms == _b && s->b == s->b_base))
 	{
 		mvstack(s->a, &s->a_len, s->a_base, &s->a_back_len);
 		mvstack(s->b, &s->b_len, s->b_base, &s->b_back_len);
