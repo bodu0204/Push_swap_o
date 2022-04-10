@@ -5,16 +5,16 @@ int push_swap(t_stack	*s, int ms)//ms: main_stack()
 	t_stack		next;
 	t_dividing	d;
 
-	if (little_push_swap(/* 未完 */))/* -> a_len != 1 a_len != 2 g_lenも同様*/ /* _a を上げる機能 + _a swap */
+	if (little_push_swap(s))/* -> a_len != 1 a_len != 2 g_lenも同様*/ /* _a を上げる機能 + _a swap */
 		return (1);
 	set_divide_fmt(&d, s->g, s->g_len);/* 分ける基準を決める(= うち片方にどれだけの量の数があるか) */
 	if (divide(s, &d, ms)) /* ２つに分ける処理 */
 		return (1);
-	if (treatstack(s, ms)) /* 底にあるものを上まで持ってくる処理 or スタックを整える処理(x = x_baseの時) + _a を上げる機能 */
+	if (treatstack(s, ms)) /* 底にあるものを上まで持ってくる処理 or スタックを整える処理(x = x_baseの時) + _a を上げる機能(済) */
 		return (1);
-	if (s->g_len <= 4)/* g以外で考える */
+	if (s->b_len <= 2)
 	{
-		if(swaptwo(s))// 要修正
+		if(swaptwo(s))
 			return(1);
 		return(0);
 	}
@@ -132,13 +132,13 @@ int rotate(t_stack *s, int *flag, int ms)
 	}
 	else if (ms == _a)
 	{
-		if(/* a↓ */0)
-			return (1)
+		if(manipulate(s, ra))
+			return (1);
 	}
 	else if (ms == _b)
 	{
-		if(/* b↓ */0)
-			return (1)
+		if(manipulate(s, rb))
+			return (1);
 	}
 	else
 		return (1);
@@ -204,6 +204,7 @@ int treatstack(t_stack	*s, int ms)
 	{
 		mvstack(s->a, &s->a_len, s->a_base, &s->a_back_len);
 		mvstack(s->b, &s->b_len, s->b_base, &s->b_back_len);
+		raise_a(s);
 		return (0);
 	}
 	while (s->a_back_len && s->b_back_len)
@@ -215,6 +216,7 @@ int treatstack(t_stack	*s, int ms)
 	while (s->b_back_len)
 		if (manipulate(s, rrb))
 			return(1);
+	raise_a(s);
 	return (0);
 }
 
@@ -259,25 +261,55 @@ int swaptwo(t_stack *s)
 {
 	int i;
 
-	if ((s->a[s->a_len - 1] < s->a[s->a_len - 1]) \
-	&& (s->g_len == 4 && s->b[s->b_len - 1] < s->b[s->a_len - 2]))
+	if (s->a_len == 2 && (s->a[s->a_len - 1] < s->a[s->a_len - 2]) \
+	&& (s->b_len == 2 && s->b[s->b_len - 1] > s->b[s->a_len - 2]))
 	{
 		if (manipulate(s, ss))
 			return(1);
 	}
-	else if (s->a[s->a_len -1] < s->a[s->a_len -1])
+	else if (s->a_len == 2 && s->a[s->a_len -1] < s->a[s->a_len -2])
 	{
 		if (manipulate(s, sa))
 			return(1);
 	}
-	else if (s->g_len == 4 && s->b[s->b_len - 1] < s->b[s->a_len - 2])
+	else if (s->b_len == 2 && s->b[s->b_len - 1] < s->b[s->a_len - 2])
 	{
 		if (manipulate(s, sb))
 			return(1);
 	}
-	i = s->g_len - 2;
+	i = s->b_len;
 	while (i--)
 		if (manipulate(s, pa))
 			return (1);
+	return (0);
+}
+
+void raise_a(t_stack *s)
+{
+	while (*(s->a) == *(s->g) && s->a_len)
+	{
+		s->a++;
+		s->g++;
+		s->g_len--;
+		s->a_len--;
+	}
+	return ;
+}
+
+int little_push_swap(t_stack *s)
+{
+	raise_a(s);
+	if (s->a_len <= 2)
+	{
+		if (s->a_len == 2)
+		{
+			if(manipulate(s, sa))
+				return (1);
+		}
+		s->a += s->a_len;
+		s->g += s->g_len;
+		s->a_len = 0;
+		s->g_len = 0;
+	}
 	return (0);
 }
