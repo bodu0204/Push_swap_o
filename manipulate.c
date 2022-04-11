@@ -8,7 +8,13 @@ int manipulate4(t_stack	*s, int cmd);
 int manipulate(t_stack	*s, int cmd)
 {
 	int i;
-
+/* test */static	size_t stc = 0;
+/* test */stc++;
+/* test */if (stc > 30 + 0)
+/* test */{
+/* test */	printf("the number is too big"); TEST
+/* test */	exit(0);
+/* test */}
 	if (cmd == sa)
 	{/* test */if (s->a_len < 2) TEST/* test */
 		i = s->a[s->a_len - 1];

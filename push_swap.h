@@ -44,8 +44,8 @@ typedef struct s_stack
 typedef struct s_dividing
 {
 	int		dn;
-	size_t	for_a;
-	size_t	for_b;
+	size_t	ma;
+	size_t	mb;
 	size_t	dm;
 	size_t	inc;
 	size_t	use;

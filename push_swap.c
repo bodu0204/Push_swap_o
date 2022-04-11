@@ -19,30 +19,29 @@ int push_swap(t_stack	*s, int ms)//ms: main_stack()
 {
 	t_stack		next;
 	t_dividing	d;
-/* test */static	size_t i = 0;
+
 
 printf("--------little_push_swap--------\n");fflush(stdout);/* test */
 	if (little_push_swap(s))/* -> a_len != 1 a_len != 2 g_lenも同様*/ /* _a を上げる機能 + _a swap */
 		return (1);
 printf("--------set_divide_fmt--------\n");fflush(stdout);/* test */
 	set_divide_fmt(&d, s->g, s->g_len);/* 分ける基準を決める(= うち片方にどれだけの量の数があるか) */
+TESTn("dn", d.dn)
+TESTn("ma", d.ma)
+TESTn("mb", d.mb)
 printf("--------divide--------\n");fflush(stdout);/* test */
 	if (divide(s, &d, ms)) /* ２つに分ける処理 */
 		return (1);
 printf("--------treatstack--------\n");fflush(stdout);/* test */
 	if (treatstack(s, ms)) /* 底にあるものを上まで持ってくる処理 or スタックを整える処理(x = x_baseの時) + _a を上げる機能(済) */
 		return (1);
-//printf("-----------------s->a_len = %zu, b_len = %zu ",s->a_len, s->b_len);fflush(stdout); TEST/* test */
-	if (s->a_len <= 2 && s->b_len <= 2)
+	if (s->a_len <= 2 && s->b_len <= 2)/* "s->b_len" は無くすべき それに向けて調整した----------------------------------------------------い */
 	{
 printf("--------swaptwo--------\n");fflush(stdout);/* test */
 		if(swaptwo(s))
 			return(1);
 		return(0);
 	}
-i++;
-if (i == 2)
-	exit(0);
 printf("--------A_set_next_stack--------\n");fflush(stdout);/* test */
 	set_next_stack(s, &next, &d, _a);/* _aのためのnextを設定する処理(= mainじゃない方のベースポインターを上げる, ) */ /* bzeroを忘れすに */
 printf("--------A_push_swap--------\n");fflush(stdout);/* test */
@@ -72,8 +71,18 @@ void	set_divide_fmt(t_dividing	*d, int	*goal, size_t	l)/* 分ける基準を決�
 	d->dn = goal[i];
 	while (goal[i] == d->dn && i < l)
 		i++;
-	d->dm = l - i;
-	d->inc = i - d->dm;
+	d->mb = l - i;
+	d->ma = i;
+	if (!d->mb)
+	{
+TEST
+		i = 0;
+		while (goal[i] > d->dn)
+			i++;
+		d->dn = goal[i - 1];
+		d->mb = l - i;
+		d->ma = i;
+	}
 	return ;
 }
 
@@ -83,10 +92,10 @@ int divide(t_stack	*s, t_dividing *d, int ms)
 
 	if (ms == _a)
 	{
-		set_divide_fmt(&next, s->g + d->dm + d->inc, d->dm);
+		set_divide_fmt(&next, s->g + d->ma, d->mb);
 		return (divide_from_a(s, d, &next));
 	}
-	set_divide_fmt(&next, s->g, d->dm + d->inc);
+	set_divide_fmt(&next, s->g, d->ma);
 	return(divide_from_b(s, d, &next));
 }
 
@@ -97,11 +106,8 @@ int divide_from_a(t_stack	*s, t_dividing *d, t_dividing *next)
 
 	ib = 0;
 	flag = 0;
-	while(/* s->a_len > 0 && */ ib < d->dm) /* "s->a_len > 0" 理論上いらない */
+	while(/* s->a_len > 0 && */ ib < d->mb) /* "s->a_len > 0" 理論上いらない */
 	{
-TESTn("dn", d->dn)
-TESTn("dm", d->dm)
-TESTn("inc", d->inc)
 		if (s->a[s->a_len - 1] >= d->dn \
 		/* || (s->a[s->a_len - 1] == d->dn && d->use < d->for_a) */)
 		{
@@ -134,7 +140,7 @@ int push_from_a(t_stack	*s, int *flag, t_dividing *next)
 	i = s->a[s->a_len - 1];
 	if (manipulate(s, pb))
 		return (1);
-	if (s->b_len - 1 <= next->dm / 4 \
+	if (s->b_len - 1 <= next->ma / 2 \
 	&& i <= next->dn && s->a != s->a_base)
 	{
 		if (i < next->dn /* && next->use < next->for_b */)
@@ -175,11 +181,8 @@ int divide_from_b(t_stack	*s, t_dividing *d, t_dividing *next)
 
 	ibb = 0;
 	flag = 0;
-	while(/* s->b_len > 0 && */ ibb < d->dm + d->inc)/* "s->b_len > 0" 理論上いらない */
+	while(/* s->b_len > 0 && */ ibb < d->ma)/* "s->b_len > 0" 理論上いらない */
 	{
-TESTn("dn", d->dn)
-TESTn("dm", d->dm)
-TESTn("inc", d->inc)
 		if (s->b[s->b_len - 1] < d->dn \
 		/* || (s->b[s->b_len - 1] == d->dn && d->use < d->for_b) */)
 		{
@@ -212,7 +215,7 @@ int push_from_b(t_stack	*s, int *flag, t_dividing *next)
 	i = s->b[s->b_len - 1];
 	if (manipulate(s, pa))
 		return (1);
-	if (s->a_len - 1 <= next->dm / 4 \
+	if (s->a_len - 1 <= next->mb / 2 \
 	&& i <= next->dn && s->b != s->b_base)
 	{
 		if (i >= next->dn /* && next->use < next->for_a */)
@@ -228,9 +231,12 @@ int treatstack(t_stack	*s, int ms)
 	if ((ms == _a && s->a == s->a_base) \
 	|| (ms == _b && s->b == s->b_base))
 	{
+TEST tests(s);
 		mvstack(s->a_base, &s->a_len, s->a_back, &s->a_back_len);
 		mvstack(s->b_base, &s->b_len, s->b_back, &s->b_back_len);
 		raise_a(s);
+TEST tests(s);
+
 		return (0);
 	}
 	while (s->a_back_len && s->b_back_len)
@@ -269,15 +275,15 @@ void set_next_stack(t_stack *s, t_stack *next, t_dividing *d, int ms)/* _a or _b
 	next->b_back_len = 0;/* 前の処理がしっかりしていれば必要ない */
 	if (ms == _a)
 	{
-		next->g_len -= d->dm;
-		next->b += d->dm;
+		next->g_len -= d->mb;
+		next->b += d->mb;
 		next->b_len = 0;
 	}
 	else
 	{
-		next->g += d->dm + d->inc;
-		next->g_len -= d->dm + d->inc;
-		next->a += d->dm + d->inc;
+		next->g += d->ma;
+		next->g_len -= d->ma;
+		next->a += d->ma;
 		next->a_len = 0;
 	}
 	return ;
