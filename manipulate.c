@@ -25,7 +25,7 @@ int manipulate(t_stack	*s, int cmd)
 		write(fd, "  a>  \n", 7);/* test */
 		/* if (write(fd, "sa\n", 3) < 0)
 			return (1); */
-//tests(s);
+tests(s);
 	}
 	else if(cmd == sb)
 	{/* test */if (s->b_len < 2) TEST/* test */
@@ -35,7 +35,7 @@ int manipulate(t_stack	*s, int cmd)
 		write(fd, "  b>  \n", 7);/* test */
 		/* if (write(fd, "sb\n", 3) < 0)
 			return (1); */
-//tests(s);
+tests(s);
 	}
 	else
 	{
@@ -60,7 +60,7 @@ int manipulate1(t_stack	*s, int cmd)
 		write(fd, "  ab>  \n", 8);/* test */
 		/* if (write(fd, "ss\n", 3) < 0)
 			return (1); */
-//tests(s);
+tests(s);
 	}
 	else if(cmd == pa)
 	{/* test */if (s->b_len < 1) TEST/* test */
@@ -68,7 +68,7 @@ int manipulate1(t_stack	*s, int cmd)
 		write(fd, "  b→a  \n", 10);/* test */
 		/* if (write(fd, "pa\n", 3) < 0)
 			return (1); */
-//tests(s);
+tests(s);
 	}
 	else
 	{
@@ -86,7 +86,7 @@ int manipulate2(t_stack	*s, int cmd)
 		write(fd, "  a→b  \n", 10);/* test */
 		/* if (write(fd, "pb\n", 3) < 0)
 			return (1); */
-//tests(s);
+tests(s);
 	}
 	else if(cmd == ra)
 	{/* test */if (s->a_len < 1) TEST/* test */
@@ -94,7 +94,7 @@ int manipulate2(t_stack	*s, int cmd)
 		write(fd, "  a↓  \n", 9);/* test */
 		/* if (write(fd, "ra\n", 3) < 0)
 			return (1); */
-//tests(s);
+tests(s);
 	}
 	else if(cmd == rb)
 	{/* test */if (s->b_len < 1) TEST/* test */
@@ -102,7 +102,7 @@ int manipulate2(t_stack	*s, int cmd)
 		write(fd, "  b↓  \n", 9);/* test */
 		/* if (write(fd, "rb\n", 3) < 0)
 			return (1); */
-//tests(s);
+tests(s);
 	}
 	else
 	{
@@ -121,7 +121,7 @@ int manipulate3(t_stack	*s, int cmd)
 		write(fd, "  ab↓  \n", 10);/* test */
 		/* if (write(fd, "rr\n", 3) < 0)
 			return (1); */
-//tests(s);
+tests(s);
 	}
 	else if(cmd == rra)
 	{/* test */if (s->a_back_len < 1) TEST/* test */
@@ -129,7 +129,7 @@ int manipulate3(t_stack	*s, int cmd)
 		write(fd, "  a↑  \n", 9);/* test */
 		/* if (write(fd, "rra\n", 4) < 0)
 			return (1); */
-//tests(s);
+tests(s);
 	}
 	else if(cmd == rrb)
 	{/* test */if (s->b_back_len < 1) TEST/* test */
@@ -137,7 +137,7 @@ int manipulate3(t_stack	*s, int cmd)
 		write(fd, "  b↑  \n", 9);/* test */
 		/* if (write(fd, "rrb\n", 4) < 0)
 			return (1); */
-//tests(s);
+tests(s);
 	}
 	else
 	{
@@ -159,7 +159,7 @@ int manipulate4(t_stack	*s, int cmd)
 		write(fd, "  ab↑  \n", 10);/* test */
 		/* if (write(fd, "rrr\n", 4) < 0)
 			return (1); */
-//tests(s);
+tests(s);
 	}
 	else
 	{/* test */

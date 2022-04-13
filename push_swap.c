@@ -29,23 +29,23 @@ int push_swap(t_stack	*s, int ms)//ms: main_stack()
 //* test */	printf("the movung is too big"); TEST
 //* test */	exit(0);
 //* test */}
-printf("--------little_push_swap--------\n");fflush(stdout);/* test */
+//printf("--------little_push_swap--------\n");fflush(stdout);/* test */
 	if (little_push_swap(s))/* -> a_len != 1 a_len != 2 g_lenも同様*/ /* _a を上げる機能 + _a swap */
 		return (1);
-printf("--------set_divide_fmt--------\n");fflush(stdout);/* test */
+//printf("--------set_divide_fmt--------\n");fflush(stdout);/* test */
 	set_divide_fmt(&d, s->g, s->g_len);/* 分ける基準を決める(= うち片方にどれだけの量の数があるか) */
 //TESTn("dn", d.dn)
 //TESTn("ma", d.ma)
 //TESTn("mb", d.mb)
-printf("--------divide--------\n");fflush(stdout);/* test */
+//printf("--------divide--------\n");fflush(stdout);/* test */
 	if (divide(s, &d, ms)) /* ２つに分ける処理 */
 		return (1);
-printf("--------treatstack--------\n");fflush(stdout);/* test */
+//printf("--------treatstack--------\n");fflush(stdout);/* test */
 	if (treatstack(s, ms)) /* 底にあるものを上まで持ってくる処理 or スタックを整える処理(x = x_baseの時) + _a を上げる機能(済) */
 		return (1);
 	if (s->a_len <= 2)/* "s->b_len" は無くすべき それに向けて調整した----------------------------------------------------い */
 	{
-printf("--------swaptwo--------\n");fflush(stdout);/* test */
+//printf("--------swaptwo--------\n");fflush(stdout);/* test */
 		if(swaptwo(s, &d))
 			return(1);
 //TESTn("s->b_len", s->b_len)
@@ -57,13 +57,13 @@ printf("--------swaptwo--------\n");fflush(stdout);/* test */
 	}
 //printf("--------A_set_next_stack--------\n");fflush(stdout);/* test */
 	set_next_stack(s, &next, &d, _a);/* _aのためのnextを設定する処理(= mainじゃない方のベースポインターを上げる, ) */ /* bzeroを忘れすに */
-printf("--------A_push_swap--------\n");fflush(stdout);/* test */
+//printf("--------A_push_swap--------\n");fflush(stdout);/* test */
 	if (s->a_len)
 		if (push_swap(&next, _a))
 			return (1);
 //printf("--------B_set_next_stack--------\n");fflush(stdout);/* test */
 	set_next_stack(s, &next, &d, _b);/* _bのためのnextを設定する処理 */
-printf("--------B_push_swap--------\n");fflush(stdout);/* test */
+//printf("--------B_push_swap--------\n");fflush(stdout);/* test */
 	if (s->b_len)
 		if (push_swap(&next, _b))
 			return (1);
