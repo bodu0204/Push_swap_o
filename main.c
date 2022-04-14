@@ -80,7 +80,7 @@ int set_stack(int argc, char *argv[], t_stack *s)
 	i = 0;
 	while (i < argc)
 	{
-		s->g[i] = atoi(argv[i]);
+		s->g[i] = ft_atoi(argv[i]);
 		i++;
 	}
 	ft_memcpy(s->a_base, s->g, (argc * sizeof(int)));
@@ -97,14 +97,16 @@ int checkarg(size_t argc, char *argv[])
 	size_t	ii;
 	char	*s;
 
-	i = 0;
+	i = 1;
 	while (i < argc)
 	{
 		s = argv[i];
 		ii = 0;
+		if (!*s)
+			return (1);
 		while (s[ii])
 		{
-			if (s[ii] < '0' && s[ii] > '9')
+			if (!(s[ii] >= '0' || s[ii] <= '9' || (s[ii] == '-' && !ii)))
 				return (1);
 			ii++;
 		}
