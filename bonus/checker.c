@@ -23,9 +23,22 @@ int checker (t_checker *s)
 	return (0);
 }
 
-char	*update_order(char *old)
+char	*get_order(size_t	len)
 {
-	char	*new;
+	size_t	new;
+	char	*buf[BUFFER];
+	char	*ret;
 
-
+	new = read(STDIN_FILENO, buf, BUFFER);
+	if (new == BUFFER)
+		get_order(len + BUFFER);
+	else
+	{
+		ret = malloc(len + new + 1);
+		if (ret)
+			ret[len + new] = '\0';
+	}
+	if (ret)
+		ft_memcpy(ret + len, buf, new);
+	return (ret);
 }
