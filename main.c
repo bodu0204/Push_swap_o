@@ -80,7 +80,7 @@ int set_stack(int argc, char *argv[], t_stack *s)
 	i = 0;
 	while (i < argc)
 	{
-		s->g[i] = ft_atoi(argv[i]);
+		s->g[i] = ft_atoi(argv[argc - i - 1]);
 		i++;
 	}
 	ft_memcpy(s->a_base, s->g, (argc * sizeof(int)));

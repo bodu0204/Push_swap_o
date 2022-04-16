@@ -35,3 +35,5 @@ typedef struct s_checker
 	void	*freefrom;
 }	t_checker;
 int	ft_atoi(const char	*str);
+void	*ft_memcpy(void *dst, const void *src, size_t n);
+
