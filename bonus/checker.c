@@ -1,4 +1,6 @@
 #include "checker.h"
+char	*get_order(size_t	len);
+int		manipulate(t_checker	*s, char *order, int *ko);
 
 int checker (t_checker *s)
 {
@@ -26,12 +28,12 @@ int checker (t_checker *s)
 char	*get_order(size_t	len)
 {
 	size_t	new;
-	char	*buf[BUFFER];
+	char	buf[BUFFER];
 	char	*ret;
 
 	new = read(STDIN_FILENO, buf, BUFFER);
 	if (new == BUFFER)
-		get_order(len + BUFFER);
+		ret = get_order(len + BUFFER);
 	else
 	{
 		ret = malloc(len + new + 1);
@@ -41,4 +43,20 @@ char	*get_order(size_t	len)
 	if (ret)
 		ft_memcpy(ret + len, buf, new);
 	return (ret);
+}
+
+int check(t_checker *s)
+{
+	size_t	i;
+
+	if (!s->b_len)
+	{
+		i = 1;
+		while(i < s->a_len && \
+		s->a[(s->a_base + i - 1) % s->buf_len] >= s->a[(s->a_base + i) % s->buf_len])
+			i++;
+		if (i == s->a_len)
+			return (0);
+	}
+	return (1);
 }
