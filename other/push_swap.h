@@ -1,3 +1,5 @@
+#ifndef PUSH_SWAP_H
+#define PUSH_SWAP_H
 #include <unistd.h>
 #include <stdlib.h>
 # define BUFFER 32
@@ -57,5 +59,4 @@ void	*ft_memmove(void	*dest, const void	*src, size_t	n);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
 void	ft_bzero(void *s, size_t n);
 int		ft_atoi(const char	*str);
-void tests(t_stack *s);/* test */
-
+#endif

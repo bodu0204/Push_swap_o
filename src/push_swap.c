@@ -1,5 +1,4 @@
 #include "push_swap.h"
-#include "debug.h"/* test */
 void	pop_push(int *pops, size_t *pol, int *pushs, size_t *pul);
 void	set_divide_fmt(t_dividing	*d, int	*goal, size_t	l);
 int		divide(t_stack	*s, t_dividing *d, int ms);
@@ -15,57 +14,31 @@ int		swaptwo(t_stack *s, t_dividing *d);
 void	raise_a(t_stack *s);
 int		little_push_swap(t_stack *s);
 
-int push_swap(t_stack	*s, int ms)//ms: main_stack()
+int push_swap(t_stack	*s, int ms)
 {
 	t_stack		next;
 	t_dividing	d;
-//* test */static	size_t stc = 0;
-//* test */const int stc_max = 10;
-//* test */const int onoff = 1;
-
-//* test */stc++;
-//* test */if (stc > stc_max && onoff)
-//* test */{
-//* test */	printf("the movung is too big"); TEST
-//* test */	exit(0);
-//* test */}
-printf("--------little_push_swap--------\n");fflush(stdout);/* test */
-	if (little_push_swap(s))/* -> a_len != 1 a_len != 2 g_lenも同様*/ /* _a を上げる機能 + _a swap */
+	if (little_push_swap(s))
 		return (1);
 	if (!s->a_len && !s->b_len)
 		return (0);
-printf("--------set_divide_fmt--------\n");fflush(stdout);/* test */
-	set_divide_fmt(&d, s->g, s->g_len);/* 分ける基準を決める(= うち片方にどれだけの量の数があるか) */
-//TESTn("dn", d.dn)
-//TESTn("ma", d.ma)
-//TESTn("mb", d.mb)
-printf("--------divide--------\n");fflush(stdout);/* test */
-	if (divide(s, &d, ms)) /* ２つに分ける処理 */
+	set_divide_fmt(&d, s->g, s->g_len);
+	if (divide(s, &d, ms))
 		return (1);
-printf("--------treatstack--------\n");fflush(stdout);/* test */
-	if (treatstack(s, ms)) /* 底にあるものを上まで持ってくる処理 or スタックを整える処理(x = x_baseの時) + _a を上げる機能(済) */
+	if (treatstack(s, ms))
 		return (1);
-	if (s->a_len <= 2)/* "s->b_len" は無くすべき それに向けて調整した----------------------------------------------------い */
+	if (s->a_len <= 2)
 	{
-printf("--------swaptwo--------\n");fflush(stdout);/* test */
 		if(swaptwo(s, &d))
 			return(1);
-//TESTn("s->b_len", s->b_len)
 		if (!s->b_len)
-		{
-//printf("return");TEST
 			return(0);
-		}
 	}
-printf("--------A_set_next_stack--------\n");fflush(stdout);/* test */
-	set_next_stack(s, &next, &d, _a);/* _aのためのnextを設定する処理(= mainじゃない方のベースポインターを上げる, ) */ /* bzeroを忘れすに */
-printf("--------A_push_swap--------\n");fflush(stdout);/* test */
+	set_next_stack(s, &next, &d, _a);
 	if (s->a_len)
 		if (push_swap(&next, _a))
 			return (1);
-printf("--------B_set_next_stack--------\n");fflush(stdout);/* test */
-	set_next_stack(s, &next, &d, _b);/* _bのためのnextを設定する処理 */
-printf("--------B_push_swap--------\n");fflush(stdout);/* test */
+	set_next_stack(s, &next, &d, _b);
 	if (s->b_len)
 		if (push_swap(&next, _b))
 			return (1);
@@ -79,7 +52,7 @@ void pop_push(int *pops, size_t *pol, int *pushs, size_t *pul)
 	(*pul)++;
 }
 
-void	set_divide_fmt(t_dividing	*d, int	*goal, size_t	l)/* 分ける基準を決める(= うち片方にどれだけの量の数があるか) */
+void	set_divide_fmt(t_dividing	*d, int	*goal, size_t	l)
 {
 	size_t	i;
 
@@ -117,25 +90,24 @@ int divide(t_stack	*s, t_dividing *d, int ms)
 
 int divide_from_a(t_stack	*s, t_dividing *d, t_dividing *next)
 {
-	size_t		ib;/*  mount of push to b  */
-	int			flag;/*  */
+	size_t	ib;
+	int		flag;
 
 	ib = 0;
 	flag = 0;
-	while(/* s->a_len > 0 && */ ib < d->mb) /* "s->a_len > 0" 理論上いらない */
+	while(ib < d->mb)
 	{
-		if (s->a[s->a_len - 1] >= d->dn \
-		/* || (s->a[s->a_len - 1] == d->dn && d->use < d->for_a) */)
+		if (s->a[s->a_len - 1] >= d->dn)
 		{
 			if (s->a[s->a_len - 1] == d->dn)
 				d->use++;
-			if (rotate(s, &flag, _a)) /* a↓ or ab↓ */
+			if (rotate(s, &flag, _a))
 				return (1);
 		}
 		else
 		{
 			ib++;
-			if (push_from_a(s, &flag, next))/* a→b */
+			if (push_from_a(s, &flag, next))
 				return (1);
 		}
 	}
@@ -159,7 +131,7 @@ int push_from_a(t_stack	*s, int *flag, t_dividing *next)
 	if (s->b_len - 1 <= next->ma \
 	&& i <= next->dn && s->a != s->a_base)
 	{
-		if (i < next->dn /* && next->use < next->for_b */)
+		if (i < next->dn)
 			*flag = 1;
 		else
 			next->use++;
@@ -192,25 +164,24 @@ int rotate(t_stack *s, int *flag, int ms)
 
 int divide_from_b(t_stack	*s, t_dividing *d, t_dividing *next)
 {
-	size_t		ibb;/*  mount of push to b_back  */
-	int			flag;/*  */
+	size_t		ibb;
+	int			flag;
 
 	ibb = 0;
 	flag = 0;
-	while(/* s->b_len > 0 && */ ibb < d->ma)/* "s->b_len > 0" 理論上いらない */
+	while(ibb < d->ma)
 	{
-		if (s->b[s->b_len - 1] < d->dn \
-		/* || (s->b[s->b_len - 1] == d->dn && d->use < d->for_b) */)
+		if (s->b[s->b_len - 1] < d->dn )
 		{
 			if (s->b[s->b_len - 1] == d->dn)
 				d->use++;
-			if (rotate(s, &flag, _b))/* b↓ or ab↓ */
+			if (rotate(s, &flag, _b))
 				return (1);
 		}
 		else
 		{
 			ibb++;
-			if (push_from_b(s, &flag, next))/* b→a */
+			if (push_from_b(s, &flag, next))
 				return (1);
 		}
 	}
@@ -234,7 +205,7 @@ int push_from_b(t_stack	*s, int *flag, t_dividing *next)
 	if (s->a_len - 1 <= next->mb \
 	&& i <= next->dn && s->b != s->b_base)
 	{
-		if (i >= next->dn /* && next->use < next->for_a */)
+		if (i >= next->dn)
 			*flag = 1;
 		else
 			next->use++;
@@ -247,12 +218,9 @@ int treatstack(t_stack	*s, int ms)
 	if ((ms == _a && s->a == s->a_base) \
 	|| (ms == _b && s->b == s->b_base))
 	{
-//TEST tests(s);
 		mvstack(s->a_base, &s->a_len, s->a_back, &s->a_back_len);
 		mvstack(s->b_base, &s->b_len, s->b_back, &s->b_back_len);
 		raise_a(s);
-//TEST tests(s);
-
 		return (0);
 	}
 	while (s->a_back_len && s->b_back_len)
@@ -284,11 +252,11 @@ void	mvstack(int *mst, size_t *msl, int *bst, size_t *bsl)
 	return ;
 }
 
-void set_next_stack(t_stack *s, t_stack *next, t_dividing *d, int ms)/* _a or _b のためのnextを設定する処理(= mainじゃない方のベースポインターを上げる, ) */ /* bzeroを忘れすに */
+void set_next_stack(t_stack *s, t_stack *next, t_dividing *d, int ms)
 {
 	ft_memcpy(next, s, sizeof(t_stack));
-	next->a_back_len = 0;/* 前の処理がしっかりしていれば必要ない */
-	next->b_back_len = 0;/* 前の処理がしっかりしていれば必要ない */
+	next->a_back_len = 0;
+	next->b_back_len = 0;
 	if (ms == _a)
 	{
 		next->g_len -= d->mb;

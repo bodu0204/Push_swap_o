@@ -1,10 +1,9 @@
 #include "push_swap.h"
-#include "debug.h"/* test */
-int mkenv(int argc, char *argv[], t_stack *s);
+int		mkenv(int argc, char *argv[], t_stack *s);
 void	mkgoal(int	*nums, size_t	len);
-int set_stack(int argc, char *argv[], t_stack *s);
-int checkarg(size_t argc, char *argv[]);
-int push_swap(t_stack	*s, int ms);
+int		set_stack(int argc, char *argv[], t_stack *s);
+int		checkarg(size_t argc, char *argv[]);
+int		push_swap(t_stack	*s, int ms);
 
 int	main(int argc, char *argv[])
 {
@@ -20,15 +19,13 @@ int	main(int argc, char *argv[])
 		return (1);
 	}
 	r = push_swap(&s, _a);
-	//ここに結果を出力する関数を書ける
-	TEST tests(&s);
 	free(s.freefrom);
 	if (r)
 		return (1);
 	return (0);
 }
 
-int mkenv(int argc, char *argv[], t_stack *s)
+int	mkenv(int argc, char *argv[], t_stack *s)
 {
 	if (argc == 1 || checkarg(argc, argv))
 		return (1);
@@ -64,7 +61,7 @@ void	mkgoal(int	*nums, size_t	len)
 	return ;
 }
 
-int set_stack(int argc, char *argv[], t_stack *s)
+int	set_stack(int argc, char *argv[], t_stack *s)
 {
 	int i;
 
@@ -91,7 +88,7 @@ int set_stack(int argc, char *argv[], t_stack *s)
 	return (0);
 }
 
-int checkarg(size_t argc, char *argv[])
+int	checkarg(size_t argc, char *argv[])
 {
 	size_t	i;
 	size_t	ii;
