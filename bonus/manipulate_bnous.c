@@ -1,170 +1,105 @@
-#include "push_swap.h"
-#include "debug.h"/* test */
-int manipulate1(t_stack	*s, int cmd);
-int manipulate2(t_stack	*s, int cmd);
-int manipulate3(t_stack	*s, int cmd);
-int manipulate4(t_stack	*s, int cmd);
+#include "checker.h"
+int manipulate1(t_checker	*s, char *order , int *ko);
+int manipulate2(t_checker	*s, char *order , int *ko);
+int manipulate3(t_checker	*s, char *order , int *ko);
+int manipulate4(t_checker	*s, char *order , int *ko);
 
-int manipulate(t_stack	*s, int cmd)
+int manipulate(t_checker	*s, char *order , int *ko)
 {
 	int i;
-//* test */static	size_t stc = 0;
-//* test */const int onoff = 1;
-//* test */const int stc_max = 100;
-//* test */stc++;
-//* test */if (stc > stc_max && onoff)
-//* test */{
-//* test */	printf("the number is too big"); TEST
-//* test */	exit(0);
-//* test */}
-	if (cmd == sa)
-	{/* test */if (s->a_len < 2) TEST/* test */
-		i = s->a[s->a_len - 1];
-		s->a[s->a_len - 1] = s->a[s->a_len - 2];
-		s->a[s->a_len - 2] = i;
-		write(fd, "  a>  \n", 7);/* test */
-		/* if (write(fd, "sa\n", 3) < 0)
-			return (1); */
-tests(s);
-	}
-	else if(cmd == sb)
-	{/* test */if (s->b_len < 2) TEST/* test */
-		i = s->b[s->b_len - 1];
-		s->b[s->b_len - 1] = s->b[s->b_len - 2];
-		s->b[s->b_len - 2] = i;
-		write(fd, "  b>  \n", 7);/* test */
-		/* if (write(fd, "sb\n", 3) < 0)
-			return (1); */
-tests(s);
-	}
-	else
+	int ii;
+
+	if (!ft_memcmp(order, "sa\n" ,3))
 	{
-		if (manipulate1(s, cmd))
-			return (1);
-	}
-	return (0);
-}
-
-int manipulate1(t_stack	*s, int cmd)
-{
-	int i;
-
-	if (cmd == ss)
-	{/* test */if (s->a_len < 2 && s->b_len < 2) TEST/* test */
-		i = s->a[s->a_len - 1];
-		s->a[s->a_len - 1] = s->a[s->a_len - 2];
-		s->a[s->a_len - 2] = i;
-		i = s->b[s->b_len - 1];
-		s->b[s->b_len - 1] = s->b[s->b_len - 2];
-		s->b[s->b_len - 2] = i;
-		write(fd, "  ab>  \n", 8);/* test */
-		/* if (write(fd, "ss\n", 3) < 0)
-			return (1); */
-tests(s);
-	}
-	else if(cmd == pa)
-	{/* test */if (s->b_len < 1) TEST/* test */
-		pop_push(s->b, &s->b_len, s->a, &s->a_len);
-		write(fd, "  b→a  \n", 10);/* test */
-		/* if (write(fd, "pa\n", 3) < 0)
-			return (1); */
-tests(s);
-	}
-	else
-	{
-		if (manipulate2(s, cmd))
-			return (1);
-	}
-	return (0);
-}
-
-int manipulate2(t_stack	*s, int cmd)
-{
-	if(cmd == pb)
-	{/* test */if (s->a_len < 1) TEST/* test */
-		pop_push(s->a, &s->a_len, s->b, &s->b_len);
-		write(fd, "  a→b  \n", 10);/* test */
-		/* if (write(fd, "pb\n", 3) < 0)
-			return (1); */
-tests(s);
-	}
-	else if(cmd == ra)
-	{/* test */if (s->a_len < 1) TEST/* test */
-		pop_push(s->a, &s->a_len, s->a_back, &s->a_back_len);
-		write(fd, "  a↓  \n", 9);/* test */
-		/* if (write(fd, "ra\n", 3) < 0)
-			return (1); */
-tests(s);
-	}
-	else if(cmd == rb)
-	{/* test */if (s->b_len < 1) TEST/* test */
-		pop_push(s->b, &s->b_len, s->b_back, &s->b_back_len);
-		write(fd, "  b↓  \n", 9);/* test */
-		/* if (write(fd, "rb\n", 3) < 0)
-			return (1); */
-tests(s);
-	}
-	else
-	{
-		if (manipulate3(s, cmd))
-			return (1);
-	}
-	return (0);
-}
-
-int manipulate3(t_stack	*s, int cmd)
-{
-	if(cmd == rr)
-	{/* test */if (s->a_len < 1 || s->b_len < 1) TEST/* test */
-		pop_push(s->a, &s->a_len, s->a_back, &s->a_back_len);
-		pop_push(s->b, &s->b_len, s->b_back, &s->b_back_len);
-		write(fd, "  ab↓  \n", 10);/* test */
-		/* if (write(fd, "rr\n", 3) < 0)
-			return (1); */
-tests(s);
-	}
-	else if(cmd == rra)
-	{/* test */if (s->a_back_len < 1) TEST/* test */
-		pop_push(s->a_back, &s->a_back_len, s->a, &s->a_len);
-		write(fd, "  a↑  \n", 9);/* test */
-		/* if (write(fd, "rra\n", 4) < 0)
-			return (1); */
-tests(s);
-	}
-	else if(cmd == rrb)
-	{/* test */if (s->b_back_len < 1) TEST/* test */
-		pop_push(s->b_back, &s->b_back_len, s->b, &s->b_len);
-		write(fd, "  b↑  \n", 9);/* test */
-		/* if (write(fd, "rrb\n", 4) < 0)
-			return (1); */
-tests(s);
-	}
-	else
-	{
-		if (manipulate4(s, cmd))
-			return (1);
-	}
-	return (0);
-}
-
-int manipulate4(t_stack	*s, int cmd)
-{
-	if(cmd == rrr)
-	{/* test */if (!s->a_back_len || !s->b_back_len){
-//tests(s);
-		TEST/* test */
+		if (s->a_len >= 2)
+		{
+			i = s->a[(s->a_base + s->a_len + (s->buf_len - 1)) % s->buf_len];
+			ii = s->a[(s->a_base + s->a_len + (s->buf_len - 2)) % s->buf_len];
+			s->a[(s->a_base + s->a_len + (s->buf_len - 1)) % s->buf_len] = ii;
+			s->a[(s->a_base + s->a_len + (s->buf_len - 2)) % s->buf_len] = i;
 		}
-		pop_push(s->a_back, &s->a_back_len, s->a, &s->a_len);
-		pop_push(s->b_back, &s->b_back_len, s->b, &s->b_len);
-		write(fd, "  ab↑  \n", 10);/* test */
-		/* if (write(fd, "rrr\n", 4) < 0)
-			return (1); */
-tests(s);
+		*ko = check(s);
+		return (3);
 	}
-	else
-	{/* test */
-		write(fd, "manipulate error\n", 20);/* test */
-		return (1);
-	}/* test */
+	else if(!ft_memcmp(order, "sb\n" ,3))
+	{
+		if (s->b_len >= 2)
+		{
+			i = s->b[(s->b_base + s->b_len + (s->buf_len - 1)) % s->buf_len];
+			ii = s->b[(s->b_base + s->b_len + (s->buf_len - 2)) % s->buf_len];
+			s->b[(s->b_base + s->b_len + (s->buf_len - 1)) % s->buf_len] = ii;
+			s->b[(s->b_base + s->b_len + (s->buf_len - 2)) % s->buf_len] = i;
+		}
+		*ko = check(s);
+		return (3);
+	}
+	return (manipulate1(s, order, ko));
+}
+
+int manipulate1(t_checker	*s, char *order , int *ko)
+{
+	int i;
+
+	if (!ft_memcmp(order, "ss\n" ,3))
+	{
+		*ko = check(s);
+		return (3);
+	}
+	else if(!ft_memcmp(order, "pa\n" ,3))
+	{
+		*ko = check(s);
+		return (3);
+	}
+	return (manipulate2(s, order, ko));
+}
+
+int manipulate2(t_checker	*s, char *order , int *ko)
+{
+	if(!ft_memcmp(order, "pb\n" ,3))
+	{
+		*ko = check(s);
+		return (3);
+	}
+	else if(!ft_memcmp(order, "ra\n" ,3))
+	{
+		*ko = check(s);
+		return (3);
+	}
+	else if(!ft_memcmp(order, "rb\n" ,3))
+	{
+		*ko = check(s);
+		return (3);
+	}
+	return (manipulate3(s, order, ko));
+}
+
+int manipulate3(t_checker	*s, char *order , int *ko)
+{
+	if(!ft_memcmp(order, "rr\n" ,3))
+	{
+		*ko = check(s);
+		return (4);
+	}
+	else if(!ft_memcmp(order, "rra\n" ,4))
+	{
+		*ko = check(s);
+		return (4);
+	}
+	else if(!ft_memcmp(order, "rrb\n" ,4))
+	{
+		*ko = check(s);
+		return (4);
+	}
+	return (manipulate4(s, order, ko));
+}
+
+int manipulate4(t_checker	*s, char *order , int *ko)
+{
+	if(!ft_memcmp(order, "rrr\n" ,4))
+	{
+		*ko = check(s);
+		return (4);
+	}
+	*ko = -1;
 	return (0);
 }

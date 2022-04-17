@@ -36,4 +36,5 @@ typedef struct s_checker
 }	t_checker;
 int	ft_atoi(const char	*str);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
+int	ft_memcmp(const void	*s1, const void	*s2, size_t	n);
 
