@@ -1,9 +1,11 @@
 #include "checker.h"
+#include "debug.h"/* test */
 int	manipulate1(t_checker	*s, char *order, int *ko);
 int	manipulate2(t_checker	*s, char *order, int *ko);
 int	manipulate3(t_checker	*s, char *order, int *ko);
 int	manipulate4(t_checker	*s, char *order, int *ko);
 int	check(t_checker *s);
+void tests(t_checker *s);/* test */
 
 int	manipulate(t_checker	*s, char *order, int *ko)
 {
@@ -15,6 +17,7 @@ int	manipulate(t_checker	*s, char *order, int *ko)
 		manipulate(s, "sa\n", ko);
 		manipulate(s, "sb\n", ko);
 		*ko = check(s);
+tests(s); TESTn(*ko)
 		return (3);
 	}
 	else if (!ft_memcmp(order, "sa\n", 3))
@@ -27,6 +30,7 @@ int	manipulate(t_checker	*s, char *order, int *ko)
 			s->a[(s->a_base + s->a_len + (s->buf_len - 2)) % s->buf_len] = i;
 		}
 		*ko = check(s);
+tests(s); TESTn(*ko)
 		return (3);
 	}
 	return (manipulate1(s, order, ko));
@@ -47,6 +51,7 @@ int	manipulate1(t_checker	*s, char *order, int *ko)
 			s->b[(s->b_base + s->b_len + (s->buf_len - 2)) % s->buf_len] = i;
 		}
 		*ko = check(s);
+tests(s); TESTn(*ko)
 		return (3);
 	}
 	else if (!ft_memcmp(order, "rr\n", 3))
@@ -54,6 +59,7 @@ int	manipulate1(t_checker	*s, char *order, int *ko)
 		manipulate(s, "ra\n", ko);
 		manipulate(s, "rb\n", ko);
 		*ko = check(s);
+tests(s); TESTn(*ko)
 		return (3);
 	}
 	return (manipulate2(s, order, ko));
@@ -72,6 +78,7 @@ int	manipulate2(t_checker	*s, char *order, int *ko)
 			s->a[s->a_base] = i;
 		}
 		*ko = check(s);
+tests(s); TESTn(*ko)
 		return (3);
 	}
 	else if (!ft_memcmp(order, "rb\n", 3))
@@ -80,9 +87,10 @@ int	manipulate2(t_checker	*s, char *order, int *ko)
 		{
 			i = s->b[(s->b_base + s->b_len + (s->buf_len - 1)) % s->buf_len];
 			s->b_base = (s->b_base + (s->buf_len - 1)) % s->buf_len;
-			s->a[s->b_base] = i;
+			s->b[s->b_base] = i;
 		}
 		*ko = check(s);
+tests(s); TESTn(*ko)
 		return (3);
 	}
 	return (manipulate3(s, order, ko));
@@ -97,6 +105,7 @@ int	manipulate3(t_checker	*s, char *order, int *ko)
 		manipulate(s, "rra\n", ko);
 		manipulate(s, "rrb\n", ko);
 		*ko = check(s);
+tests(s); TESTn(*ko)
 		return (4);
 	}
 	else if (!ft_memcmp(order, "rra\n", 4))
@@ -108,6 +117,7 @@ int	manipulate3(t_checker	*s, char *order, int *ko)
 			s->a[(s->a_base + s->a_len + (s->buf_len - 1)) % s->buf_len] = i;
 		}
 		*ko = check(s);
+tests(s); TESTn(*ko)
 		return (4);
 	}
 	return (manipulate4(s, order, ko));

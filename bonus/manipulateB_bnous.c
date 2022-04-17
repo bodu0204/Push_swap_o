@@ -1,7 +1,9 @@
 #include "checker.h"
+#include "debug.h"/* test */
 int	manipulate5(t_checker	*s, char *order, int *ko);
 int	manipulate6(t_checker	*s, char *order, int *ko);
 int	check(t_checker *s);
+void tests(t_checker *s);/* test */
 
 int	manipulate4(t_checker	*s, char *order, int *ko)
 {
@@ -16,6 +18,7 @@ int	manipulate4(t_checker	*s, char *order, int *ko)
 			s->b[(s->b_base + s->b_len + (s->buf_len - 1)) % s->buf_len] = i;
 		}
 		*ko = check(s);
+tests(s); TESTn(*ko)
 		return (4);
 	}
 	return (manipulate5(s, order, ko));
@@ -35,6 +38,7 @@ int	manipulate5(t_checker	*s, char *order, int *ko)
 			s->b_len--;
 		}
 		*ko = check(s);
+tests(s); TESTn(*ko)
 		return (3);
 	}
 	return (manipulate6(s, order, ko));
@@ -54,8 +58,10 @@ int	manipulate6(t_checker	*s, char *order, int *ko)
 			s->a_len--;
 		}
 		*ko = check(s);
+tests(s); TESTn(*ko)
 		return (3);
 	}
 	*ko = -1;
+tests(s); TESTn(*ko)
 	return (0);
 }
