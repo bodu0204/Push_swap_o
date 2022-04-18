@@ -3,6 +3,8 @@ int		mkenv(int argc, char *argv[], t_stack *s);
 void	mkgoal(int	*nums, size_t	len);
 int		set_stack(int argc, char *argv[], t_stack *s);
 int		checkarg(size_t argc, char *argv[]);
+int		isover(char *s);
+int		isdup(size_t argc, char *argv[]);
 
 int	main(int argc, char *argv[])
 {
