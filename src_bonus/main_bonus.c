@@ -10,7 +10,11 @@ int	main(int argc, char *argv[])
 {
 	t_checker	s;
 
-
+	if (argc == 1 || checkarg(argc, argv))
+	{
+		write(STDOUT_FILENO, "Error\n", 6);
+		return (1);
+	}
 	if (mkenv(argc, argv, &s))
 	{
 		write(STDOUT_FILENO, "Error\n", 6);
@@ -25,8 +29,6 @@ int	main(int argc, char *argv[])
 
 int mkenv(int argc, char *argv[], t_checker *s)
 {
-	if (argc == 1 || checkarg(argc, argv))
-		return (1);
 	if (set_stack(argc - 1, argv + 1, s))
 		return (1);
 	return (0);

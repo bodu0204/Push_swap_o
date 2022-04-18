@@ -12,10 +12,15 @@ int	main(int argc, char *argv[])
 	int		r;
 
 
+	if (argc == 1 || checkarg(argc, argv))
+	{
+		write(fd, "Error\n", 6);
+		return (1);
+	}
 	ft_bzero(&s, sizeof(t_stack));
 	if (mkenv(argc, argv, &s))
 	{
-		write(fd, "Error\n", 7);
+		write(fd, "Error\n", 6);
 		free(s.freefrom);
 		return (1);
 	}
@@ -28,8 +33,6 @@ int	main(int argc, char *argv[])
 
 int	mkenv(int argc, char *argv[], t_stack *s)
 {
-	if (argc == 1 || checkarg(argc, argv))
-		return (1);
 	if (set_stack(argc - 1, argv + 1, s))
 		return (1);
 	mkgoal(s->g, s->g_len);
