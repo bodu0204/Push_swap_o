@@ -35,7 +35,7 @@ cloneprintf :
 	cd "$(PRINTF_od)" && make submit
 	rm -rf $(PRINTF_od)
 
-submitfile : push clonelibft
+submitfile : push cloneprintf
 	mkdir $(SUBMIT_d)
 	cp $(SRC_PASS)* $(SUBMIT_d)
 	cp $(SRCb_PASS)* $(SUBMIT_d)
@@ -45,7 +45,7 @@ submitfile : push clonelibft
 submit : outclean submitfile
 	mv $(SUBMIT_d) ../
 
-file : fclean clonelibft
+file : fclean cloneprintf
 	mkdir $(SUBMIT_d)
 	cp $(SRC_PASS)* $(SUBMIT_d)
 	cp $(SRCb_PASS)* $(SUBMIT_d)
