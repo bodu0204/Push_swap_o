@@ -1,4 +1,4 @@
-#include "checker.h"
+#include "checker_bonus.h"
 int	manipulate1(t_checker	*s, char *order, int *ko);
 int	manipulate2(t_checker	*s, char *order, int *ko);
 int	manipulate3(t_checker	*s, char *order, int *ko);

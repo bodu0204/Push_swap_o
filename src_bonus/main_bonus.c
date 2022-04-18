@@ -1,4 +1,4 @@
-#include "checker.h"
+#include "checker_bonus.h"
 int		mkenv(int argc, char *argv[], t_checker *s);
 void	mkgoal(int	*nums, size_t	len);
 int		set_stack(int argc, char *argv[], t_checker *s);

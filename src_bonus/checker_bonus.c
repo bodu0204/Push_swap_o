@@ -1,4 +1,4 @@
-#include "checker.h"
+#include "checker_bonus.h"
 char	*get_order(size_t	len);
 
 int checker (t_checker *s)

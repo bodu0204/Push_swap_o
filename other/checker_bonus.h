@@ -1,5 +1,5 @@
-#ifndef CHECKER_H
-#define CHECKER_H
+#ifndef CHECKER_BONUS_H
+#define CHECKER_BONUS_H
 #include <unistd.h>
 #include <stdlib.h>
 # define BUFFER 32
