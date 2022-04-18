@@ -67,8 +67,7 @@ int	check(t_checker *s)
 	{
 		i = 1;
 		while (i < s->a_len && \
-		s->a[(s->a_base + i - 1) % s->buf_len] >= \
-		s->a[(s->a_base + i) % s->buf_len])
+		s->a[(s->a_base + i - 1) % s->buf_len] >= s->a[(s->a_base + i) % s->buf_len])
 			i++;
 		if (i == s->a_len)
 			return (0);
