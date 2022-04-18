@@ -7,7 +7,7 @@ int	manipulate4(t_stack	*s, int cmd);
 int	manipulate(t_stack	*s, int cmd)
 {
 	int	i;
-	if (cmd == sa)
+	if (cmd)
 	{
 		i = s->a[s->a_len - 1];
 		s->a[s->a_len - 1] = s->a[s->a_len - 2];
