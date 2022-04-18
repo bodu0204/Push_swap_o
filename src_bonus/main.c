@@ -3,7 +3,6 @@ int		mkenv(int argc, char *argv[], t_checker *s);
 void	mkgoal(int	*nums, size_t	len);
 int		set_stack(int argc, char *argv[], t_checker *s);
 int		checkarg(size_t argc, char *argv[]);
-int		checker (t_checker *s);
 
 int	main(int argc, char *argv[])
 {

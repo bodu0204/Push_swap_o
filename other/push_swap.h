@@ -48,15 +48,28 @@ typedef struct s_dividing
 	int		dn;
 	size_t	ma;
 	size_t	mb;
-	size_t	dm;
-	size_t	inc;
 	size_t	use;
 }	t_dividing;
 
-int		manipulate(t_stack	*s, int cmd);
-void	pop_push(int *pops, size_t *pol, int *pushs, size_t *pul);
 void	*ft_memmove(void	*dest, const void	*src, size_t	n);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
 void	ft_bzero(void *s, size_t n);
 int		ft_atoi(const char	*str);
+
+int		push_swap(t_stack	*s, int ms);
+
+void	set_divide_fmt(t_dividing	*d, int	*goal, size_t	l);
+int		treatstack(t_stack	*s, int ms);
+void	set_next_stack(t_stack *s, t_stack *next, t_dividing *d, int ms);
+int		swaptwo(t_stack *s, t_dividing *d);
+int		little_push_swap(t_stack *s);
+
+int		divide(t_stack	*s, t_dividing *d, int ms);
+
+int		manipulate(t_stack	*s, int cmd);
+
+void	pop_push(int *pops, size_t *pol, int *pushs, size_t *pul);
+int		rotate(t_stack *s, int *flag, int ms);
+void	raise_a(t_stack *s);
+void	mvstack(int *mst, size_t *msl, int *bst, size_t *bsl);
 #endif

@@ -1,3 +1,5 @@
+#ifndef CHECKER_H
+#define CHECKER_H
 #include <unistd.h>
 #include <stdlib.h>
 # define BUFFER 32
@@ -34,9 +36,12 @@ typedef struct s_checker
 	size_t	buf_len;
 	void	*freefrom;
 }	t_checker;
-int	ft_atoi(const char	*str);
+
+int		ft_atoi(const char	*str);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
-int	ft_memcmp(const void	*s1, const void	*s2, size_t	n);
+int		ft_memcmp(const void	*s1, const void	*s2, size_t	n);
 void	ft_bzero(void *s, size_t n);
-
-
+int		manipulate(t_checker	*s, char *order, int *ko);
+int		checker (t_checker *s);
+int		check(t_checker *s);
+#endif

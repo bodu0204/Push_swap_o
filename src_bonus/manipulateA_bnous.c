@@ -3,7 +3,6 @@ int	manipulate1(t_checker	*s, char *order, int *ko);
 int	manipulate2(t_checker	*s, char *order, int *ko);
 int	manipulate3(t_checker	*s, char *order, int *ko);
 int	manipulate4(t_checker	*s, char *order, int *ko);
-int	check(t_checker *s);
 
 int	manipulate(t_checker	*s, char *order, int *ko)
 {
