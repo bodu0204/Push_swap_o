@@ -21,7 +21,7 @@ int push_swap(t_stack	*s, int ms)
 		if (!s->b_len)
 			return(0);
 	}
-	return (puush_swap1(s, &d));
+	return (push_swap1(s, &d));
 }
 
 int push_swap1(t_stack	*s, t_dividing	*d)
