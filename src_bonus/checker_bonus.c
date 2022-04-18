@@ -1,4 +1,5 @@
 #include "checker_bonus.h"
+#include "debug.h"
 char	*get_order(size_t	len);
 
 int	checker(t_checker *s)
@@ -13,7 +14,10 @@ int	checker(t_checker *s)
 	if (!order)
 		return (1);
 	while (order[olen] && (ko != -1))
+{
+TESTn("ko", ko)
 		olen += manipulate(s, order + olen, &ko);
+}
 	free(order);
 	if (ko == -1)
 		return (1);
