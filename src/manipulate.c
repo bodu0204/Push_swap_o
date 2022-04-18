@@ -4,7 +4,7 @@ int	manipulate2(t_stack	*s, int cmd);
 int	manipulate3(t_stack	*s, int cmd);
 int	manipulate4(t_stack	*s, int cmd);
 
-int manipulate(t_stack	*s, int cmd)
+int	manipulate(t_stack	*s, int cmd)
 {
 	int	i;
 	if (cmd == sa)
@@ -117,7 +117,7 @@ int	manipulate3(t_stack	*s, int cmd)
 	return (0);
 }
 
-int manipulate4(t_stack	*s, int cmd)
+int	manipulate4(t_stack	*s, int cmd)
 {
 	if (cmd == rrr)
 	{
