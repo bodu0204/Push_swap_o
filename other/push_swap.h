@@ -1,9 +1,8 @@
 #ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H
-#include <unistd.h>
-#include <stdlib.h>
+# define PUSH_SWAP_H
+# include <unistd.h>
+# include <stdlib.h>
 # define BUFFER 32
-# define fd 1
 
 enum
 {

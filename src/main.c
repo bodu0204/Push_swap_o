@@ -13,13 +13,13 @@ int	main(int argc, char *argv[])
 
 	if (argc == 1 || checkarg(argc, argv))
 	{
-		write(fd, "Error\n", 6);
+		write(STDOUT_FILENO, "Error\n", 6);
 		return (1);
 	}
 	ft_bzero(&s, sizeof(t_stack));
 	if (mkenv(argc, argv, &s))
 	{
-		write(fd, "Error\n", 6);
+		write(STDOUT_FILENO, "Error\n", 6);
 		free(s.freefrom);
 		return (1);
 	}

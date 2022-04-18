@@ -13,7 +13,7 @@ int	manipulate(t_stack	*s, int cmd)
 		i = s->a[s->a_len - 1];
 		s->a[s->a_len - 1] = s->a[s->a_len - 2];
 		s->a[s->a_len - 2] = i;
-		if (write(fd, "sa\n", 3) < 0)
+		if (write(STDOUT_FILENO, "sa\n", 3) < 0)
 			return (1);
 	}
 	else if (cmd == sb)
@@ -21,7 +21,7 @@ int	manipulate(t_stack	*s, int cmd)
 		i = s->b[s->b_len - 1];
 		s->b[s->b_len - 1] = s->b[s->b_len - 2];
 		s->b[s->b_len - 2] = i;
-		if (write(fd, "sb\n", 3) < 0)
+		if (write(STDOUT_FILENO, "sb\n", 3) < 0)
 			return (1);
 	}
 	else
@@ -44,13 +44,13 @@ int	manipulate1(t_stack	*s, int cmd)
 		i = s->b[s->b_len - 1];
 		s->b[s->b_len - 1] = s->b[s->b_len - 2];
 		s->b[s->b_len - 2] = i;
-		if (write(fd, "ss\n", 3) < 0)
+		if (write(STDOUT_FILENO, "ss\n", 3) < 0)
 			return (1);
 	}
 	else if (cmd == pa)
 	{
 		pop_push(s->b, &s->b_len, s->a, &s->a_len);
-		if (write(fd, "pa\n", 3) < 0)
+		if (write(STDOUT_FILENO, "pa\n", 3) < 0)
 			return (1);
 	}
 	else
@@ -66,19 +66,19 @@ int	manipulate2(t_stack	*s, int cmd)
 	if (cmd == pb)
 	{
 		pop_push(s->a, &s->a_len, s->b, &s->b_len);
-		if (write(fd, "pb\n", 3) < 0)
+		if (write(STDOUT_FILENO, "pb\n", 3) < 0)
 			return (1);
 	}
 	else if (cmd == ra)
 	{
 		pop_push(s->a, &s->a_len, s->a_back, &s->a_back_len);
-		if (write(fd, "ra\n", 3) < 0)
+		if (write(STDOUT_FILENO, "ra\n", 3) < 0)
 			return (1);
 	}
 	else if (cmd == rb)
 	{
 		pop_push(s->b, &s->b_len, s->b_back, &s->b_back_len);
-		if (write(fd, "rb\n", 3) < 0)
+		if (write(STDOUT_FILENO, "rb\n", 3) < 0)
 			return (1);
 	}
 	else
@@ -95,19 +95,19 @@ int	manipulate3(t_stack	*s, int cmd)
 	{
 		pop_push(s->a, &s->a_len, s->a_back, &s->a_back_len);
 		pop_push(s->b, &s->b_len, s->b_back, &s->b_back_len);
-		if (write(fd, "rr\n", 3) < 0)
+		if (write(STDOUT_FILENO, "rr\n", 3) < 0)
 			return (1);
 	}
 	else if (cmd == rra)
 	{
 		pop_push(s->a_back, &s->a_back_len, s->a, &s->a_len);
-		if (write(fd, "rra\n", 4) < 0)
+		if (write(STDOUT_FILENO, "rra\n", 4) < 0)
 			return (1);
 	}
 	else if (cmd == rrb)
 	{
 		pop_push(s->b_back, &s->b_back_len, s->b, &s->b_len);
-		if (write(fd, "rrb\n", 4) < 0)
+		if (write(STDOUT_FILENO, "rrb\n", 4) < 0)
 			return (1);
 	}
 	else
@@ -124,7 +124,7 @@ int	manipulate4(t_stack	*s, int cmd)
 	{
 		pop_push(s->a_back, &s->a_back_len, s->a, &s->a_len);
 		pop_push(s->b_back, &s->b_back_len, s->b, &s->b_len);
-		if (write(fd, "rrr\n", 4) < 0)
+		if (write(STDOUT_FILENO, "rrr\n", 4) < 0)
 			return (1);
 	}
 	else
