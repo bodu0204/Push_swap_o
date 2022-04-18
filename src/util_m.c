@@ -17,8 +17,8 @@ int isover(char *s)
 	if (len > 11)
 		return (1);
 	if (!i)
-		return (ft_strncmp(s, "2147483647", 10) > 0);
-	return (ft_strncmp(s, "2147483648", 10) > 0);
+		return (ft_strncmp(s, "2147483647", 11) > 0);
+	return (ft_strncmp(s, "2147483648", 11) > 0);
 }
 
 int isdup(size_t argc, char *argv[])
