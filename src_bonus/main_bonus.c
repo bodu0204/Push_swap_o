@@ -27,16 +27,16 @@ int	main(int argc, char *argv[])
 	return (0);
 }
 
-int mkenv(int argc, char *argv[], t_checker *s)
+int	mkenv(int argc, char *argv[], t_checker *s)
 {
 	if (set_stack(argc - 1, argv + 1, s))
 		return (1);
 	return (0);
 }
 
-int set_stack(int argc, char *argv[], t_checker *s)
+int	set_stack(int argc, char *argv[], t_checker *s)
 {
-	int i;
+	int	i;
 
 	ft_bzero(s, sizeof(t_checker));
 	s->freefrom = malloc(((argc * sizeof(int)) + 8) * 2);
@@ -47,7 +47,7 @@ int set_stack(int argc, char *argv[], t_checker *s)
 	i = 0;
 	while (i < argc)
 	{
-		s->a[i] = ft_atoi(argv[argc - i -1]);
+		s->a[i] = ft_atoi(argv[argc - i - 1]);
 		i++;
 	}
 	s->buf_len = argc;
@@ -75,7 +75,7 @@ int	checkarg(size_t argc, char *argv[])
 			ii++;
 		}
 		if (isover(s))
-			return(1);
+			return (1);
 		i++;
 	}
 	return (isdup(argc, argv));

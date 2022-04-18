@@ -1,7 +1,7 @@
 #include "checker_bonus.h"
 char	*get_order(size_t	len);
 
-int checker (t_checker *s)
+int	checker (t_checker *s)
 {
 	char	*order;
 	size_t	olen;
@@ -11,9 +11,9 @@ int checker (t_checker *s)
 	ko = 0;
 	order = get_order(0);
 	if (!order)
-		return(1);
+		return (1);
 	while (order[olen] && (ko != -1))
-		olen += manipulate(s, order + olen , &ko);
+		olen += manipulate(s, order + olen, &ko);
 	free(order);
 	if (ko == -1)
 		return (1);
