@@ -13,6 +13,7 @@ int	checker(t_checker *s)
 	order = get_order(0);
 	if (!order)
 		return (1);
+printf("%s", order);TEST
 	while (order[olen] && (ko != -1))
 {
 TESTn("ko", ko)
