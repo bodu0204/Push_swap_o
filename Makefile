@@ -24,7 +24,8 @@ $(NAME) : submitfile
 	rm -rf $(SUBMIT_d)
 	mv $(NAME).exe $(NAME)
 
-bonus : submitfile
+bonus :
+	make submitfile
 	cd "$(SUBMIT_d)" && make bonus
 	cp $(SUBMIT_d)$(BONUS_NAME) ./
 
