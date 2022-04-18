@@ -1,5 +1,5 @@
 #include "checker_bonus.h"
-#include "debug.h"
+#include "debug.h"/* test */
 char	*get_order(size_t	len);
 
 int	checker(t_checker *s)
@@ -41,6 +41,7 @@ char	*get_order(size_t	len)
 	else
 	{
 		ret = malloc(len + new + 1);
+TESTn("len + new", len + new)
 		if (ret)
 			ret[len + new] = '\0';
 	}
