@@ -19,11 +19,14 @@ all : $(NAME)
 
 $(NAME) : submitfile
 	cd "$(SUBMIT_d)" && make all
-	mv $(SUBMIT_d)$(NAME) ./
+	mv $(SUBMIT_d)$(NAME) $(SUBMIT_d)$(NAME).exe
+	cp $(SUBMIT_d)$(NAME).exe ./
+	rm -rf $(SUBMIT_d)
+	mv $(NAME).exe $(NAME)
 
-bonus : $(NAME)
-	cd "$(SUBMIT_d)" && make all
-	mv $(SUBMIT_d)$(BONUS_NAME) ./
+bonus : submitfile
+	cd "$(SUBMIT_d)" && make bonus
+	cp $(SUBMIT_d)$(BONUS_NAME) ./
 
 push : fclean
 	git add .
@@ -61,7 +64,7 @@ submit42 : push outclean submitfile
 	mv -rf $(SUBMIT_42d)
 	echo "\n\nFinished push to 42.\n"
 
-test0 : bonus
+test : $(NAME) bonus
 	mkdir $(TEST_d)
 	mv $(NAME) $(TEST_d)
 	mv $(BONUS_NAME) $(TEST_d)
