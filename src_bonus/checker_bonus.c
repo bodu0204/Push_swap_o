@@ -41,7 +41,7 @@ char	*get_order(size_t	len)
 	else
 	{
 		ret = malloc(len + new + 1);
-TESTn("len + new", len + new)
+TESTn("len + new", (int)(len + new))
 		if (ret)
 			ret[len + new] = '\0';
 	}
