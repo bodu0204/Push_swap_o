@@ -1,7 +1,7 @@
 #ifndef CHECKER_BONUS_H
-#define CHECKER_BONUS_H
-#include <unistd.h>
-#include <stdlib.h>
+# define CHECKER_BONUS_H
+# include <unistd.h>
+# include <stdlib.h>
 # define BUFFER 32
 
 enum
@@ -44,6 +44,6 @@ void	ft_bzero(void *s, size_t n);
 size_t	ft_strlen(const char *str);
 int		ft_strncmp(const char	*s1, const char	*s2, size_t	n);
 int		manipulate(t_checker	*s, char *order, int *ko);
-int		checker (t_checker *s);
+int		checker(t_checker *s);
 int		check(t_checker *s);
 #endif
