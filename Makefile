@@ -24,8 +24,7 @@ $(NAME) : submitfile
 	rm -rf $(SUBMIT_d)
 	mv $(NAME).exe $(NAME)
 
-bonus :
-	make submitfile
+bonus : submitfile
 	cd "$(SUBMIT_d)" && make bonus
 	cp $(SUBMIT_d)$(BONUS_NAME) ./
 
@@ -65,10 +64,12 @@ submit42 : push outclean submitfile
 	mv -rf $(SUBMIT_42d)
 	echo "\n\nFinished push to 42.\n"
 
-test : $(NAME) bonus
+test : submitfile
+	cd "$(SUBMIT_d)" && make all
+	cd "$(SUBMIT_d)" && make bonus
 	mkdir $(TEST_d)
-	mv $(NAME) $(TEST_d)
-	mv $(BONUS_NAME) $(TEST_d)
+	mv $(SUBMIT_d)$(NAME) $(TEST_d)
+	mv $(SUBMIT_d)$(BONUS_NAME) $(TEST_d)
 	cp $(STDSRC_PASS)* $(TEST_d)
 
 fclean :
