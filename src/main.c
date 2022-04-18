@@ -104,7 +104,7 @@ int	checkarg(size_t argc, char *argv[])
 			return (1);
 		while (s[ii])
 		{
-			if (!(s[ii] >= '0' || s[ii] <= '9' || (s[ii] == '-' && !ii)))
+			if (!((s[ii] >= '0' && s[ii] <= '9') || (s[ii] == '-' && !ii)))
 				return (1);
 			ii++;
 		}
