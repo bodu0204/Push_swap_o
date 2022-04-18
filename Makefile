@@ -65,6 +65,7 @@ test0 : bonus
 	mkdir $(TEST_d)
 	mv $(NAME) $(TEST_d)
 	mv $(BONUS_NAME) $(TEST_d)
+	cp $(STDSRC_PASS)* $(TEST_d)
 
 fclean :
 	rm -rf $(SUBMIT_d)
