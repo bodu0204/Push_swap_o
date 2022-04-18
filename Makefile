@@ -1,7 +1,5 @@
 NAME			= push_swap
-NAME_h			= $(NAME).h
 BONUS_NAME		= checker
-BONUS_NAME_h	= $(BONUS_NAME).h
 SRC_PASS		= src/
 SRCb_PASS		= src_bonus/
 OTHER_PASS		= other/
@@ -64,7 +62,9 @@ submit42 : push outclean submitfile
 	echo "\n\nFinished push to 42.\n"
 
 test0 : bonus
-	mkdir
+	mkdir $(TEST_d)
+	mv $(NAME) $(TEST_d)
+	mv $(BONUS_NAME) $(TEST_d)
 
 fclean :
 	rm -rf $(SUBMIT_d)
