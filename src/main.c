@@ -106,7 +106,9 @@ int	checkarg(size_t argc, char *argv[])
 				return (1);
 			ii++;
 		}
+		if (isover(s))
+			return(1);
 		i++;
 	}
-	return (0);
+	return (isdup(argc, argv));
 }

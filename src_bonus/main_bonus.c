@@ -51,7 +51,7 @@ int set_stack(int argc, char *argv[], t_checker *s)
 	return (0);
 }
 
-int checkarg(size_t argc, char *argv[])
+int	checkarg(size_t argc, char *argv[])
 {
 	size_t	i;
 	size_t	ii;
@@ -70,7 +70,9 @@ int checkarg(size_t argc, char *argv[])
 				return (1);
 			ii++;
 		}
+		if (isover(s))
+			return(1);
 		i++;
 	}
-	return (0);
+	return (isdup(argc, argv));
 }
