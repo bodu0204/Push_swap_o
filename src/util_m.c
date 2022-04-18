@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-int isover(char *s)
+int	isover(char *s)
 {
 	int		i;
 	size_t	len;
@@ -21,7 +21,7 @@ int isover(char *s)
 	return (ft_strncmp(s, "2147483648", 11) > 0);
 }
 
-int isdup(size_t argc, char *argv[])
+int	isdup(size_t argc, char *argv[])
 {
 	size_t	i;
 	size_t	ii;
@@ -39,5 +39,4 @@ int isdup(size_t argc, char *argv[])
 		i++;
 	}
 	return (0);
-
 }

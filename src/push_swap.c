@@ -1,7 +1,7 @@
 #include "push_swap.h"
-int push_swap1(t_stack	*s, t_dividing	*d);
+int	push_swap1(t_stack	*s, t_dividing	*d);
 
-int push_swap(t_stack	*s, int ms)
+int	push_swap(t_stack	*s, int ms)
 {
 	t_dividing	d;
 
@@ -16,15 +16,15 @@ int push_swap(t_stack	*s, int ms)
 		return (1);
 	if (s->a_len <= 2)
 	{
-		if(swaptwo(s, &d))
-			return(1);
+		if (swaptwo(s, &d))
+			return (1);
 		if (!s->b_len)
-			return(0);
+			return (0);
 	}
 	return (push_swap1(s, &d));
 }
 
-int push_swap1(t_stack	*s, t_dividing	*d)
+int	push_swap1(t_stack	*s, t_dividing	*d)
 {
 	t_stack		next;
 

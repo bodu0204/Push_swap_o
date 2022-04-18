@@ -4,7 +4,7 @@ int		push_from_a(t_stack	*s, int *flag, t_dividing *next);
 int		divide_from_b(t_stack	*s, t_dividing *d, t_dividing *next);
 int		push_from_b(t_stack	*s, int *flag, t_dividing *next);
 
-int divide(t_stack	*s, t_dividing *d, int ms)
+int	divide(t_stack	*s, t_dividing *d, int ms)
 {
 	t_dividing	next;
 
@@ -14,17 +14,17 @@ int divide(t_stack	*s, t_dividing *d, int ms)
 		return (divide_from_a(s, d, &next));
 	}
 	set_divide_fmt(&next, s->g, d->ma);
-	return(divide_from_b(s, d, &next));
+	return (divide_from_b(s, d, &next));
 }
 
-int divide_from_a(t_stack	*s, t_dividing *d, t_dividing *next)
+int	divide_from_a(t_stack	*s, t_dividing *d, t_dividing *next)
 {
 	size_t	ib;
 	int		flag;
 
 	ib = 0;
 	flag = 0;
-	while(ib < d->mb)
+	while (ib < d->mb)
 	{
 		if (s->a[s->a_len - 1] >= d->dn)
 		{
@@ -43,12 +43,12 @@ int divide_from_a(t_stack	*s, t_dividing *d, t_dividing *next)
 	if (flag)
 		if (manipulate(s, rb))
 			return (1);
-	return(0);
+	return (0);
 }
 
-int push_from_a(t_stack	*s, int *flag, t_dividing *next)
+int	push_from_a(t_stack	*s, int *flag, t_dividing *next)
 {
-	int i;
+	int	i;
 
 	if (*flag)
 		if (manipulate(s, rb))
@@ -68,16 +68,16 @@ int push_from_a(t_stack	*s, int *flag, t_dividing *next)
 	return (0);
 }
 
-int divide_from_b(t_stack	*s, t_dividing *d, t_dividing *next)
+int	divide_from_b(t_stack	*s, t_dividing *d, t_dividing *next)
 {
 	size_t		ibb;
 	int			flag;
 
 	ibb = 0;
 	flag = 0;
-	while(ibb < d->ma)
+	while (ibb < d->ma)
 	{
-		if (s->b[s->b_len - 1] < d->dn )
+		if (s->b[s->b_len - 1] < d->dn)
 		{
 			if (s->b[s->b_len - 1] == d->dn)
 				d->use++;
@@ -94,12 +94,12 @@ int divide_from_b(t_stack	*s, t_dividing *d, t_dividing *next)
 	if (flag)
 		if (manipulate(s, ra))
 			return (1);
-	return(0);
+	return (0);
 }
 
-int push_from_b(t_stack	*s, int *flag, t_dividing *next)
+int	push_from_b(t_stack	*s, int *flag, t_dividing *next)
 {
-	int i;
+	int	i;
 
 	if (*flag)
 		if (manipulate(s, ra))

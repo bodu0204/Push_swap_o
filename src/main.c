@@ -11,7 +11,6 @@ int	main(int argc, char *argv[])
 	t_stack	s;
 	int		r;
 
-
 	if (argc == 1 || checkarg(argc, argv))
 	{
 		write(fd, "Error\n", 6);
@@ -67,7 +66,7 @@ void	mkgoal(int	*nums, size_t	len)
 
 int	set_stack(int argc, char *argv[], t_stack *s)
 {
-	int i;
+	int	i;
 
 	ft_bzero(s, sizeof(t_stack));
 	s->freefrom = malloc(((argc * sizeof(int)) + 8) * 5);
@@ -112,7 +111,7 @@ int	checkarg(size_t argc, char *argv[])
 			ii++;
 		}
 		if (isover(s))
-			return(1);
+			return (1);
 		i++;
 	}
 	return (isdup(argc, argv));
