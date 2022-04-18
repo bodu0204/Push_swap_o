@@ -73,7 +73,6 @@ int manipulate2(t_stack	*s, int cmd)
 		pop_push(s->a, &s->a_len, s->a_back, &s->a_back_len);
 		if (write(fd, "ra\n", 3) < 0)
 			return (1);
-tests(s);
 	}
 	else if(cmd == rb)
 	{
