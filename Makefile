@@ -19,11 +19,11 @@ all : $(NAME)
 
 $(NAME) : submitfile
 	cd "$(SUBMIT_d)" && make all
-	cp $(SUBMIT_d)$(NAME)
+	mv $(SUBMIT_d)$(NAME) ./
 
 bonus : $(NAME)
 	cd "$(SUBMIT_d)" && make all
-	cp $(SUBMIT_d)$(BONUS_NAME)
+	mv $(SUBMIT_d)$(BONUS_NAME) ./
 
 push : fclean
 	git add .
