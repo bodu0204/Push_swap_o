@@ -1,6 +1,6 @@
 #include "debug.h"
 #include "push_swap.h"
-int tests(t_stack *s)
+void tests(t_stack *s)
 {
 	int *i;
 	int ii;
