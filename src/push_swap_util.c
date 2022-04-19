@@ -72,7 +72,8 @@ int	swaptwo(t_stack *s, t_dividing *d)
 {
 TESTn("s->b[s->b_len - 1]", s->b[s->b_len - 1])
 TESTn("s->b[s->b_len - 2]", s->b[s->b_len - 2])
-TESTn("s->b_len == 2 && s->b[s->b_len - 1] < s->b[s->a_len - 2]", s->b_len == 2 && s->b[s->b_len - 1] < s->b[s->a_len - 2])
+TESTn("s->b_len == 2", s->b_len == 2)
+TESTn("s->b[s->b_len - 1] < s->b[s->a_len - 2]", s->b[s->b_len - 1] < s->b[s->a_len - 2])
 	if (s->a_len == 2 && (s->a[s->a_len - 1] > s->a[s->a_len - 2]) \
 	&& (s->b_len == 2 && s->b[s->b_len - 1] < s->b[s->a_len - 2]))
 	{
