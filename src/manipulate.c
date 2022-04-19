@@ -8,6 +8,15 @@ void tests(t_stack *s);
 
 int	manipulate(t_stack	*s, int cmd)
 {
+/* test */static	size_t stc = 0;
+/* test */const int stc_max = 50;
+/* test */const int onoff = 1;
+/* test */stc++;
+/* test */if (stc > stc_max && onoff)
+/* test */{
+/* test */	printf("the number is too big"); TEST
+/* test */	exit(0);
+/* test */}
 	int	i;
 
 	if (cmd == sa)
