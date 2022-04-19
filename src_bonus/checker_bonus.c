@@ -35,6 +35,7 @@ char	*get_order(size_t	len)
 	char	buf[BUFFER];
 	char	*ret;
 
+TEST
 	new = read(STDIN_FILENO, buf, BUFFER);
 	if (new == BUFFER)
 		ret = get_order(len + BUFFER);
