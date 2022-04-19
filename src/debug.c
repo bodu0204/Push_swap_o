@@ -103,5 +103,5 @@ void tests(t_stack *s)
 	}
 	printf("|b_back\n");
 	fflush(stdout);
-	return (0);
+	return ;
 }
