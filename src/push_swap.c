@@ -1,27 +1,27 @@
 #include "push_swap.h"
-//#include "debug.h"/* test */
+#include "debug.h"/* test */
 int	push_swap1(t_stack	*s, t_dividing	*d);
 
 int	push_swap(t_stack	*s, int ms)
 {
 	t_dividing	d;
 
-//printf("----------------------little_push_swap");TEST
+printf("----------------------little_push_swap");TEST
 	if (little_push_swap(s))
 		return (1);
 	if (!s->a_len && !s->b_len)
 		return (0);
-//printf("----------------------set_divide_fmt");TEST
+printf("----------------------set_divide_fmt");TEST
 	set_divide_fmt(&d, s->g, s->g_len);
-//printf("----------------------divide");TEST
+printf("----------------------divide");TEST
 	if (divide(s, &d, ms))
 		return (1);
-//printf("----------------------treatstack");TEST
+printf("----------------------treatstack");TEST
 	if (treatstack(s, ms))
 		return (1);
 	if (s->a_len <= 2)
 	{
-//printf("----------------------swaptwo");TEST
+printf("----------------------swaptwo");TEST
 		if (swaptwo(s, &d))
 			return (1);
 		if (!s->b_len)
@@ -34,15 +34,15 @@ int	push_swap1(t_stack	*s, t_dividing	*d)
 {
 	t_stack		next;
 
-//printf("----------------------set_next_stack-a");TEST
+printf("----------------------set_next_stack-a");TEST
 	set_next_stack(s, &next, d, _a);
-//printf("----------------------push_swap-a");TEST
+printf("----------------------push_swap-a");TEST
 	if (s->a_len)
 		if (push_swap(&next, _a))
 			return (1);
-//printf("----------------------set_next_stack-b");TEST
+printf("----------------------set_next_stack-b");TEST
 	set_next_stack(s, &next, d, _b);
-//printf("----------------------push_swap-b");TEST
+printf("----------------------push_swap-b");TEST
 	if (s->b_len)
 		if (push_swap(&next, _b))
 			return (1);
