@@ -62,7 +62,7 @@ int		push_swap(t_stack	*s, int ms);
 void	set_divide_fmt(t_dividing	*d, int	*goal, size_t	l);
 int		treatstack(t_stack	*s, int ms);
 void	set_next_stack(t_stack *s, t_stack *next, t_dividing *d, int ms);
-int		swaptwo(t_stack *s, t_dividing *d);
+int		swaptwo(t_stack *s);
 int		little_push_swap(t_stack *s);
 
 int		divide(t_stack	*s, t_dividing *d, int ms);

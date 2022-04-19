@@ -68,7 +68,7 @@ void	set_next_stack(t_stack *s, t_stack *next, t_dividing *d, int ms)
 	return ;
 }
 
-int	swaptwo(t_stack *s, t_dividing *d)
+int	swaptwo(t_stack *s)
 {
 TESTn("s->b[s->b_len - 1]", s->b[s->b_len - 1])
 TESTn("s->b[s->b_len - 2]", s->b[s->b_len - 2])
