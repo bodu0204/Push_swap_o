@@ -68,7 +68,7 @@ void	set_next_stack(t_stack *s, t_stack *next, t_dividing *d, int ms)
 	return ;
 }
 
-int	swaptwo(t_stack *s)
+int	swaptwo(t_stack *s, t_dividing *d)
 {
 TESTn("s->b[s->b_len - 1]", s->b[s->b_len - 1])
 TESTn("s->b[s->b_len - 2]", s->b[s->b_len - 2])
@@ -90,7 +90,7 @@ TESTn("s->b[s->b_len - 1] < s->b[s->b_len - 2]", s->b[s->b_len - 1] < s->b[s->b_
 		if (manipulate(s, sb))
 			return (1);
 	}
-	while (s->b_len <= 2 && s->b_len)
+	while (d->ma && s->b_len <= 2 && s->b_len)
 		if (manipulate(s, pa))
 			return (1);
 	return (0);

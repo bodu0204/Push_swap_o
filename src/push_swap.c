@@ -22,7 +22,7 @@ printf("----------------------treatstack");TEST
 	if (s->a_len <= 2)
 	{
 printf("----------------------swaptwo");TEST
-		if (swaptwo(s))
+		if (swaptwo(s, &d))
 			return (1);
 		if (!s->b_len)
 			return (0);
