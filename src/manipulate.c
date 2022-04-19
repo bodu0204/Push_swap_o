@@ -3,7 +3,7 @@ int	manipulate1(t_stack	*s, int cmd);
 int	manipulate2(t_stack	*s, int cmd);
 int	manipulate3(t_stack	*s, int cmd);
 int	manipulate4(t_stack	*s, int cmd);
-//void tests(t_stack *s);
+void tests(t_stack *s);
 
 int	manipulate(t_stack	*s, int cmd)
 {
