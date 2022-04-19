@@ -90,7 +90,7 @@ TESTn("s->b[s->b_len - 1] < s->b[s->b_len - 2]", s->b[s->b_len - 1] < s->b[s->b_
 		if (manipulate(s, sb))
 			return (1);
 	}
-	while ((d->ma || s->b_len <= 2) && s->b_len)
+	while (s->b_len <= 2 && s->b_len)
 		if (manipulate(s, pa))
 			return (1);
 	return (0);
