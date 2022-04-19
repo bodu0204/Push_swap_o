@@ -21,7 +21,7 @@ printf("treatstack");TEST
 		return (1);
 	if (s->a_len <= 2)
 	{
-printf("swaptwo");TEST
+printf("swaptwo");TESTn("s->b_len", s->b_len)
 		if (swaptwo(s, &d))
 			return (1);
 		if (!s->b_len)
