@@ -4,6 +4,7 @@
 #define TEST printf("[%s/%d]\n", __FILE__, __LINE__); fflush(stdin);
 #define TESTn(str, i) printf("[%s/%d]%s:%d\n", __FILE__, __LINE__, (str), (int)(i)); fflush(stdin);
 #define TESTp(str, i) printf("[%s/%d]%s:%p\n", __FILE__, __LINE__, (str), (i)); fflush(stdin);
+void tests(t_stack *s);
 #endif
 //* test */static	size_t stc = 0;
 //* test */const int stc_max = 10000;
