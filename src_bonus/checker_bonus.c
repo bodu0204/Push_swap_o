@@ -1,5 +1,4 @@
 #include "checker_bonus.h"
-#include "debug.h"/* test */
 char	*get_order(size_t	len);
 
 int	checker(t_checker *s)
@@ -9,16 +8,12 @@ int	checker(t_checker *s)
 	int		ko;
 
 	olen = 0;
-	ko = 0;
+	ko = check(s);
 	order = get_order(0);
 	if (!order)
 		return (1);
-printf("%s", order);TEST
 	while (order[olen] && (ko != -1))
-{
-TESTn("ko", ko)
 		olen += manipulate(s, order + olen, &ko);
-}
 	free(order);
 	if (ko == -1)
 		return (1);
@@ -35,14 +30,12 @@ char	*get_order(size_t	len)
 	char	buf[BUFFER];
 	char	*ret;
 
-TEST
 	new = read(STDIN_FILENO, buf, BUFFER);
 	if (new == BUFFER)
 		ret = get_order(len + BUFFER);
 	else
 	{
 		ret = malloc(len + new + 1);
-TESTn("len + new", (int)(len + new))
 		if (ret)
 			ret[len + new] = '\0';
 	}
