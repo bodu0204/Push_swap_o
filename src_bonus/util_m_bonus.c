@@ -25,14 +25,20 @@ int	isdup(size_t argc, char *argv[])
 {
 	size_t	i;
 	size_t	ii;
+	size_t	l;
+	size_t	ll;
 
 	i = 1;
 	while (i < argc)
 	{
 		ii = i + 1;
+		l = ft_strlen(argv[i]);
 		while (ii < argc)
 		{
-			if (!ft_strncmp(argv[i], argv[ii], ft_strlen(argv[i])))
+			ll = ft_strlen(argv[ii]);
+			if (l > ll)
+				ll = l;
+			if (!ft_strncmp(argv[i], argv[ii], ll))
 				return (1);
 			ii++;
 		}
