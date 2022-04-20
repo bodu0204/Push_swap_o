@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   manipulateA_bnous.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ryoakira <ryoakira@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/21 05:20:06 by ryoakira          #+#    #+#             */
+/*   Updated: 2022/04/21 05:20:07 by ryoakira         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "checker_bonus.h"
 int	manipulate1(t_checker	*s, char *order, int *ko);
 int	manipulate2(t_checker	*s, char *order, int *ko);

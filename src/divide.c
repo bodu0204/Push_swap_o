@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   divide.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ryoakira <ryoakira@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/21 05:20:28 by ryoakira          #+#    #+#             */
+/*   Updated: 2022/04/21 05:20:29 by ryoakira         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 int		divide_from_a(t_stack	*s, t_dividing *d, t_dividing *next);
 int		push_from_a(t_stack	*s, int *flag, t_dividing *next);
