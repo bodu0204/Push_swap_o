@@ -47,22 +47,23 @@ int	treatstack(t_stack	*s, int ms)
 	return (0);
 }
 
-void	set_next_stack(t_stack *s, t_stack *next, t_dividing *d, int ms)
+void	set_next_stack(t_stack *s, t_stack *next, t_dividing *d, int ms)/* 要修正 */
 {
 	ft_memcpy(next, s, sizeof(t_stack));
 	next->a_back_len = 0;
 	next->b_back_len = 0;
+	(void)d;
 	if (ms == _a)
 	{
-		next->g_len -= d->mb;
-		next->b += d->mb;
+		next->g_len -= s->b_len;
+		next->b += s->b_len;
 		next->b_len = 0;
 	}
 	else
 	{
-		next->g += d->ma;
-		next->g_len -= d->ma;
-		next->a += d->ma;
+		next->g += s->a_len;
+		next->g_len -= s->a_len;
+		next->a += s->a_len;
 		next->a_len = 0;
 	}
 	return ;
