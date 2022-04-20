@@ -13,7 +13,6 @@ int	main(int argc, char *argv[])
 
 	if (argc == 1 || checkarg(argc, argv))
 	{
-		write(STDOUT_FILENO, "not malloc", 10);
 		write(STDOUT_FILENO, "Error\n", 6);
 		return (1);
 	}
