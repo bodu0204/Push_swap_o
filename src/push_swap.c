@@ -6,12 +6,12 @@
 /*   By: ryoakira <ryoakira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 05:20:49 by ryoakira          #+#    #+#             */
-/*   Updated: 2022/04/21 05:20:50 by ryoakira         ###   ########.fr       */
+/*   Updated: 2022/04/21 05:27:11 by ryoakira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-int	push_swap1(t_stack	*s, t_dividing	*d);
+int	push_swap1(t_stack	*s);
 
 int	push_swap(t_stack	*s, int ms)
 {
@@ -33,18 +33,18 @@ int	push_swap(t_stack	*s, int ms)
 		if (!s->b_len)
 			return (0);
 	}
-	return (push_swap1(s, &d));
+	return (push_swap1(s));
 }
 
-int	push_swap1(t_stack	*s, t_dividing	*d)
+int	push_swap1(t_stack	*s)
 {
 	t_stack		next;
 
-	set_next_stack(s, &next, d, _a);
+	set_next_stack(s, &next, _a);
 	if (s->a_len)
 		if (push_swap(&next, _a))
 			return (1);
-	set_next_stack(s, &next, d, _b);
+	set_next_stack(s, &next, _b);
 	if (s->b_len)
 		if (push_swap(&next, _b))
 			return (1);

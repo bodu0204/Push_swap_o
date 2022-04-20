@@ -6,7 +6,7 @@
 /*   By: ryoakira <ryoakira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 05:21:11 by ryoakira          #+#    #+#             */
-/*   Updated: 2022/04/21 05:21:12 by ryoakira         ###   ########.fr       */
+/*   Updated: 2022/04/21 05:26:24 by ryoakira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int		push_swap(t_stack	*s, int ms);
 
 void	set_divide_fmt(t_dividing	*d, int	*goal, size_t	l);
 int		treatstack(t_stack	*s, int ms);
-void	set_next_stack(t_stack *s, t_stack *next, t_dividing *d, int ms);
+void	set_next_stack(t_stack *s, t_stack *next, int ms);
 int		swaptwo(t_stack *s, t_dividing *d);
 int		little_push_swap(t_stack *s);
 

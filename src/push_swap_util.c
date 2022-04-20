@@ -6,7 +6,7 @@
 /*   By: ryoakira <ryoakira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 05:20:43 by ryoakira          #+#    #+#             */
-/*   Updated: 2022/04/21 05:22:54 by ryoakira         ###   ########.fr       */
+/*   Updated: 2022/04/21 05:26:02 by ryoakira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,11 @@ int	treatstack(t_stack	*s, int ms)
 	return (0);
 }
 
-void	set_next_stack(t_stack *s, t_stack *next, t_dividing *d, int ms)
+void	set_next_stack(t_stack *s, t_stack *next, int ms)
+{
 	ft_memcpy(next, s, sizeof(t_stack));
 	next->a_back_len = 0;
 	next->b_back_len = 0;
-	(void)d;
 	if (ms == _a)
 	{
 		next->g_len -= s->b_len;
