@@ -1,4 +1,4 @@
-#include "debug.h"
+#include "debug.h"/* test */
 #include "push_swap.h"
 void tests(t_stack *s)
 {

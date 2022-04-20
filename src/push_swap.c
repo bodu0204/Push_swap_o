@@ -4,15 +4,15 @@ int	push_swap1(t_stack	*s, t_dividing	*d);
 
 int	push_swap(t_stack	*s, int ms)
 {
-/* test */static	size_t stc = 0;
-/* test */const int stc_max = 20;
-/* test */const int onoff = 1;
-/* test */stc++;
-/* test */if (stc > stc_max && onoff)
-/* test */{
-//* test */	printf("the number is too big"); TEST
-/* test */	exit(0);
-/* test */}
+//* test */static	size_t stc = 0;
+//* test */const int stc_max = 20;
+//* test */const int onoff = 1;
+//* test */stc++;
+//* test */if (stc > stc_max && onoff)
+//* test */{
+///* test */	printf("the number is too big"); TEST
+//* test */	exit(0);
+//* test */}
 	t_dividing	d;
 
 //printf("----------------------little_push_swap");TESTn("s->a_len", s->a_len)
