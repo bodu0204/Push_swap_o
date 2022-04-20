@@ -6,7 +6,7 @@
 /*   By: ryoakira <ryoakira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 05:20:37 by ryoakira          #+#    #+#             */
-/*   Updated: 2022/04/21 05:20:38 by ryoakira         ###   ########.fr       */
+/*   Updated: 2022/04/21 05:23:23 by ryoakira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@ int	manipulate1(t_stack	*s, int cmd);
 int	manipulate2(t_stack	*s, int cmd);
 int	manipulate3(t_stack	*s, int cmd);
 int	manipulate4(t_stack	*s, int cmd);
-void tests(t_stack *s);
 
 int	manipulate(t_stack	*s, int cmd)
 {
