@@ -6,7 +6,7 @@
 /*   By: ryoakira <ryoakira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 05:19:35 by ryoakira          #+#    #+#             */
-/*   Updated: 2022/04/21 05:19:36 by ryoakira         ###   ########.fr       */
+/*   Updated: 2022/04/21 23:21:19 by ryoakira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	checker(t_checker *s)
 	else if (ko)
 		write(STDOUT_FILENO, "KO\n", 3);
 	else
-		write(STDOUT_FILENO, "0K\n", 3);
+		write(STDOUT_FILENO, "OK\n", 3);
 	return (0);
 }
 
