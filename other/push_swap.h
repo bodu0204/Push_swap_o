@@ -59,7 +59,6 @@ typedef struct s_dividing
 
 typedef struct s_manipulate_header
 {
-	int							flag;
 	struct s_manipulate_content	*cnt;
 	struct s_manipulate_content	*sc;
 	void						*freefrom;/* free以外いじらない */
