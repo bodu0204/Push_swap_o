@@ -66,6 +66,6 @@ void	operation1(int cmd, t_situation *s)
 		revrotate(&s->b);
 	}
 else
-{printf("found error");TEST}
+{printf("found error");TEST exit(1);}
 	return ;
 }

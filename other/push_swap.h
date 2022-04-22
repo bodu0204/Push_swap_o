@@ -94,4 +94,9 @@ t_mplh *h
 
 t_mplc	*m;
 
+
+{printf("found error");TEST exit(1);}
+
+
+
  */
