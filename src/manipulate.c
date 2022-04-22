@@ -67,5 +67,5 @@ void	operation1(int cmd, t_situation *s)
 	}
 else
 {printf("found error");TEST}
-	return;
+	return ;
 }

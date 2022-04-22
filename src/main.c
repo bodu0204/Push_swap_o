@@ -1,19 +1,19 @@
 
 #include "push_swap.h"
 #include "debug.h" //test
-int		mkenv(int argc, char *argv[], t_stack *s, t_mplh *h);
+int		mkenv(int argc, char *argv[], t_situation *s, t_mplh *h);
 void	mkgoal(int	*nums, size_t	len);
-int		set_stack(int argc, char *argv[], t_stack *s);
+int		set_stack(int argc, char *argv[], t_situation *s, t_mplh *h);
 int		checkarg(size_t argc, char *argv[]);
 int		isover(char *s);
 int		isdup(size_t argc, char *argv[]);
 
 int	main(int argc, char *argv[])
 {
-	t_stack	s;
-	t_mplh	h;
-	char	*op;
-	int		r;
+	t_situation	s;
+	t_mplh		h;
+	char		*op;
+	int			r;
 
 	if (argc == 1 || checkarg(argc, argv))
 	{
@@ -32,13 +32,13 @@ int	main(int argc, char *argv[])
 	return (r < 0);
 }
 
-int	mkenv(int argc, char *argv[], t_stack *s, t_mplh *h)
+int	mkenv(int argc, char *argv[], t_situation *s, t_mplh *h)
 {
-	ft_bzero(&s, sizeof(t_stack));
-	ft_bzero(&h, sizeof(t_mplh));
-	if (set_stack(argc - 1, argv + 1, s))
+	ft_bzero(s, sizeof(t_stack));
+	ft_bzero(h, sizeof(t_mplh));
+	if (set_stack(argc - 1, argv + 1, s, h))
 		return (1);
-	mkgoal(s->g, s->g_len);
+	mkgoal(s->g.phs, argc);
 	return (0);
 }
 
@@ -68,30 +68,28 @@ void	mkgoal(int	*nums, size_t	len)
 	return ;
 }
 
-int	set_stack(int argc, char *argv[], t_stack *s)
+int	set_stack(int argc, char *argv[], t_situation *s, t_mplh *h)
 {
 	int	i;
 
-	ft_bzero(s, sizeof(t_stack));
-	s->freefrom = malloc(((argc * sizeof(int)) + 8) * 5);
-	if (!s->freefrom)
+	h->freefrom = malloc(((argc * sizeof(int)) + 8) * 3);
+	if (!h->freefrom)
 		return (1);
-	s->a_base = s->freefrom;
-	s->b_base = s->freefrom + ((argc * sizeof(int)) + 8);
-	s->a_back = s->freefrom + (((argc * sizeof(int)) + 8) * 2);
-	s->b_back = s->freefrom + (((argc * sizeof(int)) + 8) * 3);
-	s->g = s->freefrom + (((argc * sizeof(int)) + 8) * 4);
+	s->a.phs = h->freefrom;
+	s->b.phs = h->freefrom + ((argc * sizeof(int)) + 8);
+	s->g.phs = h->freefrom + (((argc * sizeof(int)) + 8) * 2);
 	i = 0;
 	while (i < argc)
 	{
-		s->g[i] = ft_atoi(argv[argc - i - 1]);
+		s->g.phs[i] = ft_atoi(argv[argc - i - 1]);
 		i++;
 	}
-	ft_memcpy(s->a_base, s->g, (argc * sizeof(int)));
-	s->a = s->a_base;
-	s->b = s->b_base;
-	s->g_len = argc;
-	s->a_len = argc;
+	ft_memcpy(s->a.phs, s->g.phs, (argc * sizeof(int)));
+	s->g.len = argc;
+	s->a.len = argc;
+	s->g.phl = argc;
+	s->a.phl = argc;
+	s->exp = 1;
 	return (0);
 }
 
