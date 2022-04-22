@@ -6,7 +6,7 @@
 /*   By: ryoakira <ryoakira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 05:21:11 by ryoakira          #+#    #+#             */
-/*   Updated: 2022/04/22 07:59:20 by ryoakira         ###   ########.fr       */
+/*   Updated: 2022/04/22 09:07:55 by ryoakira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ typedef struct s_dividing
 
 typedef struct s_manipulate_header
 {
-	int	flag;
+	int							flag;
 	struct s_manipulate_content	*cnt;
 	struct s_manipulate_content	*sc;
 }	t_mplh;
