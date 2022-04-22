@@ -1,18 +1,6 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: ryoakira <ryoakira@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/04/21 05:21:18 by ryoakira          #+#    #+#              #
-#    Updated: 2022/04/21 05:21:19 by ryoakira         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 NAME		= push_swap
 BONUSNAME	= checker
-SRC			= divide.c main.c manipulate.c push_swap.c push_swap_util.c util.c util_m.c
+SRC			=
 HEADER		= push_swap.h
 SRC_b		= checker_bonus.c main_bonus.c manipulateA_bnous.c manipulateB_bnous.c util_m_bonus.c
 HEADER_b	= checker_bonus.h
