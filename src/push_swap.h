@@ -77,8 +77,6 @@ void rotate(t_stack *s);
 void revrotate(t_stack *s);
 int	getn(t_stack *s, size_t l, int flag);
 
-void manipulate(int cmd, t_stack *s, t_mplh *h)
-
 #endif
 
 

@@ -60,10 +60,15 @@ if (!s->udr)
 
 int	getn(t_stack *s, size_t l, int flag)
 {
-	int i;
-
-if (l >= s->len)
+	if (flag == TOP)
+		l += s->img + s->udr + s->grd;
+	else if (flag == GIRD)
+		l += s->img + s->udr;
+	else if(flag == UNDER)
+		l += s->img;
+else
 {printf("found error");TEST}
-	i = s->phs[(s->img + s->udr + s->grd + l) % s->phl];
-	return (i);
+if (l >= s->len + s->grd + s->udr)
+{printf("found error");TEST}
+	return (s->phs[l % s->phl]);
 }
