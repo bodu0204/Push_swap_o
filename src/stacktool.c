@@ -58,7 +58,7 @@ if (!s->udr)
 	return ;
 }
 
-int	getn(t_stack *s, size_t l)
+int	getn(t_stack *s, size_t l, int flag)
 {
 	int i;
 
