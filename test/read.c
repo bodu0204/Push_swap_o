@@ -6,9 +6,10 @@ void show(char* s);
 int main (void)
 {
 	char buf[BUFFER];
+	int i = 3;
 
-	read(0, buf ,BUFFER);
-	show(buf);
+	printf("%d\n", i);
+	printf("%d\n", i);
 	return (0);
 }
 

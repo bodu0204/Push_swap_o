@@ -76,7 +76,10 @@ void rotate(t_stack *s);
 void revrotate(t_stack *s);
 int	getn(t_stack *s, size_t l, int flag);
 
-void manipulate(int cmd, t_stack *s, t_mplh *h)
+void manipulate(int cmd, t_stack *s, t_mplh *h);
+
+void	*ft_memcpy(void *dst, const void *src, size_t n);
+size_t	ft_strlcpy(char	*dst, const char	*src, size_t	dstsize)
 
 #endif
 

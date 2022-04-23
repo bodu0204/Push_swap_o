@@ -85,7 +85,7 @@ t_mplc	*omitmpl1(t_mplc	*one, t_mplc	*two, int *flag)
 		return(one);
 }
 
-size_t mkoutstr(t_mplc	*m)
+size_t mpllen(t_mplc	*m)
 {
 	size_t	len;
 
@@ -104,18 +104,38 @@ size_t mkoutstr(t_mplc	*m)
 	return (len);
 }
 
-size_t mpllen(char	*s, t_mplc	*m)
+void	mkoutstr(char	*s, t_mplc	*m)
 {
 	while (m)
 	{
-		if (m->mpl == sa)
-		{
-			
-			s += 3;
-		}
-		else
-			i += 4;
+		s += mpltoa(m->mpl, m);
 		m = m->next;
 	}
-	return (i);
+	return ;
+}
+
+size_t	mpltoa(int mpl, char *buf)
+{
+	if (mpl == sa)
+		return (ft_strlcpy(buf, "sa\n", 4));
+	else if (mpl == ss)
+		return (ft_strlcpy(buf, "ss\n", 4));
+	else if (mpl == pa)
+		return (ft_strlcpy(buf, "pa\n", 4));
+	else if (mpl == pb)
+		return (ft_strlcpy(buf, "pb\n", 4));
+	else if (mpl == pb)
+		return (ft_strlcpy(buf, "pb\n", 4));
+	else if (mpl == ra)
+		return (ft_strlcpy(buf, "ra\n", 4));
+	else if (mpl == rb)
+		return (ft_strlcpy(buf, "rb\n", 4));
+	else if (mpl == rra)
+		return (ft_strlcpy(buf, "rra\n", 5));
+	else if (mpl == rrb)
+		return (ft_strlcpy(buf, "rrb\n", 5));
+	else                                           if (mpl == rrr)
+		return (ft_strlcpy(buf, "rrr\n", 5));
+else
+{printf("found error");TEST exit(2);}
 }
