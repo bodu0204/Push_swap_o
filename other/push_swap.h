@@ -81,6 +81,8 @@ void manipulate(int cmd, t_stack *s, t_mplh *h);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
 size_t	ft_strlcpy(char	*dst, const char	*src, size_t	dstsize)
 
+void	push_swap(t_situation *s, t_mplh *h, int ms);
+
 #endif
 
 
@@ -92,6 +94,8 @@ size_t	ft_strlcpy(char	*dst, const char	*src, size_t	dstsize)
 #include "debug.h" //test
 
 t_stack *s
+
+t_situation *s
 
 t_mplh *h
 

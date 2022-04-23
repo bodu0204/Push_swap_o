@@ -12,8 +12,10 @@ enum
 enum
 {
 	TOP,
+	DEAL,
 	GIRD,
 	UNDER,
+	BOTTOM,
 };
 
 enum
@@ -79,6 +81,7 @@ int	getn(t_stack *s, size_t l, int flag);
 void manipulate(int cmd, t_stack *s, t_mplh *h);
 
 void	*ft_memcpy(void *dst, const void *src, size_t n);
+void	push_swap(t_situation	*s, t_mplh *h, int ms);
 
 #endif
 
@@ -91,6 +94,8 @@ void	*ft_memcpy(void *dst, const void *src, size_t n);
 #include "debug.h" //test
 
 t_stack *s
+
+t_situation	*s
 
 t_mplh *h
 
