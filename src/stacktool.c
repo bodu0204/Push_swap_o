@@ -6,7 +6,7 @@ void push(t_stack *o, t_stack *u)
 	int i;
 
 if (!o->len)
-{printf("found error");TEST exit(1);}
+{printf("found error");TEST exit(2);}
 	o->len--;
 	i = o->phs[(o->img + o->udr + o->grd + o->len) % o->phl];
 	u->phs[(u->img + u->udr + u->grd + u->len) % u->phl] = i;
@@ -22,7 +22,7 @@ void swap(t_stack *s)
 	int ii;
 
 if (s->len < 2)
-{printf("found error");TEST exit(1);}
+{printf("found error");TEST exit(2);}
 	i = s->phs[(s->img + s->udr + s->grd + s->len - 1) % s->phl];
 	ii = s->phs[(s->img + s->udr + s->grd + s->len - 2) % s->phl];
 	s->phs[(s->img + s->udr + s->grd + s->len - 1) % s->phl] = ii;
@@ -35,7 +35,7 @@ void rotate(t_stack *s)
 	int i;
 
 if (!s->len)
-{printf("found error");TEST exit(1);}
+{printf("found error");TEST exit(2);}
 	s->len--;
 	i = s->phs[(s->img + s->udr + s->grd + s->len) % s->phl];
 	s->img = (s->img + s->phl - 1) % s->phl;
@@ -49,7 +49,7 @@ void revrotate(t_stack *s)
 	int i;
 
 if (!s->udr)
-{printf("found error");TEST exit(1);}
+{printf("found error");TEST exit(2);}
 	i = s->phs[s->img];
 	s->img = (s->img + 1) % s->phl;
 	s->udr--;
@@ -67,8 +67,8 @@ int	getn(t_stack *s, size_t l, int flag)
 	else if(flag == UNDER)
 		l += s->img;
 else
-{printf("found error");TEST exit(1);}
+{printf("found error");TEST exit(2);}
 if (l >= s->len + s->grd + s->udr)
-{printf("found error");TEST exit(1);}
+{printf("found error");TEST exit(2);}
 	return (s->phs[l % s->phl]);
 }

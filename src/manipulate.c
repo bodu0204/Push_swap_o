@@ -12,6 +12,7 @@ void manipulate(int cmd, t_stack *s, t_mplh *h)
 	if (!new)
 	{
 		free_all(h);
+		write(STDOUT_FILENO, "malloc Error\n", 13);
 		exit(1);
 	}
 	m = h->sc;
@@ -60,12 +61,12 @@ void	operation1(int cmd, t_situation *s)
 		revrotate(&s->a);
 	else if (cmd == rrb)
 		revrotate(&s->b);
-	else if (cmd == rrr)
+	else                                         if (cmd == rrr)
 	{
 		revrotate(&s->a);
 		revrotate(&s->b);
 	}
 else
-{printf("found error");TEST exit(1);}
+{printf("found error");TEST exit(2);}
 	return ;
 }

@@ -26,7 +26,8 @@ int	main(int argc, char *argv[])
 		return (1);
 	}
 	push_swap(&s, &h, _a);
-	op = mkout(&h);//確保できなかった時はexit 全てfreeしてから戻る
+	op = mkout(&h);//確保できなかった時はexit
+	free_all(&h);
 	r = write(STDOUT_FILENO, op, ft_strlen(op));
 	free(op);
 	return (r < 0);

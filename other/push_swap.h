@@ -95,8 +95,14 @@ t_mplh *h
 t_mplc	*m;
 
 
-{printf("found error");TEST exit(1);}
+{printf("found error");TEST exit(2);}
 
+
+	{
+		free_all(h);
+		write(STDOUT_FILENO, "malloc Error\n", 13);
+		exit(1);
+	}
 
 
  */
