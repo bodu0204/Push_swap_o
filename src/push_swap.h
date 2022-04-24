@@ -7,6 +7,7 @@ enum
 {
 	_a,
 	_b,
+	_none
 };
 
 enum
@@ -78,6 +79,8 @@ void	rotate(t_stack *s);
 void	revrotate(t_stack *s);
 int		getn(t_stack *s, size_t l, int flag);
 
+void	set_divide_fmt(t_dividing *d, t_stack *g, int flag);
+
 void	manipulate(int cmd, t_stack *s, t_mplh *h);
 
 void	ft_bzero(void *s, size_t n);
@@ -102,6 +105,9 @@ t_situation	*s
 t_mplh *h
 
 t_mplc	*m;
+
+
+manipulate(, s, h);
 
 
 {printf("found error");TEST exit(2);}

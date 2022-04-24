@@ -7,7 +7,7 @@ void	push_swap(t_situation	*s, t_mplh *h, int ms)
 	t_dividing	d;
 
 	rase(s);
-	set_divide_fmt(&d, &s->g);
+	set_divide_fmt(&d, &s->g, _none);
 	if (push_swap_five(s, h, &d))
 		return ;
 	if (swap_thrtwo(s, h))
@@ -97,12 +97,26 @@ void	rase(t_situation	*s)
 	return ;
 }
 
-void	set_divide_fmt(t_dividing *d, t_stack *g)
+void	set_divide_fmt(t_dividing *d, t_stack *g, int flag)
 {
+	size_t	i;
+
 	d->mut = g->len / 2;
 	d->inc = g->len % 2;
 	d->num = getn(g, d->mut + d->inc - 1, DEAL);
 	d->use = 0;
+	if (flag == _none)
+		return ;
+	i = d->mut;
+	if (flag == _a)
+		i += d->inc;
+	d->mut = i / 2;
+	d->inc = i % 2;
+	if (flag == _a)
+		d->num = getn(g, d->mut + d->inc - 1, DEAL);
+	else
+		d->num = getn(g, i + d->mut + d->inc - 1, DEAL);
+	return ;
 }
 
 void	treatstack(t_situation	*s, t_mplh *h)
