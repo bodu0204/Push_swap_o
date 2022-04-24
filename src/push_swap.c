@@ -31,14 +31,15 @@ int	push_swap_five(t_situation	*s, t_mplh *h, t_dividing	*d)
 TEST_
 	size_t	i;
 
-TESTn("s->a.len", s->a.len)
-TESTn("s->a.grd", s->a.grd)
-TESTn("s->a.udr", s->a.udr)
+//TESTn("s->a.len", s->a.len)
+//TESTn("s->a.grd", s->a.grd)
+//TESTn("s->a.udr", s->a.udr)
 	if (s->a.grd || s->a.len != 5)
 		return (0);
 TEST
 	while (getn(&s->a, 0, BOTTOM) < d->num)
 		manipulate(rra, s, h);
+TEST
 	i = 0;
 	while (i < d->mut)
 	{
