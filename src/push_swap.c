@@ -47,11 +47,14 @@ TESTn("s->a.grd", s->a.grd)
 TESTn("s->a.udr", s->a.udr)
 		if (getn(&s->a, 0, TOP) < d->num)
 		{
+TEST
 			manipulate(pb, s , h);
 			i++;
 		}
 		else
+{TEST
 			manipulate(ra, s , h);
+}
 	}
 	swap_thrtwo(s, h);
 	return (1);
