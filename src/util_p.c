@@ -3,6 +3,7 @@
 
 void	raise(t_situation	*s)
 {
+TEST_
 	while (getn(&s->a, 0, DEAL) == getn(&s->g, 0, DEAL) && s->a.len)
 	{
 		s->a.grd++;
@@ -15,6 +16,7 @@ void	raise(t_situation	*s)
 
 void	set_divide_fmt(t_dividing *d, t_stack *g, int flag)
 {
+TEST_
 	size_t	i;
 
 	d->mut = g->len / 2;
@@ -37,6 +39,7 @@ void	set_divide_fmt(t_dividing *d, t_stack *g, int flag)
 
 void	treatstack(t_situation	*s, t_mplh *h)
 {
+TEST_
 	while (s->a.udr && s->b.udr)
 		manipulate(rrr, s, h);
 	while (s->a.udr)
@@ -51,6 +54,7 @@ TEST
 
 void	set_next_stack(t_situation	*s, t_situation	*next, int ms)
 {
+TEST_
 	ft_memcpy(next, s, sizeof(t_situation));
 	next->a.udr = 0;
 	next->b.udr = 0;

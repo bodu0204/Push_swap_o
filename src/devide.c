@@ -7,6 +7,7 @@ size_t	rotate_mount_b(t_situation *s, t_dividing *d);
 
 void divide(t_situation *s, t_mplh *h, t_dividing *d, int ms)
 {
+TEST_
 	t_dividing	next;
 
 	if (ms == _a)
