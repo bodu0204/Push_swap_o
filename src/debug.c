@@ -20,7 +20,7 @@ void showstack(t_stack *s, char c)
 		printf("%4d", getn(s, i , UNDER) % 1000);
 		i++;
 	}
-	printf("\n");
+	printf("\n  ");
 	i = 0;
 	while (i < s->udr)
 	{
