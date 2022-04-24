@@ -60,7 +60,7 @@ if (!s->udr && s->grd)
 	i = s->phs[s->img];
 TESTn("i", i)
 	s->img = (s->img + 1) % s->phl;
-	s->phs[(s->img + s->udr + s->grd + s->len) % s->phl] = i;
+	s->phs[(s->img + s->udr + s->grd + s->len + s->phl - 1) % s->phl] = i;
 	if (s->grd)
 	{
 		s->udr--;
