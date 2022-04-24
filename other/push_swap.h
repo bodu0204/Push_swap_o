@@ -78,6 +78,8 @@ int		isdup(size_t argc, char *argv[]);
 
 void	push_swap(t_situation	*s, t_mplh *h, int ms);
 
+void	divide(t_situation *s, t_mplh *h, t_dividing *d, int ms);
+
 void	rase(t_situation	*s);
 void	set_divide_fmt(t_dividing *d, t_stack *g, int flag);
 void	treatstack(t_situation	*s, t_mplh *h);
@@ -94,6 +96,8 @@ void	swap(t_stack *s);
 void	rotate(t_stack *s);
 void	revrotate(t_stack *s);
 int		getn(t_stack *s, size_t l, int flag);
+
+void	free_all(t_mplh *h);
 
 void	ft_bzero(void *s, size_t n);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
