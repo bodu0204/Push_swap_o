@@ -3,20 +3,14 @@
 
 void push(t_stack *o, t_stack *u)
 {
+TEST
 	int i;
 
 if (!o->len)
 {printf("found error");TEST exit(2);}
 	o->len--;
 	i = o->phs[(o->img + o->udr + o->grd + o->len) % o->phl];
-TEST
-TESTn("u->len", u->len)
-TESTn("u->grd", u->grd)
-TESTn("u->udr", u->udr)
-TESTn("u->img", u->img)
-TESTn("u->phl", u->phl)
 	u->phs[(u->img + u->udr + u->grd + u->len) % u->phl] = i;
-TEST
 	u->len++;
 if (u->udr + u->grd + u->len > u->phl)
 {printf("found error");TEST exit(1);}
@@ -25,6 +19,7 @@ if (u->udr + u->grd + u->len > u->phl)
 
 void swap(t_stack *s)
 {
+TEST
 	int i;
 	int ii;
 
@@ -39,6 +34,7 @@ if (s->len < 2)
 
 void rotate(t_stack *s)
 {
+TEST
 	int i;
 
 if (!s->len && s->grd)
@@ -56,6 +52,7 @@ if (!s->len && s->grd)
 
 void revrotate(t_stack *s)
 {
+TEST
 	int i;
 
 if (!s->udr && s->grd)
@@ -73,7 +70,7 @@ if (!s->udr && s->grd)
 
 int	getn(t_stack *s, size_t l, int flag)
 {
-//TEST_
+//TEST
 //TESTn("l", l)
 //TESTn("flag", flag)
 //TESTn("s->len", s->len)
