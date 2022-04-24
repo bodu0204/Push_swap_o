@@ -13,7 +13,9 @@ if (!one)
 {printf("found error");TEST exit(2);}
 	two = one->next;
 	if (!two)
+{TEST
 		return (NULL);
+}
 	if ((one->mpl == pa && two->mpl == pb) || (one->mpl == pb && two->mpl == pa) \
 	|| (one->mpl == sa && two->mpl == sa) \
 	|| (one->mpl == sb && two->mpl == sb) \
