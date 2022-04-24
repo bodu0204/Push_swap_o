@@ -38,10 +38,13 @@ TEST_
 		return (0);
 	while (getn(&s->a, 0, BOTTOM) < d->num)
 		manipulate(rra, s, h);
-TEST
 	i = 0;
 	while (i < d->mut)
 	{
+printf("\n");
+TESTn("s->a.len", s->a.len)
+TESTn("s->a.grd", s->a.grd)
+TESTn("s->a.udr", s->a.udr)
 		if (getn(&s->a, 0, TOP) < d->num)
 		{
 			manipulate(pb, s , h);
@@ -50,7 +53,6 @@ TEST
 		else
 			manipulate(ra, s , h);
 	}
-TEST
 	swap_thrtwo(s, h);
 	return (1);
 }
