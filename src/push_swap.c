@@ -49,6 +49,7 @@ TESTn("s->a.udr", s->a.udr)
 		{
 TEST
 			manipulate(pb, s , h);
+TEST
 			i++;
 		}
 		else
