@@ -28,6 +28,7 @@ TEST_
 
 int	push_swap_five(t_situation	*s, t_mplh *h, t_dividing	*d)
 {
+TEST_
 	size_t	i;
 
 	if (s->a.grd || s->a.len != 5)
@@ -51,6 +52,7 @@ int	push_swap_five(t_situation	*s, t_mplh *h, t_dividing	*d)
 
 int	swap_thrtwo(t_situation	*s, t_mplh *h)
 {
+TEST_
 	if (!s->a.len && !s->b.len)
 		return (1);
 	if (s->a.len == 3 && !s->a.grd && s->b.len <= 2)
