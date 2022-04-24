@@ -33,24 +33,10 @@ int	main(int argc, char *argv[])
 
 int	mkenv(int argc, char *argv[], t_situation *s, t_mplh *h)
 {
-	ft_bzero(s, sizeof(t_stack));
+	ft_bzero(s, sizeof(t_situation));
 	ft_bzero(h, sizeof(t_mplh));
-TEST_
-TESTn("s->a.len", s->a.len)
-TESTn("s->a.grd", s->a.grd)
-TESTn("s->a.udr", s->a.udr)
-TESTn("s->g.len", s->g.len)
-TESTn("s->g.grd", s->g.grd)
-TESTn("s->g.udr", s->g.udr)
 	if (set_stack(argc - 1, argv + 1, s, h))
 		return (1);
-TEST_
-TESTn("s->a.len", s->a.len)
-TESTn("s->a.grd", s->a.grd)
-TESTn("s->a.udr", s->a.udr)
-TESTn("s->g.len", s->g.len)
-TESTn("s->g.grd", s->g.grd)
-TESTn("s->g.udr", s->g.udr)
 	mkgoal(s->g.phs, argc);
 	return (0);
 }
