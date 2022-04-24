@@ -66,13 +66,13 @@ if (!s->udr && s->grd)
 
 int	getn(t_stack *s, size_t l, int flag)
 {
-TEST_
-TESTn("l", l)
-TESTn("flag", flag)
-TESTn("s->len", s->len)
-TESTn("s->grd", s->grd)
-TESTn("s->udr", s->udr)
-TESTn("s->img", s->img)
+//TEST_
+//TESTn("l", l)
+//TESTn("flag", flag)
+//TESTn("s->len", s->len)
+//TESTn("s->grd", s->grd)
+//TESTn("s->udr", s->udr)
+//TESTn("s->img", s->img)
 	if (flag == TOP)
 		l = s->img + s->udr + s->grd + s->len + s->phl - 1;
 	else if (flag == DEAL)

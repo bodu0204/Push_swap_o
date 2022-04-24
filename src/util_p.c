@@ -17,14 +17,14 @@ TEST_
 void	set_divide_fmt(t_dividing *d, t_stack *g, int flag)
 {
 TEST_
-TESTn("flag", flag)
+//TESTn("flag", flag)
 	size_t	i;
 
 	d->mut = g->len / 2;
 	d->inc = g->len % 2;
-TEST
+//TEST
 	d->num = getn(g, d->mut + d->inc - 1, DEAL);
-TEST
+//TEST
 	d->use = 0;
 	if (flag == _none)
 		return ;
