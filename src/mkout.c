@@ -42,7 +42,7 @@ size_t mpllen(t_mplc	*m)
 	len = 0;
 	while (m)
 	{
-printf("%d", m->mpl);
+printf("%d,", m->mpl);
 		if (m->mpl == sa || m->mpl == sb || m->mpl == ss || m->mpl == pa \
 		|| m->mpl == pb || m->mpl == ra || m->mpl == rb || m->mpl == rr)
 		{
