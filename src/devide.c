@@ -30,7 +30,7 @@ void	divide_from_a(t_situation *s, t_mplh *h, t_dividing *d, t_dividing *next)
 	{
 		if (d->use + 1 == d->mut && s->a.len >= 2)
 		{
-			if (getn(&s->a, s->a.len - 2, DEAL) < d->num)
+			if (getn(&s->a, s->a.len - 2, DEAL) >= d->num)
 				manipulate(sa, s, h);
 		}
 		if (getn(&s->a, 0, TOP) >= d->num)
@@ -58,7 +58,7 @@ void	divide_from_b(t_situation *s, t_mplh *h, t_dividing *d, t_dividing *next)
 	{
 		if (d->use + 1 == d->mut + d->inc && s->b.len >= 2)
 		{
-			if (getn(&s->a, s->b.len - 2, DEAL) >= d->num)
+			if (getn(&s->a, s->b.len - 2, DEAL) < d->num)
 				manipulate(sb, s, h);
 		}
 		if (getn(&s->b, 0, TOP) < d->num)
