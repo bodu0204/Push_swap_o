@@ -58,6 +58,7 @@ TEST
 if (!s->udr && s->grd)
 {printf("found error");TEST exit(2);}
 	i = s->phs[s->img];
+TESTn("i", i)
 	s->img = (s->img + 1) % s->phl;
 	s->phs[(s->img + s->udr + s->grd + s->len) % s->phl] = i;
 	if (s->grd)
