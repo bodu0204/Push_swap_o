@@ -37,7 +37,7 @@ t_mplc	*omitmpl1(t_mplc	*one, t_mplc	*two, int *flag)
 {
 	if ((one->mpl == sa && two->mpl == sb) || (one->mpl == sb && two->mpl == sa))
 	{
-TESTp("two->next", two->next)
+TESTn("(two->next)->mpl", (two->next)->mpl)
 		*flag = 1;
 		two->mpl = ss;
 		free(one);
