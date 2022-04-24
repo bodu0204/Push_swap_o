@@ -56,7 +56,7 @@ void	mkoutstr(char	*s, t_mplc	*m)
 {
 	while (m)
 	{
-		s += mpltoa(m->mpl, m);
+		s += mpltoa(m->mpl, s);
 		m = m->next;
 	}
 	return ;

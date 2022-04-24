@@ -1,7 +1,7 @@
 #include "push_swap.h"
 #include "debug.h" //test
 
-void	rase(t_situation	*s)
+void	raise(t_situation	*s)
 {
 	while (getn(&s->a, 0, DEAL) == getn(&s->g, 0, DEAL) && s->a.len)
 	{

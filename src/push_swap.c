@@ -8,7 +8,7 @@ void	push_swap(t_situation	*s, t_mplh *h, int ms)
 	t_situation	next;
 	t_dividing	d;
 
-	rase(s);
+	raise(s);
 	set_divide_fmt(&d, &s->g, _none);
 	if (push_swap_five(s, h, &d))
 		return ;

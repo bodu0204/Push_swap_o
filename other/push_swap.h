@@ -80,7 +80,7 @@ void	push_swap(t_situation	*s, t_mplh *h, int ms);
 
 void	divide(t_situation *s, t_mplh *h, t_dividing *d, int ms);
 
-void	rase(t_situation	*s);
+void	raise(t_situation	*s);
 void	set_divide_fmt(t_dividing *d, t_stack *g, int flag);
 void	treatstack(t_situation	*s, t_mplh *h);
 void	set_next_stack(t_situation	*s, t_situation	*next, int ms);
