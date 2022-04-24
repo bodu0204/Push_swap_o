@@ -36,6 +36,7 @@ TESTn("s->a.grd", s->a.grd)
 TESTn("s->a.udr", s->a.udr)
 	if (s->a.grd || s->a.len != 5)
 		return (0);
+TEST
 	while (getn(&s->a, 0, BOTTOM) < d->num)
 		manipulate(rra, s, h);
 	i = 0;
