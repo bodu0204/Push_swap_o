@@ -67,6 +67,7 @@ if (!s->udr && s->grd)
 int	getn(t_stack *s, size_t l, int flag)
 {
 TESTn("l", l)
+TESTn("flag", flag)
 TESTn("s->len", s->len)
 TESTn("s->grd", s->grd)
 TESTn("s->udr", s->udr)
