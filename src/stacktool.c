@@ -85,7 +85,7 @@ TESTn("s->img", s->img)
 else
 {printf("found error");TEST exit(2);}
 TESTn("l - s->img - ((flag == TOP) * (s->phl - 1))", l - s->img - ((flag == TOP) * (s->phl - 1)))
-if (l - s->img - ((flag == TOP) * (s->phl - 1)) >= s->len + s->grd + s->udr)
+if (l - s->img - ((flag == TOP) * s->phl) >= s->len + s->grd + s->udr)
 {printf("found error");TEST exit(2);}
 	return (s->phs[l % s->phl]);
 }
