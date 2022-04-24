@@ -10,6 +10,9 @@ if (!o->len)
 	o->len--;
 	i = o->phs[(o->img + o->udr + o->grd + o->len) % o->phl];
 TEST
+TESTn("u->len", u->len)
+TESTn("u->grd", u->grd)
+TESTn("u->udr", u->udr)
 	u->phs[(u->img + u->udr + u->grd + u->len) % u->phl] = i;
 TEST
 	u->len++;
