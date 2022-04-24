@@ -1,6 +1,6 @@
 NAME		= push_swap
 BONUSNAME	= checker
-SRC			= devide.c main.c manipulate.c mkout.c omitmpl.c push_swap.c stacktool.c util.c util_m.c util_p.c
+SRC			= devide.c main.c manipulate.c mkout.c omitmpl.c push_swap.c stacktool.c util.c util_m.c util_p.c    debug.c#test
 HEADER		= push_swap.h
 SRC_b		= checker_bonus.c main_bonus.c manipulateA_bnous.c manipulateB_bnous.c util_m_bonus.c
 HEADER_b	= checker_bonus.h
