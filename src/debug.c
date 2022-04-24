@@ -37,7 +37,7 @@ void showstack(t_stack *s, char c)
 	}
 	if (i == s->grd)
 		puts("^   ");
-	puts('\n');
+	putchar('\n');
 	fflush(stdout);
 	return ;
 }
