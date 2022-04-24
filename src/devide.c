@@ -1,5 +1,9 @@
 #include "push_swap.h"
 #include "debug.h" //test
+void	divide_from_a(t_situation *s, t_mplh *h, t_dividing *d, t_dividing *next);
+void	divide_from_b(t_situation *s, t_mplh *h, t_dividing *d, t_dividing *next);
+size_t	rotate_mount_a(t_situation *s, t_dividing *d);
+size_t	rotate_mount_b(t_situation *s, t_dividing *d);
 
 void divide(t_situation *s, t_mplh *h, t_dividing *d, int ms)
 {
@@ -20,7 +24,7 @@ void divide(t_situation *s, t_mplh *h, t_dividing *d, int ms)
 
 void	divide_from_a(t_situation *s, t_mplh *h, t_dividing *d, t_dividing *next)
 {
-	next->use = rotate_mount(s, d, _a);
+	next->use = rotate_mount_a(s, d);
 	while (d->use < d->mut)
 	{
 		if (d->use + 1 == d->mut && s->a.len >= 2)
@@ -48,7 +52,7 @@ void	divide_from_a(t_situation *s, t_mplh *h, t_dividing *d, t_dividing *next)
 
 void	divide_from_b(t_situation *s, t_mplh *h, t_dividing *d, t_dividing *next)
 {
-	next->use = rotate_mount(s, d, _b);
+	next->use = rotate_mount_b(s, d);
 	while (d->use < d->mut + d->inc)
 	{
 		if (d->use + 1 == d->mut + d->inc && s->b.len >= 2)
@@ -61,12 +65,12 @@ void	divide_from_b(t_situation *s, t_mplh *h, t_dividing *d, t_dividing *next)
 		else
 		{
 			manipulate(pa, s, h);
-			if (s->a.grd && getn(&s->b, 0, TOP) < next->num && next->use)
+			if (s->a.grd && getn(&s->a, 0, TOP) < next->num && next->use)
 			{
 				manipulate(ra, s, h);
 				next->use--;
 			}
-			else if (!s->a.grd && getn(&s->b, 0, TOP) >= next->num)
+			else if (!s->a.grd && getn(&s->a, 0, TOP) >= next->num)
 				manipulate(ra, s, h);
 			d->use++;
 		}
@@ -74,4 +78,46 @@ void	divide_from_b(t_situation *s, t_mplh *h, t_dividing *d, t_dividing *next)
 	return ;
 }
 
-size_t
+size_t	rotate_mount_a(t_situation *s, t_dividing *d)
+{
+	size_t	i;
+	size_t	pi;
+	size_t	ri;
+
+	i = s->a.len;
+	pi = 0;
+	ri = 0;
+	while(pi < d->mut && i)
+	{
+		if (getn(&s->a, i - 1, DEAL) >= d->num)
+			ri++;
+		else
+			pi++;
+		i--;
+	}
+	if (getn(&s->a, i + 1, DEAL) >= d->num && ri)
+		ri--;
+	return (ri);
+}
+
+size_t	rotate_mount_b(t_situation *s, t_dividing *d)
+{
+	size_t	i;
+	size_t	pi;
+	size_t	ri;
+
+	i = s->b.len;
+	pi = 0;
+	ri = 0;
+	while(pi < d->mut + d->inc && i)
+	{
+		if (getn(&s->a, i - 1, DEAL) < d->num)
+			ri++;
+		else
+			pi++;
+		i--;
+	}
+	if (getn(&s->a, i + 1, DEAL) < d->num && ri)
+		ri--;
+	return (ri);
+}

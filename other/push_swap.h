@@ -7,13 +7,16 @@ enum
 {
 	_a,
 	_b,
+	_none
 };
 
 enum
 {
 	TOP,
+	DEAL,
 	GIRD,
 	UNDER,
+	BOTTOM,
 };
 
 enum
@@ -70,18 +73,28 @@ typedef struct s_manipulate_content
 	struct s_manipulate_content	*next;
 }	t_mplc;
 
-void push(t_stack *o, t_stack *u);
-void swap(t_stack *s);
-void rotate(t_stack *s);
-void revrotate(t_stack *s);
-int	getn(t_stack *s, size_t l, int flag);
+int		isover(char *s);
+int		isdup(size_t argc, char *argv[]);
 
-void manipulate(int cmd, t_stack *s, t_mplh *h);
+void	push_swap(t_situation	*s, t_mplh *h, int ms);
 
+void	rase(t_situation	*s);
+void	set_divide_fmt(t_dividing *d, t_stack *g, int flag);
+void	treatstack(t_situation	*s, t_mplh *h);
+void	set_next_stack(t_situation	*s, t_situation	*next, int ms);
+
+void	manipulate(int cmd, t_stack *s, t_mplh *h);
+
+t_mplc	*omitmpl(t_mplc	*one, int *flag);
+
+void	push(t_stack *o, t_stack *u);
+void	swap(t_stack *s);
+void	rotate(t_stack *s);
+void	revrotate(t_stack *s);
+int		getn(t_stack *s, size_t l, int flag);
+
+void	ft_bzero(void *s, size_t n);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
-size_t	ft_strlcpy(char	*dst, const char	*src, size_t	dstsize)
-
-void	push_swap(t_situation *s, t_mplh *h, int ms);
 
 #endif
 
@@ -90,16 +103,17 @@ void	push_swap(t_situation *s, t_mplh *h, int ms);
 
 /*
 
-#include "push_swap.h"
-#include "debug.h" //test
 
 t_stack *s
 
-t_situation *s
+t_situation	*s
 
 t_mplh *h
 
 t_mplc	*m;
+
+
+manipulate(, s, h);
 
 
 {printf("found error");TEST exit(2);}
