@@ -72,15 +72,17 @@ typedef struct s_manipulate_content
 	struct s_manipulate_content	*next;
 }	t_mplc;
 
-void push(t_stack *o, t_stack *u);
-void swap(t_stack *s);
-void rotate(t_stack *s);
-void revrotate(t_stack *s);
-int	getn(t_stack *s, size_t l, int flag);
+void	push(t_stack *o, t_stack *u);
+void	swap(t_stack *s);
+void	rotate(t_stack *s);
+void	revrotate(t_stack *s);
+int		getn(t_stack *s, size_t l, int flag);
 
-void manipulate(int cmd, t_stack *s, t_mplh *h);
+void	manipulate(int cmd, t_stack *s, t_mplh *h);
 
+void	ft_bzero(void *s, size_t n);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
+
 void	push_swap(t_situation	*s, t_mplh *h, int ms);
 
 #endif
