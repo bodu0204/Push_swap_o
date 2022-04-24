@@ -22,11 +22,11 @@ TESTn("flag", flag)
 
 	d->mut = g->len / 2;
 	d->inc = g->len % 2;
+TEST
 	d->num = getn(g, d->mut + d->inc - 1, DEAL);
 	d->use = 0;
 	if (flag == _none)
 		return ;
-TEST
 	i = d->mut;
 	if (flag == _a)
 		i += d->inc;
