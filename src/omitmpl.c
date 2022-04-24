@@ -9,8 +9,8 @@ t_mplc	*omitmpl(t_mplc	*one, int *flag)
 	t_mplc	*two;
 	t_mplc	*rtn;
 
-if (!one)
-{printf("found error");TEST exit(2);}
+	if (!one)
+		return(NULL);
 	two = one->next;
 	if (!two)
 		return (one);
