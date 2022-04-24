@@ -11,12 +11,12 @@ void divide(t_situation *s, t_mplh *h, t_dividing *d, int ms)
 
 	if (ms == _a)
 	{
-		set_divide_fmt(&next, s, _a);
+		set_divide_fmt(&next, &s->g, _a);
 		divide_from_a(s, h, d, &next);
 	}
 	else
 	{
-		set_divide_fmt(&next, s, _b);
+		set_divide_fmt(&next, &s->g, _b);
 		divide_from_b(s, h, d, &next);
 	}
 	return ;

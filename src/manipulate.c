@@ -3,7 +3,7 @@
 void	operation(int cmd, t_situation *s);
 void	operation1(int cmd, t_situation *s);
 
-void manipulate(int cmd, t_stack *s, t_mplh *h)
+void manipulate(int cmd, t_situation *s, t_mplh *h)
 {
 	t_mplc	*new;
 	t_mplc	*m;

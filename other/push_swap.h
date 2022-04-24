@@ -85,7 +85,7 @@ void	set_divide_fmt(t_dividing *d, t_stack *g, int flag);
 void	treatstack(t_situation	*s, t_mplh *h);
 void	set_next_stack(t_situation	*s, t_situation	*next, int ms);
 
-void	manipulate(int cmd, t_stack *s, t_mplh *h);
+void	manipulate(int cmd, t_situation *s, t_mplh *h);
 
 char	*mkout(t_mplh *h);
 

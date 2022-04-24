@@ -67,5 +67,5 @@ void	set_next_stack(t_situation	*s, t_situation	*next, int ms)
 		next->a.grd += s->a.len;
 		next->a.len = 0;
 	}
-	return (0);
+	return ;
 }
