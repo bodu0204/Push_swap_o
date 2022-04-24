@@ -11,6 +11,7 @@ if (!o->len)
 	i = o->phs[(o->img + o->udr + o->grd + o->len) % o->phl];
 TEST
 	u->phs[(u->img + u->udr + u->grd + u->len) % u->phl] = i;
+TEST
 	u->len++;
 if (u->udr + u->grd + u->len > u->phl)
 {printf("found error");TEST exit(1);}
