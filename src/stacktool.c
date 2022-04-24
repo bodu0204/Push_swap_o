@@ -66,11 +66,11 @@ if (!s->udr && s->grd)
 
 int	getn(t_stack *s, size_t l, int flag)
 {
-TESTn("l", l)
-TESTn("flag", flag)
-TESTn("s->len", s->len)
-TESTn("s->grd", s->grd)
-TESTn("s->udr", s->udr)
+//TESTn("l", l)
+//TESTn("flag", flag)
+//TESTn("s->len", s->len)
+//TESTn("s->grd", s->grd)
+//TESTn("s->udr", s->udr)
 	if (flag == TOP)
 		l = s->img + s->udr + s->grd + s->len + s->phl - 1;
 	else if (flag == DEAL)
@@ -83,8 +83,8 @@ TESTn("s->udr", s->udr)
 		l = s->img;
 else
 {printf("found error");TEST exit(2);}
-TESTn("l - s->img", l - s->img)
-if (l - s->img >= s->len + s->grd + s->udr)
+//TESTn("l - s->img", l - s->img)
+if (l - s->img - ((flag == TOP) * (s->phl - 1)) >= s->len + s->grd + s->udr)
 {printf("found error");TEST exit(2);}
 	return (s->phs[l % s->phl]);
 }
