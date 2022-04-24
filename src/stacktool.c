@@ -78,6 +78,7 @@ int	getn(t_stack *s, size_t l, int flag)
 		l = s->img;
 else
 {printf("found error");TEST exit(2);}
+TESTn("flag", flag)
 TESTn("s->len + s->grd + s->udr", s->len + s->grd + s->udr)
 TESTn("l", l)
 if (l >= s->len + s->grd + s->udr)
