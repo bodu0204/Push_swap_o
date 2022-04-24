@@ -11,7 +11,7 @@
 
 
 void tests(t_situation *s);
-void showstack(t_stack *s, char c)
+void showstack(t_stack *s, char c);
 
 #endif
 //* test */static	size_t stc = 0;
