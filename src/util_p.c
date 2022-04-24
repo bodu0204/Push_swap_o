@@ -4,12 +4,6 @@
 void	raise(t_situation	*s)
 {
 TEST_
-TESTn("s->a.len", s->a.len)
-TESTn("s->a.grd", s->a.grd)
-TESTn("s->a.udr", s->a.udr)
-TESTn("s->g.len", s->g.len)
-TESTn("s->g.grd", s->g.grd)
-TESTn("s->g.udr", s->g.udr)
 	while (getn(&s->a, 0, DEAL) == getn(&s->g, 0, DEAL) && s->a.len)
 	{
 		s->a.grd++;

@@ -6,6 +6,12 @@ int	swap_thrtwo(t_situation	*s, t_mplh *h);
 void	push_swap(t_situation	*s, t_mplh *h, int ms)
 {
 TEST_
+TESTn("s->a.len", s->a.len)
+TESTn("s->a.grd", s->a.grd)
+TESTn("s->a.udr", s->a.udr)
+TESTn("s->g.len", s->g.len)
+TESTn("s->g.grd", s->g.grd)
+TESTn("s->g.udr", s->g.udr)
 	t_situation	next;
 	t_dividing	d;
 
