@@ -75,7 +75,7 @@ TEST
 		s->a.len--;
 		return (swap_thrtwo(s, h));
 	}
-	if ((s->a.len < 2 || (s->a.len == 2 && getn(&s->a, 0, DEAL) >= getn(&s->a, 1, DEAL))) && s->b.len <= 2)
+	if (s->a.len && (s->a.len < 2 || (s->a.len == 2 && getn(&s->a, 0, DEAL) >= getn(&s->a, 1, DEAL))) && s->b.len <= 2)
 	{
 TEST
 		s->a.grd += s->a.len;
