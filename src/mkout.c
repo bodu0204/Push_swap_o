@@ -23,6 +23,7 @@ char	*mkout(t_mplh *h)
 		}
 	}
 	s = malloc(mpllen(h->cnt) + 1);
+TEST
 	if (!s)
 	{
 		free_all(h);
@@ -40,6 +41,7 @@ size_t mpllen(t_mplc	*m)
 	len = 0;
 	while (m)
 	{
+printf("%d", m->mpl);
 		if (m->mpl == sa || m->mpl == sb || m->mpl == ss || m->mpl == pa \
 		|| m->mpl == pb || m->mpl == ra || m->mpl == rb || m->mpl == rr)
 		{
