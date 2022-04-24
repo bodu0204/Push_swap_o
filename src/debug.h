@@ -15,3 +15,25 @@
 //* test */	printf("the number is too big"); TEST
 //* test */	exit(0);
 //* test */}
+
+/*
+
+
+
+
+TESTn("s->len", s->len)
+TESTn("s->grd", s->grd)
+TESTn("s->udr", s->udr)
+
+
+
+
+
+
+
+
+
+
+
+
+ */
