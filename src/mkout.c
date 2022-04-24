@@ -64,6 +64,7 @@ void	mkoutstr(char	*s, t_mplc	*m)
 
 size_t	mpltoa(int mpl, char *buf)
 {
+TESTn("mpl", mpl)
 	if (mpl == sa)
 		return (ft_strlcpy(buf, "sa\n", 4));
 	else if (mpl == ss)
