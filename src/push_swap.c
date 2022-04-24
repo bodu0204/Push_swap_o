@@ -36,7 +36,6 @@ TEST_
 //TESTn("s->a.udr", s->a.udr)
 	if (s->a.grd || s->a.len != 5)
 		return (0);
-TEST
 	while (getn(&s->a, 0, BOTTOM) < d->num)
 		manipulate(rra, s, h);
 TEST
@@ -51,6 +50,7 @@ TEST
 		else
 			manipulate(ra, s , h);
 	}
+TEST
 	swap_thrtwo(s, h);
 	return (1);
 }
