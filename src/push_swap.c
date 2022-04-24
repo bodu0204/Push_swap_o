@@ -6,6 +6,7 @@ int	swap_thrtwo(t_situation	*s, t_mplh *h);
 void	push_swap(t_situation	*s, t_mplh *h, int ms)
 {
 TEST_
+tests(s);
 	t_situation	next;
 	t_dividing	d;
 
