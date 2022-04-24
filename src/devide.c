@@ -43,7 +43,7 @@ void	divide_from_a(t_situation *s, t_mplh *h, t_dividing *d, t_dividing *next)
 				manipulate(rb, s, h);
 				next->use--;
 			}
-			else if (!s->b.grd && getn(&s->b, 0, TOP) < next->num)
+			else if (!s->b.grd && getn(&s->b, 0, TOP) < next->num && s->b.len > 1)
 				manipulate(rb, s, h);
 			d->use++;
 		}
@@ -71,7 +71,7 @@ void	divide_from_b(t_situation *s, t_mplh *h, t_dividing *d, t_dividing *next)
 				manipulate(ra, s, h);
 				next->use--;
 			}
-			else if (!s->a.grd && getn(&s->a, 0, TOP) >= next->num)
+			else if (!s->a.grd && getn(&s->a, 0, TOP) >= next->num && s->a.len > 1)
 				manipulate(ra, s, h);
 			d->use++;
 		}

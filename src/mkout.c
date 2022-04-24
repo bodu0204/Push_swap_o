@@ -22,7 +22,6 @@ mpllen(h->cnt);TEST
 			m->next = omitmpl(m->next, &flag);
 			m = m->next;
 		}
-mpllen(h->cnt);TEST
 	}
 	s = malloc(mpllen(h->cnt) + 1);
 TEST
