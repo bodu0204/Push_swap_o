@@ -10,6 +10,7 @@ char	*mkout(t_mplh *h)
 	t_mplc	*m;
 	char	*s;
 
+mpllen(h->cnt);TEST
 	flag = 1;
 	while(flag && h->cnt)
 	{
