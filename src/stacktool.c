@@ -9,6 +9,7 @@ if (!o->len)
 {printf("found error");TEST exit(2);}
 	o->len--;
 	i = o->phs[(o->img + o->udr + o->grd + o->len) % o->phl];
+TEST
 	u->phs[(u->img + u->udr + u->grd + u->len) % u->phl] = i;
 	u->len++;
 if (u->udr + u->grd + u->len > u->phl)
