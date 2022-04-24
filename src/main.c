@@ -89,7 +89,8 @@ TEST_
 	s->a.len = argc;
 	s->g.phl = argc;
 	s->a.phl = argc;
-	s->exp = 1;
+	s->b.phl = argc;
+	s->exp = 1; //使わない
 	return (0);
 }
 
