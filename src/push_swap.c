@@ -41,10 +41,6 @@ TEST_
 	i = 0;
 	while (i < d->mut)
 	{
-printf("\n");
-TESTn("s->a.len", s->a.len)
-TESTn("s->a.grd", s->a.grd)
-TESTn("s->a.udr", s->a.udr)
 		if (getn(&s->a, 0, TOP) < d->num)
 		{
 TEST
@@ -55,6 +51,10 @@ TEST
 {TEST
 			manipulate(ra, s , h);
 }
+printf("\n");
+TESTn("s->a.len", s->a.len)
+TESTn("s->a.grd", s->a.grd)
+TESTn("s->a.udr", s->a.udr)
 	}
 	swap_thrtwo(s, h);
 	return (1);
