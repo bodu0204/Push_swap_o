@@ -90,7 +90,7 @@ int	getn(t_stack *s, size_t l, int flag)
 else
 {printf("found error");TEST exit(2);}
 //TESTn("l - s->img - ((flag == TOP) * s->phl)", l - s->img - ((flag == TOP) * s->phl)
-if (l - s->img - ((flag == TOP) * s->phl) >= s->len + s->grd + s->udr)
-{printf("found error");TEST exit(2);}
+//if (l - s->img - ((flag == TOP) * s->phl) >= s->len + s->grd + s->udr)
+//{printf("found error");TEST exit(2);}
 	return (s->phs[l % s->phl]);
 }
