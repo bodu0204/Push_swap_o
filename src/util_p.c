@@ -4,13 +4,14 @@
 void	raise(t_situation	*s)
 {
 TEST_
+TESTn("s->a.len", s->a.len)
+TESTn("s->g.len", s->g.len)
 	while (getn(&s->a, 0, DEAL) == getn(&s->g, 0, DEAL) && s->a.len)
 	{
 		s->a.grd++;
 		s->g.grd++;
 		s->a.len--;
 		s->g.len--;
-TESTn("s->a.len", s->a.len)
 	}
 	return ;
 }
