@@ -83,6 +83,7 @@ TESTn("s->udr", s->udr)
 		l = s->img;
 else
 {printf("found error");TEST exit(2);}
+TESTn("l - s->img", l - s->img)
 if (l - s->img >= s->len + s->grd + s->udr)
 {printf("found error");TEST exit(2);}
 	return (s->phs[l % s->phl]);
