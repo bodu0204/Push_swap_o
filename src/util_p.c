@@ -24,6 +24,7 @@ TESTn("flag", flag)
 	d->inc = g->len % 2;
 TEST
 	d->num = getn(g, d->mut + d->inc - 1, DEAL);
+TEST
 	d->use = 0;
 	if (flag == _none)
 		return ;
