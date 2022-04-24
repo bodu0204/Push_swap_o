@@ -19,7 +19,7 @@ void divide(t_situation *s, t_mplh *h, t_dividing *d, int ms)
 		set_divide_fmt(&next, &s->g, _b);
 		divide_from_b(s, h, d, &next);
 	}
-	return ;/* some */
+	return ;
 }
 
 void	divide_from_a(t_situation *s, t_mplh *h, t_dividing *d, t_dividing *next)
