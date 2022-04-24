@@ -22,7 +22,7 @@ void manipulate(int cmd, t_situation *s, t_mplh *h)
 		m->next = new;
 	h->sc = new;
 	new->mpl = cmd;
-TEST
+TESTn(cmd,cmd)
 	operation(cmd, s);
 TEST
 	return ;
