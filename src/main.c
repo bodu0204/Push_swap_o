@@ -42,6 +42,7 @@ TEST_
 	ft_bzero(h, sizeof(t_mplh));
 	if (set_stack(argc - 1, argv + 1, s, h))
 		return (1);
+TESTn("*(s->g.img)", *(s->g.img))
 	mkgoal(s->g.phs, argc);
 	return (0);
 }
