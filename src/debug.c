@@ -17,6 +17,7 @@ void showstack(t_stack *s, char c)
 	i = 0;
 	while (i < s->udr + s->grd + s->len)
 	{
+TEST
 		printf("%4d", getn(s, i , UNDER) % 1000);
 		i++;
 	}
