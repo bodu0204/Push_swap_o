@@ -79,11 +79,11 @@ TEST_
 	if (!h->freefrom)
 		return (1);
 	s->a.phs = h->freefrom;
-	s->a.img = s->a.phs + (argc * sizeof(int));
-	s->b.phs = s->a.img + sizeof(size_t);
-	s->b.img = s->b.phs + (argc * sizeof(int));
-	s->g.phs = s->b.img + sizeof(size_t);
-	s->g.img = s->g.phs + (argc * sizeof(int));
+	s->a.img = (void *)s->a.phs + (argc * sizeof(int));
+	s->b.phs = (void *)s->a.img + sizeof(size_t);
+	s->b.img = (void *)s->b.phs + (argc * sizeof(int));
+	s->g.phs = (void *)s->b.img + sizeof(size_t);
+	s->g.img = (void *)s->g.phs + (argc * sizeof(int));
 	i = 0;
 	while (i < argc)
 	{
