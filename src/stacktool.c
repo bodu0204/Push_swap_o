@@ -9,8 +9,8 @@ TEST
 if (!o->len)
 {printf("found error");TEST exit(2);}
 	o->len--;
-	i = o->phs[(o->img + o->udr + o->grd + o->len) % o->phl];
-	u->phs[(u->img + u->udr + u->grd + u->len) % u->phl] = i;
+	i = o->phs[(*(o->img) + o->udr + o->grd + o->len) % o->phl];
+	u->phs[(*(u->img) + u->udr + u->grd + u->len) % u->phl] = i;
 	u->len++;
 if (u->udr + u->grd + u->len > u->phl)
 {printf("found error");TEST exit(1);}
@@ -25,10 +25,10 @@ TEST
 
 if (s->len < 2)
 {printf("found error");TEST exit(2);}
-	i = s->phs[(s->img + s->udr + s->grd + s->len - 1) % s->phl];
-	ii = s->phs[(s->img + s->udr + s->grd + s->len - 2) % s->phl];
-	s->phs[(s->img + s->udr + s->grd + s->len - 1) % s->phl] = ii;
-	s->phs[(s->img + s->udr + s->grd + s->len - 2) % s->phl] = i;
+	i = s->phs[(*(s->img) + s->udr + s->grd + s->len - 1) % s->phl];
+	ii = s->phs[(*(s->img) + s->udr + s->grd + s->len - 2) % s->phl];
+	s->phs[(*(s->img) + s->udr + s->grd + s->len - 1) % s->phl] = ii;
+	s->phs[(*(s->img) + s->udr + s->grd + s->len - 2) % s->phl] = i;
 	return ;
 }
 
@@ -39,9 +39,9 @@ TEST
 
 if (!s->len && s->grd)
 {printf("found error");TEST exit(2);}
-	i = s->phs[(s->img + s->udr + s->grd + s->len + s->phl - 1) % s->phl];
-	s->img = (s->img + s->phl - 1) % s->phl;
-	s->phs[s->img] = i;
+	i = s->phs[(*(s->img) + s->udr + s->grd + s->len + s->phl - 1) % s->phl];
+	*(s->img) = (*(s->img) + s->phl - 1) % s->phl;
+	s->phs[*(s->img)] = i;
 	if (s->grd)
 	{
 		s->len--;
@@ -57,9 +57,9 @@ TEST
 
 if (!s->udr && s->grd)
 {printf("found error");TEST exit(2);}
-	i = s->phs[s->img];
-	s->img = (s->img + 1) % s->phl;
-	s->phs[(s->img + s->udr + s->grd + s->len + s->phl - 1) % s->phl] = i;
+	i = s->phs[*(s->img)];
+	*(s->img) = (*(s->img) + 1) % s->phl;
+	s->phs[(*(s->img) + s->udr + s->grd + s->len + s->phl - 1) % s->phl] = i;
 	if (s->grd)
 	{
 		s->udr--;
@@ -76,21 +76,21 @@ int	getn(t_stack *s, size_t l, int flag)
 //TESTn("s->len", s->len)
 //TESTn("s->grd", s->grd)
 //TESTn("s->udr", s->udr)
-//TESTn("s->img", s->img)
+//TESTn("*(s->img)", *(s->img))
 	if (flag == TOP)
-		l = s->img + s->udr + s->grd + s->len + s->phl - 1;
+		l = *(s->img) + s->udr + s->grd + s->len + s->phl - 1;
 	else if (flag == DEAL)
-		l += s->img + s->udr + s->grd;
+		l += *(s->img) + s->udr + s->grd;
 	else if (flag == GIRD)
-		l += s->img + s->udr;
+		l += *(s->img) + s->udr;
 	else if(flag == UNDER)
-		l += s->img;
+		l += *(s->img);
 	else                                  if(flag == BOTTOM)
-		l = s->img;
+		l = *(s->img);
 else
 {printf("found error");TEST exit(2);}
-//TESTn("l - s->img - ((flag == TOP) * s->phl)", l - s->img - ((flag == TOP) * s->phl)
-//if (l - s->img - ((flag == TOP) * s->phl) >= s->len + s->grd + s->udr)
+//TESTn("l - *(s->img) - ((flag == TOP) * s->phl)", l - *(s->img) - ((flag == TOP) * s->phl)
+//if (l - *(s->img) - ((flag == TOP) * s->phl) >= s->len + s->grd + s->udr)
 //{printf("found error");TEST exit(2);}
 	return (s->phs[l % s->phl]);
 }
