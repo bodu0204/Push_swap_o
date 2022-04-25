@@ -58,6 +58,7 @@ TEST_
 void	set_next_stack(t_situation	*s, t_situation	*next, int ms)
 {
 TEST_
+tests(s);
 	ft_memcpy(next, s, sizeof(t_situation));
 	next->a.udr = 0;
 	next->b.udr = 0;
