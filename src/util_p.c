@@ -28,6 +28,7 @@ TEST_
 	d->use = 0;
 	if (flag == _none)
 		return ;
+TEST
 	i = d->mut;
 	if (flag == _a)
 		i += d->inc;
