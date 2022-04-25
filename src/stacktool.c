@@ -71,7 +71,7 @@ void revrotate(t_stack *s)
 int	getn(t_stack *s, size_t l, int flag)
 {
 //TEST
-//TESTn("l", l)
+TESTn("l", l)
 //TESTn("flag", flag)
 //TESTn("s->len", s->len)
 //TESTn("s->grd", s->grd)
