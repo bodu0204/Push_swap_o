@@ -26,7 +26,7 @@ TEST_
 void	divide_from_a(t_situation *s, t_mplh *h, t_dividing *d, t_dividing *next)
 {
 TEST_
-TEST("d->num", d->num);
+TESTn("d->num", d->num);
 	next->use = rotate_mount_a(s, d);
 	while (d->use < d->mut)
 	{
