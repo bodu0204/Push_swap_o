@@ -50,7 +50,7 @@ TEST_
 	while (s->b.udr)
 {
 		manipulate(rrb, s, h);
-TEST
+//TEST
 }
 	raise(s);
 }

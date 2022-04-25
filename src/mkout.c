@@ -6,11 +6,12 @@ size_t	mpltoa(int mpl, char *buf);
 
 char	*mkout(t_mplh *h)
 {
+TEST_
 	int flag;
 	t_mplc	*m;
 	char	*s;
 
-mpllen(h->cnt);TEST
+//mpllen(h->cnt);TEST
 	flag = 1;
 	while(flag && h->cnt)
 	{
@@ -24,7 +25,7 @@ mpllen(h->cnt);TEST
 		}
 	}
 	s = malloc(mpllen(h->cnt) + 1);
-TEST
+//TEST
 	if (!s)
 	{
 		free_all(h);
@@ -42,7 +43,7 @@ size_t mpllen(t_mplc	*m)
 	len = 0;
 	while (m)
 	{
-printf("%d,", m->mpl);
+//printf("%d,", m->mpl);
 		if (m->mpl == sa || m->mpl == sb || m->mpl == ss || m->mpl == pa \
 		|| m->mpl == pb || m->mpl == ra || m->mpl == rb || m->mpl == rr)
 		{

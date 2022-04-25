@@ -1,30 +1,30 @@
 #include "push_swap.h"
-#include "debug.h"/* test */
+//#include "debug.h"/* test */
 
 void push(t_stack *o, t_stack *u)
 {
-TEST
+//TEST
 	int i;
 
-if (!o->len)
-{printf("found error");TEST exit(2);}
+//if (!o->len)
+//{printf("found error");TEST exit(2);}
 	o->len--;
 	i = o->phs[(*(o->img) + o->udr + o->grd + o->len) % o->phl];
 	u->phs[(*(u->img) + u->udr + u->grd + u->len) % u->phl] = i;
 	u->len++;
-if (u->udr + u->grd + u->len > u->phl)
-{printf("found error");TEST exit(1);}
+//if (u->udr + u->grd + u->len > u->phl)
+//{printf("found error");TEST exit(1);}
 	return ;
 }
 
 void swap(t_stack *s)
 {
-TEST
+//TEST
 	int i;
 	int ii;
 
-if (s->len < 2)
-{printf("found error");TEST exit(2);}
+//if (s->len < 2)
+//{printf("found error");TEST exit(2);}
 	i = s->phs[(*(s->img) + s->udr + s->grd + s->len - 1) % s->phl];
 	ii = s->phs[(*(s->img) + s->udr + s->grd + s->len - 2) % s->phl];
 	s->phs[(*(s->img) + s->udr + s->grd + s->len - 1) % s->phl] = ii;
@@ -34,11 +34,11 @@ if (s->len < 2)
 
 void rotate(t_stack *s)
 {
-TEST
+//TEST
 	int i;
 
-if (!s->len && s->grd)
-{printf("found error");TEST exit(2);}
+//if (!s->len && s->grd)
+//{printf("found error");TEST exit(2);}
 	i = s->phs[(*(s->img) + s->udr + s->grd + s->len + s->phl - 1) % s->phl];
 	*(s->img) = (*(s->img) + s->phl - 1) % s->phl;
 	s->phs[*(s->img)] = i;
@@ -52,11 +52,11 @@ if (!s->len && s->grd)
 
 void revrotate(t_stack *s)
 {
-TEST
+//TEST
 	int i;
 
-if (!s->udr && s->grd)
-{printf("found error");TEST exit(2);}
+//if (!s->udr && s->grd)
+//{printf("found error");TEST exit(2);}
 	i = s->phs[*(s->img)];
 	*(s->img) = (*(s->img) + 1) % s->phl;
 	s->phs[(*(s->img) + s->udr + s->grd + s->len + s->phl - 1) % s->phl] = i;
@@ -87,8 +87,8 @@ int	getn(t_stack *s, size_t l, int flag)
 		l += *(s->img);
 	else                                  if(flag == BOTTOM)
 		l = *(s->img);
-else
-{printf("found error");TEST exit(2);}
+//else
+//{printf("found error");TEST exit(2);}
 //TESTn("l - *(s->img) - ((flag == TOP) * s->phl)", l - *(s->img) - ((flag == TOP) * s->phl)
 //if (l - *(s->img) - ((flag == TOP) * s->phl) >= s->len + s->grd + s->udr)
 //{printf("found error");TEST exit(2);}
