@@ -2,7 +2,7 @@
 void	operation(int cmd, t_situ *s);
 void	operation1(int cmd, t_situ *s);
 
-void manipulate(int cmd, t_situ *s, t_mplh *h)
+void	manipulate(int cmd, t_situ *s, t_mplh *h)
 {
 	t_mplc	*new;
 	t_mplc	*m;
@@ -60,7 +60,7 @@ void	operation1(int cmd, t_situ *s)
 		revrotate(&s->a);
 	else if (cmd == rrb)
 		revrotate(&s->b);
-	else                                         if (cmd == rrr)
+	else
 	{
 		revrotate(&s->a);
 		revrotate(&s->b);
