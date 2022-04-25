@@ -78,12 +78,12 @@ size_t	mpltoa(int mpl, char *buf)
 		return (ft_strlcpy(buf, "pa\n", 4));
 	else if (mpl == pb)
 		return (ft_strlcpy(buf, "pb\n", 4));
-	else if (mpl == pb)
-		return (ft_strlcpy(buf, "pb\n", 4));
 	else if (mpl == ra)
 		return (ft_strlcpy(buf, "ra\n", 4));
 	else if (mpl == rb)
 		return (ft_strlcpy(buf, "rb\n", 4));
+	else if (mpl == rr)
+		return (ft_strlcpy(buf, "rr\n", 4));
 	else if (mpl == rra)
 		return (ft_strlcpy(buf, "rra\n", 5));
 	else if (mpl == rrb)
