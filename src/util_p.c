@@ -28,21 +28,15 @@ TEST_
 	d->use = 0;
 	if (flag == _none)
 		return ;
-TEST
 	i = d->mut;
 	if (flag == _a)
 		i += d->inc;
 	d->mut = i / 2;
 	d->inc = i % 2;
 	if (flag == _a)
-{TEST
 		d->num = getn(g, d->mut + d->inc - 1, DEAL);
-}
 	else
-{TEST
 		d->num = getn(g, i + d->mut + d->inc - 1, DEAL);
-}
-TEST
 	return ;
 }
 
