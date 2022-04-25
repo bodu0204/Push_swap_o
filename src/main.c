@@ -41,6 +41,7 @@ int	mkenv(int argc, char *argv[], t_situation *s, t_mplh *h)
 	ft_bzero(h, sizeof(t_mplh));
 	if (set_stack(argc - 1, argv + 1, s, h))
 		return (1);
+showstack("&s->g", &s->g);
 	mkgoal(s->g.phs, argc);
 	return (0);
 }
