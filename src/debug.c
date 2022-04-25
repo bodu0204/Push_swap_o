@@ -10,6 +10,7 @@ void tests(t_situation *s)
 
 void showstack(t_stack *s, char c)
 {
+TEST
 	size_t	i;
 
 	putchar(c);
