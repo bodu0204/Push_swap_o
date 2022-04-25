@@ -81,7 +81,6 @@ t_mplc	*omitmpl2(t_mplc	*one, t_mplc	*two, int *flag)
 
 t_mplc	*omitmpl3(t_mplc	*one, t_mplc	*two, int *flag)
 {
-
 	if ((one->mpl == rr && two->mpl == rrb) \
 	|| (one->mpl == rrb && two->mpl == rr))
 	{
@@ -114,30 +113,4 @@ t_mplc	*omitmpl4(t_mplc	*one, t_mplc	*two, int *flag)
 	}
 	else
 		return (omitmpl5(one, two, flag));
-}
-
-t_mplc	*omitmpl5(t_mplc	*one, t_mplc	*two, int *flag)
-{
-	t_mplc	*rtn;
-
-	if ((one->mpl == pa && two->mpl == pb) \
-	|| (one->mpl == pb && two->mpl == pa) \
-	|| (one->mpl == sa && two->mpl == sa) \
-	|| (one->mpl == sb && two->mpl == sb) \
-	|| (one->mpl == ss && two->mpl == ss) \
-	|| (one->mpl == ra && two->mpl == rra) \
-	|| (one->mpl == rra && two->mpl == ra) \
-	|| (one->mpl == rb && two->mpl == rrb) \
-	|| (one->mpl == rrb && two->mpl == rb) \
-	|| (one->mpl == rr && two->mpl == rrr) \
-	|| (one->mpl == rrr && two->mpl == rr))
-	{
-		*flag = 1;
-		rtn = two->next;
-		free(one);
-		free(two);
-		return (rtn);
-	}
-	else
-		return (one);
 }
