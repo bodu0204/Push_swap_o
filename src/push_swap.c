@@ -55,7 +55,7 @@ int	swap_thrtwo(t_situ	*s, t_mplh *h)
 	if (s->a.len == 3)
 	{
 		if (getn(&s->a, 1, DEAL) == getn(&s->g, 0, DEAL))
-			manipulate(rra, s , h);
+			manipulate(rra, s, h);
 		else if (getn(&s->a, 2, DEAL) == getn(&s->g, 0, DEAL))
 			manipulate(ra, s, h);
 	}
