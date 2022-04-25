@@ -1,16 +1,16 @@
 #include "push_swap.h"
-size_t mpllen(t_mplc	*m);
+size_t	mpllen(t_mplc	*m);
 void	mkoutstr(char	*s, t_mplc	*m);
 size_t	mpltoa(int mpl, char *buf);
 
 char	*mkout(t_mplh *h)
 {
-	int flag;
+	int		flag;
 	t_mplc	*m;
 	char	*s;
 
 	flag = 1;
-	while(flag && h->cnt)
+	while (flag && h->cnt)
 	{
 		flag = 0;
 		h->cnt = omitmpl(h->cnt, &flag);
@@ -32,7 +32,7 @@ char	*mkout(t_mplh *h)
 	return (s);
 }
 
-size_t mpllen(t_mplc	*m)
+size_t	mpllen(t_mplc	*m)
 {
 	size_t	len;
 
