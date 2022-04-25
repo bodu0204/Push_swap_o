@@ -1,5 +1,4 @@
 #include "push_swap.h"
-//#include "debug.h" //test
 
 void	free_all(t_mplh *h)
 {

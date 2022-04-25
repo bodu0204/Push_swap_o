@@ -1,17 +1,14 @@
 #include "push_swap.h"
-//#include "debug.h" //test
 size_t mpllen(t_mplc	*m);
 void	mkoutstr(char	*s, t_mplc	*m);
 size_t	mpltoa(int mpl, char *buf);
 
 char	*mkout(t_mplh *h)
 {
-//TEST_
 	int flag;
 	t_mplc	*m;
 	char	*s;
 
-//mpllen(h->cnt);TEST
 	flag = 1;
 	while(flag && h->cnt)
 	{
@@ -25,7 +22,6 @@ char	*mkout(t_mplh *h)
 		}
 	}
 	s = malloc(mpllen(h->cnt) + 1);
-//TEST
 	if (!s)
 	{
 		free_all(h);
@@ -43,7 +39,6 @@ size_t mpllen(t_mplc	*m)
 	len = 0;
 	while (m)
 	{
-//printf("%d,", m->mpl);
 		if (m->mpl == sa || m->mpl == sb || m->mpl == ss || m->mpl == pa \
 		|| m->mpl == pb || m->mpl == ra || m->mpl == rb || m->mpl == rr)
 		{
@@ -88,8 +83,6 @@ size_t	mpltoa(int mpl, char *buf)
 		return (ft_strlcpy(buf, "rra\n", 5));
 	else if (mpl == rrb)
 		return (ft_strlcpy(buf, "rrb\n", 5));
-	else                                           //if (mpl == rrr)
+	else
 		return (ft_strlcpy(buf, "rrr\n", 5));
-//else
-//{printf("found error");TEST exit(2);}
 }

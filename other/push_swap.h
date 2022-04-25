@@ -36,10 +36,10 @@ enum
 
 typedef struct s_stack
 {
-	size_t	len;//length(+)
-	size_t	grd; //guard(+)
-	size_t	udr; //under(+)
-	size_t	*img; //imagin(+-)  全てにおいて共有の必要あり
+	size_t	len;
+	size_t	grd;
+	size_t	udr;
+	size_t	*img;
 	int		*phs;
 	size_t	phl;
 }	t_stack;
@@ -49,7 +49,6 @@ typedef struct s_situation
 	struct s_stack	a;
 	struct s_stack	b;
 	struct s_stack	g;
-	int				exp;
 }	t_situation;
 
 typedef struct s_dividing
@@ -64,7 +63,7 @@ typedef struct s_manipulate_header
 {
 	struct s_manipulate_content	*cnt;
 	struct s_manipulate_content	*sc;
-	void						*freefrom;/* free以外いじらない */
+	void						*freefrom;
 }	t_mplh;
 
 typedef struct s_manipulate_content

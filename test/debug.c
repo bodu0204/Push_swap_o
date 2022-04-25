@@ -20,24 +20,24 @@ void showstack(t_stack *s, char c)
 		printf("%4d", getn(s, i , UNDER) % 1000);
 		i++;
 	}
-	puts("\n  ");
+	printf("\n  ");
 	i = 0;
 	while (i < s->udr)
 	{
-		puts("    ");
+		printf("    ");
 		i++;
 	}
 	if (i == s->udr)
-		puts("^   ");
+		printf("^   ");
 	i = 1;
 	while (i < s->grd)
 	{
-		puts("    ");
+		printf("    ");
 		i++;
 	}
 	if (i == s->grd)
-		puts("^   ");
-	puts('\n');
+		printf("^   ");
+	putchar('\n');
 	fflush(stdout);
 	return ;
 }

@@ -1,5 +1,4 @@
 #include "push_swap.h"
-//#include "debug.h" //test
 void	operation(int cmd, t_situation *s);
 void	operation1(int cmd, t_situation *s);
 
@@ -22,12 +21,7 @@ void manipulate(int cmd, t_situation *s, t_mplh *h)
 		m->next = new;
 	h->sc = new;
 	new->mpl = cmd;
-//TESTn("cmd",cmd)
-//tests(s);
 	operation(cmd, s);
-//tests(s);
-//char aaaaaa[4];
-//read(1, aaaaaa, 4);
 	return ;
 }
 
@@ -71,7 +65,5 @@ void	operation1(int cmd, t_situation *s)
 		revrotate(&s->a);
 		revrotate(&s->b);
 	}
-//else
-//{printf("found error");TEST exit(2);}
 	return ;
 }

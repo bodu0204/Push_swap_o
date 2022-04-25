@@ -1,13 +1,9 @@
 #include "push_swap.h"
-//#include "debug.h" //test
 int	push_swap_five(t_situation	*s, t_mplh *h, t_dividing	*d);
 int	swap_thrtwo(t_situation	*s, t_mplh *h);
 
 void	push_swap(t_situation	*s, t_mplh *h, int ms)
 {
-//TEST_
-//TESTn("ms", ms)
-//tests(s);
 	t_situation	next;
 	t_dividing	d;
 
@@ -30,12 +26,8 @@ void	push_swap(t_situation	*s, t_mplh *h, int ms)
 
 int	push_swap_five(t_situation	*s, t_mplh *h, t_dividing	*d)
 {
-//TEST_
 	size_t	i;
 
-//TESTn("s->a.len", s->a.len)
-//TESTn("s->a.grd", s->a.grd)
-//TESTn("s->a.udr", s->a.udr)
 	if (s->a.grd || s->a.len != 5)
 		return (0);
 	while (getn(&s->a, 0, BOTTOM) < d->num)
@@ -43,10 +35,6 @@ int	push_swap_five(t_situation	*s, t_mplh *h, t_dividing	*d)
 	i = 0;
 	while (i < d->mut)
 	{
-//printf("\n");
-//TESTn("s->a.len", s->a.len)
-//TESTn("s->a.grd", s->a.grd)
-//TESTn("s->a.udr", s->a.udr)
 		if (getn(&s->a, 0, TOP) < d->num)
 		{
 			manipulate(pb, s , h);
@@ -58,53 +46,6 @@ int	push_swap_five(t_situation	*s, t_mplh *h, t_dividing	*d)
 	swap_thrtwo(s, h);
 	return (1);
 }
-
-//int	swap_thrtwo(t_situation	*s, t_mplh *h)
-//{
-////TEST_
-//	if (!s->a.len && !s->b.len)
-//{//TEST
-//		return (1);
-//}
-//	if (s->a.len == 3 && !s->a.grd && s->b.len <= 2)
-//	{
-////TEST
-//		if (getn(&s->a, 1, DEAL) == getn(&s->g, 0, DEAL))
-//		manipulate(rra, s , h);
-//		else if(getn(&s->a, 2, DEAL) == getn(&s->g, 0, DEAL))
-//			manipulate(ra, s , h);
-//		s->a.grd++;
-//		s->a.len--;
-//		return (swap_thrtwo(s, h));
-//	}
-//	if (s->a.len && (s->a.len < 2 || (s->a.len == 2 && getn(&s->a, 0, DEAL) >= getn(&s->a, 1, DEAL))) && s->b.len <= 2)
-//	{
-////TEST
-//		s->a.grd += s->a.len;
-//		s->a.len = 0;
-//		return(swap_thrtwo(s, h));
-//	}
-//	if (s->a.len == 2 && getn(&s->a, 0, DEAL) < getn(&s->a, 1, DEAL) && s->b.len <= 2)
-//	{
-////TEST
-//		manipulate(sa, s, h);
-//		return(swap_thrtwo(s, h));
-//	}
-//	if (!s->a.len && (s->b.len < 2 || (s->b.len == 2 && getn(&s->b, 0, DEAL) <= getn(&s->b, 1, DEAL))))
-//	{
-////TEST
-//		while (s->b.len)
-//			manipulate(pa, s, h);
-//		return (swap_thrtwo(s, h));
-//	}
-//	if (!s->a.len && (s->b.len < 2 || (s->b.len == 2 && getn(&s->b, 0, DEAL) > getn(&s->b, 1, DEAL))))
-//	{
-////TEST
-//		manipulate(sb, s, h);
-//		return (swap_thrtwo(s, h));
-//	}
-//	return (0);
-//}
 
 int	swap_thrtwo(t_situation	*s, t_mplh *h)
 {

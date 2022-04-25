@@ -1,6 +1,5 @@
 
 #include "push_swap.h"
-#include "debug.h" //test
 int		mkenv(int argc, char *argv[], t_situation *s, t_mplh *h);
 void	mkgoal(int	*nums, size_t	len);
 int		set_stack(int argc, char *argv[], t_situation *s, t_mplh *h);
@@ -23,12 +22,8 @@ int	main(int argc, char *argv[])
 		write(STDOUT_FILENO, "Error\n", 6);
 		return (1);
 	}
-//showstack(&s.g, 'g');
-//TESTp("s.img", s.a.img)
-//TESTp("s.img", s.b.img)
-//TESTn("*(s.g.img)", *(s.g.img))
 	push_swap(&s, &h, _a);
-	op = mkout(&h);//確保できなかった時はexit
+	op = mkout(&h);
 	free_all(&h);
 	r = write(STDOUT_FILENO, op, ft_strlen(op));
 	free(op);
@@ -37,16 +32,11 @@ int	main(int argc, char *argv[])
 
 int	mkenv(int argc, char *argv[], t_situation *s, t_mplh *h)
 {
-//TEST_
 	ft_bzero(s, sizeof(t_situation));
 	ft_bzero(h, sizeof(t_mplh));
 	if (set_stack(argc - 1, argv + 1, s, h))
 		return (1);
-//TESTn("*(s->g.img)", *(s->g.img))
-//showstack(&s->g, 'g');
 	mkgoal(s->g.phs, argc - 1);
-//TESTn("*(s->g.img)", *(s->g.img))
-//showstack(&s->g, 'g');
 	return (0);
 }
 
@@ -104,7 +94,6 @@ int	set_stack(int argc, char *argv[], t_situation *s, t_mplh *h)
 	*(s->a.img) = 0;
 	*(s->b.img) = 0;
 	*(s->g.img) = 0;
-	s->exp = 1; //使わない
 	return (0);
 }
 
