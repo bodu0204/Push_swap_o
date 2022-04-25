@@ -1,5 +1,5 @@
 #include "push_swap.h"
-//#include "debug.h" //test
+#include "debug.h" //test
 void	operation(int cmd, t_situation *s);
 void	operation1(int cmd, t_situation *s);
 
@@ -22,7 +22,7 @@ void manipulate(int cmd, t_situation *s, t_mplh *h)
 		m->next = new;
 	h->sc = new;
 	new->mpl = cmd;
-//TESTn("cmd",cmd)
+TESTn("cmd",cmd)
 //tests(s);
 	operation(cmd, s);
 //tests(s);
