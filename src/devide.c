@@ -1,5 +1,5 @@
 #include "push_swap.h"
-#include "debug.h" //test
+//#include "debug.h" //test
 void	divide_from_a(t_situation *s, t_mplh *h, t_dividing *d, t_dividing *next);
 void	divide_from_b(t_situation *s, t_mplh *h, t_dividing *d, t_dividing *next);
 size_t	rotate_mount_a(t_situation *s, t_dividing *d);
@@ -7,7 +7,7 @@ size_t	rotate_mount_b(t_situation *s, t_dividing *d);
 
 void divide(t_situation *s, t_mplh *h, t_dividing *d, int ms)
 {
-TEST_
+//TEST_
 	t_dividing	next;
 
 	if (ms == _a)
@@ -25,8 +25,8 @@ TEST_
 
 void	divide_from_a(t_situation *s, t_mplh *h, t_dividing *d, t_dividing *next)
 {
-TEST_
-TESTn("d->num", d->num);
+//TEST_
+//TESTn("d->num", d->num);
 	next->use = rotate_mount_a(s, d);
 	while (d->use < d->mut)
 	{
@@ -55,9 +55,9 @@ TESTn("d->num", d->num);
 
 void	divide_from_b(t_situation *s, t_mplh *h, t_dividing *d, t_dividing *next)
 {
-TEST_
+//TEST_
 	next->use = rotate_mount_b(s, d);
-TESTn("d->num", d->num)
+//TESTn("d->num", d->num)
 	while (d->use < d->mut + d->inc)
 	{
 //tests(s);

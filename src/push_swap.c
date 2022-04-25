@@ -1,12 +1,12 @@
 #include "push_swap.h"
-#include "debug.h" //test
+//#include "debug.h" //test
 int	push_swap_five(t_situation	*s, t_mplh *h, t_dividing	*d);
 int	swap_thrtwo(t_situation	*s, t_mplh *h);
 
 void	push_swap(t_situation	*s, t_mplh *h, int ms)
 {
-TEST_
-TESTn("ms", ms)
+//TEST_
+//TESTn("ms", ms)
 //tests(s);
 	t_situation	next;
 	t_dividing	d;
@@ -30,7 +30,7 @@ TESTn("ms", ms)
 
 int	push_swap_five(t_situation	*s, t_mplh *h, t_dividing	*d)
 {
-TEST_
+//TEST_
 	size_t	i;
 
 //TESTn("s->a.len", s->a.len)
@@ -61,7 +61,7 @@ TEST_
 
 int	swap_thrtwo(t_situation	*s, t_mplh *h)
 {
-TEST_
+//TEST_
 	if (!s->a.len && !s->b.len)
 {//TEST
 		return (1);

@@ -1,12 +1,12 @@
 #include "push_swap.h"
-#include "debug.h" //test
+//#include "debug.h" //test
 size_t mpllen(t_mplc	*m);
 void	mkoutstr(char	*s, t_mplc	*m);
 size_t	mpltoa(int mpl, char *buf);
 
 char	*mkout(t_mplh *h)
 {
-TEST_
+//TEST_
 	int flag;
 	t_mplc	*m;
 	char	*s;
@@ -88,8 +88,8 @@ size_t	mpltoa(int mpl, char *buf)
 		return (ft_strlcpy(buf, "rra\n", 5));
 	else if (mpl == rrb)
 		return (ft_strlcpy(buf, "rrb\n", 5));
-	else                                           if (mpl == rrr)
+	else                                           //if (mpl == rrr)
 		return (ft_strlcpy(buf, "rrr\n", 5));
-else
-{printf("found error");TEST exit(2);}
+//else
+//{printf("found error");TEST exit(2);}
 }

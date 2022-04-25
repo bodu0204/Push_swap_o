@@ -1,9 +1,9 @@
 #include "push_swap.h"
-#include "debug.h" //test
+//#include "debug.h" //test
 
 void	raise(t_situation	*s)
 {
-TEST_
+//TEST_
 	while (s->a.len && getn(&s->a, 0, DEAL) == getn(&s->g, 0, DEAL))
 	{
 		s->a.grd++;
@@ -16,8 +16,8 @@ TEST_
 
 void	set_divide_fmt(t_dividing *d, t_stack *g, int flag)
 {
-TEST_
-showstack(g, 'g');
+//TEST_
+//showstack(g, 'g');
 //TESTn("flag", flag)
 	size_t	i;
 
@@ -29,9 +29,9 @@ showstack(g, 'g');
 	d->use = 0;
 	if (flag == _none)
 {
-TESTn("d->inc", d->inc)
-TESTn("d->mut", d->mut)
-TESTn("d->num", d->num)
+//TESTn("d->inc", d->inc)
+//TESTn("d->mut", d->mut)
+//TESTn("d->num", d->num)
 		return ;
 }
 	i = d->mut;
@@ -43,15 +43,15 @@ TESTn("d->num", d->num)
 		d->num = getn(g, d->mut + d->inc - 1, DEAL);
 	else
 		d->num = getn(g, i + d->mut + d->inc - 1, DEAL);
-TESTn("d->inc", d->inc)
-TESTn("d->mut", d->mut)
-TESTn("d->num", d->num)
+//TESTn("d->inc", d->inc)
+//TESTn("d->mut", d->mut)
+//TESTn("d->num", d->num)
 	return ;
 }
 
 void	treatstack(t_situation	*s, t_mplh *h)
 {
-TEST_
+//TEST_
 	while (s->a.udr && s->b.udr)
 		manipulate(rrr, s, h);
 	while (s->a.udr)
@@ -66,7 +66,7 @@ TEST_
 
 void	set_next_stack(t_situation	*s, t_situation	*next, int ms)
 {
-TEST_
+//TEST_
 	ft_memcpy(next, s, sizeof(t_situation));
 	next->a.udr = 0;
 	next->b.udr = 0;
