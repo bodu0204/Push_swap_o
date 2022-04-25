@@ -37,6 +37,9 @@ TEST_
 		d->num = getn(g, d->mut + d->inc - 1, DEAL);
 	else
 		d->num = getn(g, i + d->mut + d->inc - 1, DEAL);
+TESTn("d->inc", d->inc)
+TESTn("d->mut", d->mut)
+TESTn("d->num", d->num)
 	return ;
 }
 
@@ -58,7 +61,6 @@ TEST_
 void	set_next_stack(t_situation	*s, t_situation	*next, int ms)
 {
 TEST_
-tests(s);
 	ft_memcpy(next, s, sizeof(t_situation));
 	next->a.udr = 0;
 	next->b.udr = 0;
