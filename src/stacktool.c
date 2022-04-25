@@ -23,7 +23,7 @@ void	swap(t_stack *s)
 	return ;
 }
 
-void rotate(t_stack *s)
+void	rotate(t_stack *s)
 {
 	int	i;
 
