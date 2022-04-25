@@ -59,9 +59,9 @@ TEST_
 TESTn("d->num", d->num)
 	while (d->use < d->mut + d->inc)
 	{
-tests(s);
-char xxx;
-read(0, &xxx, 1);
+//tests(s);
+//char xxx;
+//read(0, &xxx, 1);
 		if (d->use + 1 == d->mut + d->inc && s->b.len >= 2)
 		{
 			if (getn(&s->b, s->b.len - 2, DEAL) >= d->num)
