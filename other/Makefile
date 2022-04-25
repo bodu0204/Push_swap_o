@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: ryoakira <ryoakira@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/04/26 08:33:54 by ryoakira          #+#    #+#              #
+#    Updated: 2022/04/26 08:33:55 by ryoakira         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME		= push_swap
 BONUSNAME	= checker
 SRC			= devide.c main.c manipulate.c mkout.c omitmplA.c omitmplB.c push_swap.c stacktool.c util.c util_m.c util_p.c

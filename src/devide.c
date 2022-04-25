@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   devide.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ryoakira <ryoakira@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/26 08:34:03 by ryoakira          #+#    #+#             */
+/*   Updated: 2022/04/26 08:34:04 by ryoakira         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 void	divide_from_a(t_situ *s, t_mplh *h, t_divid *d, t_divid *next);
 void	divide_from_b(t_situ *s, t_mplh *h, t_divid *d, t_divid *next);

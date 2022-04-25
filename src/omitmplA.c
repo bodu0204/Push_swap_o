@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   omitmplA.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ryoakira <ryoakira@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/26 08:34:30 by ryoakira          #+#    #+#             */
+/*   Updated: 2022/04/26 08:34:31 by ryoakira         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 t_mplc	*omitmpl1(t_mplc	*one, t_mplc	*two, int *flag);
 t_mplc	*omitmpl2(t_mplc	*one, t_mplc	*two, int *flag);
