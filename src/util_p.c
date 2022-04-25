@@ -28,7 +28,12 @@ showstack(g, 'g');
 //TEST
 	d->use = 0;
 	if (flag == _none)
+{
+TESTn("d->inc", d->inc)
+TESTn("d->mut", d->mut)
+TESTn("d->num", d->num)
 		return ;
+}
 	i = d->mut;
 	if (flag == _a)
 		i += d->inc;
