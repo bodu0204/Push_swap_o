@@ -57,6 +57,7 @@ void	divide_from_b(t_situation *s, t_mplh *h, t_dividing *d, t_dividing *next)
 TEST_
 tests(s);
 	next->use = rotate_mount_b(s, d);
+TEST
 	while (d->use < d->mut + d->inc)
 	{
 		if (d->use + 1 == d->mut + d->inc && s->b.len >= 2)
