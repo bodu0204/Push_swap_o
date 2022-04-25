@@ -1,4 +1,3 @@
-
 #include "push_swap.h"
 int		mkenv(int argc, char *argv[], t_situ *s, t_mplh *h);
 void	mkgoal(int	*nums, size_t	len);
@@ -11,6 +10,7 @@ int	main(int argc, char *argv[])
 	t_mplh	h;
 	char	*op;
 	int		r;
+
 	if (argc == 1 || checkarg(argc, argv))
 	{
 		write(STDOUT_FILENO, "Error\n", 6);
@@ -69,7 +69,7 @@ int	set_stack(int argc, char *argv[], t_situ *s, t_mplh *h)
 {
 	int	i;
 
-	h->freefrom = malloc(((argc * sizeof(int)) + sizeof(size_t) + 16) * 3);
+	h->freefrom = ft_calloc((argc * sizeof(int)) + sizeof(size_t) + 16, 3);
 	if (!h->freefrom)
 		return (1);
 	s->a.phs = h->freefrom;
