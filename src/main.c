@@ -75,13 +75,15 @@ int	set_stack(int argc, char *argv[], t_situation *s, t_mplh *h)
 TEST_
 	int	i;
 
-	h->freefrom = malloc(((argc * sizeof(int)) + 8) * 3 + sizeof(size_t));
+	h->freefrom = malloc(((argc * sizeof(int)) + sizeof(size_t)) * 3);
 	if (!h->freefrom)
 		return (1);
 	s->a.phs = h->freefrom;
-	s->b.phs = h->freefrom + ((argc * sizeof(int)) + 8);
-	s->g.phs = h->freefrom + (((argc * sizeof(int)) + 8) * 2);
-	s->g.img = h->freefrom + (((argc * sizeof(int)) + 8) * 3);
+	s->a.img = s->a.phs + (argc * sizeof(int));
+	s->b.phs = s->a.img + sizeof(size_t);
+	s->b.img = s->b.phs + (argc * sizeof(int));
+	s->g.phs = s->b.img + sizeof(size_t);
+	s->g.img = s->g.phs + (argc * sizeof(int));
 	i = 0;
 	while (i < argc)
 	{
