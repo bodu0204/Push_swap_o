@@ -43,10 +43,10 @@ TEST_
 	if (set_stack(argc - 1, argv + 1, s, h))
 		return (1);
 TESTn("*(s->g.img)", *(s->g.img))
-showstack(&s->g);
+showstack(&s->g, 'g');
 	mkgoal(s->g.phs, argc);
 TESTn("*(s->g.img)", *(s->g.img))
-showstack(&s->g);
+showstack(&s->g, 'g');
 	return (0);
 }
 
