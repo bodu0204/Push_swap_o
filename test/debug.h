@@ -10,7 +10,7 @@
 #endif
 
 
-void tests(t_situation *s);
+void tests(t_situ *s);
 void showstack(t_stack *s, char c);
 
 #endif

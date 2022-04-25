@@ -1,13 +1,13 @@
 
 #include "push_swap.h"
-int		mkenv(int argc, char *argv[], t_situation *s, t_mplh *h);
+int		mkenv(int argc, char *argv[], t_situ *s, t_mplh *h);
 void	mkgoal(int	*nums, size_t	len);
-int		set_stack(int argc, char *argv[], t_situation *s, t_mplh *h);
+int		set_stack(int argc, char *argv[], t_situ *s, t_mplh *h);
 int		checkarg(size_t argc, char *argv[]);
 
 int	main(int argc, char *argv[])
 {
-	t_situation	s;
+	t_situ	s;
 	t_mplh		h;
 	char		*op;
 	int			r;
@@ -30,9 +30,9 @@ int	main(int argc, char *argv[])
 	return (r < 0);
 }
 
-int	mkenv(int argc, char *argv[], t_situation *s, t_mplh *h)
+int	mkenv(int argc, char *argv[], t_situ *s, t_mplh *h)
 {
-	ft_bzero(s, sizeof(t_situation));
+	ft_bzero(s, sizeof(t_situ));
 	ft_bzero(h, sizeof(t_mplh));
 	if (set_stack(argc - 1, argv + 1, s, h))
 		return (1);
@@ -66,7 +66,7 @@ void	mkgoal(int	*nums, size_t	len)
 	return ;
 }
 
-int	set_stack(int argc, char *argv[], t_situation *s, t_mplh *h)
+int	set_stack(int argc, char *argv[], t_situ *s, t_mplh *h)
 {
 	int	i;
 

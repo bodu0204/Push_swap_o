@@ -6,7 +6,7 @@
 /*   By: ryoakira <ryoakira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 05:20:49 by ryoakira          #+#    #+#             */
-/*   Updated: 2022/04/21 05:27:11 by ryoakira         ###   ########.fr       */
+/*   Updated: 2022/04/26 06:50:11 by ryoakira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@ int	push_swap1(t_stack	*s);
 
 int	push_swap(t_stack	*s, int ms)
 {
-	t_dividing	d;
+	t_divid	d;
 
 	if (little_push_swap(s))
 		return (1);

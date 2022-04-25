@@ -6,17 +6,17 @@
 /*   By: ryoakira <ryoakira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 05:20:43 by ryoakira          #+#    #+#             */
-/*   Updated: 2022/04/21 05:26:02 by ryoakira         ###   ########.fr       */
+/*   Updated: 2022/04/26 06:50:11 by ryoakira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	set_divide_fmt(t_dividing	*d, int	*goal, size_t	l)
+void	set_divide_fmt(t_divid	*d, int	*goal, size_t	l)
 {
 	size_t	i;
 
-	ft_bzero(d, sizeof(t_dividing));
+	ft_bzero(d, sizeof(t_divid));
 	i = (l / 2) + (l % 2) - 1;
 	d->dn = goal[i];
 	while (goal[i] == d->dn && i < l)
@@ -79,7 +79,7 @@ void	set_next_stack(t_stack *s, t_stack *next, int ms)
 	return ;
 }
 
-int	swaptwo(t_stack *s, t_dividing *d)
+int	swaptwo(t_stack *s, t_divid *d)
 {
 	if (s->a_len == 2 && (s->a[s->a_len - 1] > s->a[s->a_len - 2]) \
 	&& (s->b_len == 2 && s->b[s->b_len - 1] < s->b[s->a_len - 2]))

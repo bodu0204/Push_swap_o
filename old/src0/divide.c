@@ -6,19 +6,19 @@
 /*   By: ryoakira <ryoakira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 05:20:28 by ryoakira          #+#    #+#             */
-/*   Updated: 2022/04/21 05:20:29 by ryoakira         ###   ########.fr       */
+/*   Updated: 2022/04/26 06:50:11 by ryoakira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-int		divide_from_a(t_stack	*s, t_dividing *d, t_dividing *next);
-int		push_from_a(t_stack	*s, int *flag, t_dividing *next);
-int		divide_from_b(t_stack	*s, t_dividing *d, t_dividing *next);
-int		push_from_b(t_stack	*s, int *flag, t_dividing *next);
+int		divide_from_a(t_stack	*s, t_divid *d, t_divid *next);
+int		push_from_a(t_stack	*s, int *flag, t_divid *next);
+int		divide_from_b(t_stack	*s, t_divid *d, t_divid *next);
+int		push_from_b(t_stack	*s, int *flag, t_divid *next);
 
-int	divide(t_stack	*s, t_dividing *d, int ms)
+int	divide(t_stack	*s, t_divid *d, int ms)
 {
-	t_dividing	next;
+	t_divid	next;
 
 	if (ms == _a)
 	{
@@ -29,7 +29,7 @@ int	divide(t_stack	*s, t_dividing *d, int ms)
 	return (divide_from_b(s, d, &next));
 }
 
-int	divide_from_a(t_stack	*s, t_dividing *d, t_dividing *next)
+int	divide_from_a(t_stack	*s, t_divid *d, t_divid *next)
 {
 	size_t	ib;
 	int		flag;
@@ -58,7 +58,7 @@ int	divide_from_a(t_stack	*s, t_dividing *d, t_dividing *next)
 	return (0);
 }
 
-int	push_from_a(t_stack	*s, int *flag, t_dividing *next)
+int	push_from_a(t_stack	*s, int *flag, t_divid *next)
 {
 	int	i;
 
@@ -80,7 +80,7 @@ int	push_from_a(t_stack	*s, int *flag, t_dividing *next)
 	return (0);
 }
 
-int	divide_from_b(t_stack	*s, t_dividing *d, t_dividing *next)
+int	divide_from_b(t_stack	*s, t_divid *d, t_divid *next)
 {
 	size_t		ibb;
 	int			flag;
@@ -109,7 +109,7 @@ int	divide_from_b(t_stack	*s, t_dividing *d, t_dividing *next)
 	return (0);
 }
 
-int	push_from_b(t_stack	*s, int *flag, t_dividing *next)
+int	push_from_b(t_stack	*s, int *flag, t_divid *next)
 {
 	int	i;
 

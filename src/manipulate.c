@@ -1,8 +1,8 @@
 #include "push_swap.h"
-void	operation(int cmd, t_situation *s);
-void	operation1(int cmd, t_situation *s);
+void	operation(int cmd, t_situ *s);
+void	operation1(int cmd, t_situ *s);
 
-void manipulate(int cmd, t_situation *s, t_mplh *h)
+void manipulate(int cmd, t_situ *s, t_mplh *h)
 {
 	t_mplc	*new;
 	t_mplc	*m;
@@ -25,7 +25,7 @@ void manipulate(int cmd, t_situation *s, t_mplh *h)
 	return ;
 }
 
-void	operation(int cmd, t_situation *s)
+void	operation(int cmd, t_situ *s)
 {
 	if (cmd == sa)
 		swap(&s->a);
@@ -54,7 +54,7 @@ void	operation(int cmd, t_situation *s)
 	return ;
 }
 
-void	operation1(int cmd, t_situation *s)
+void	operation1(int cmd, t_situ *s)
 {
 	if (cmd == rra)
 		revrotate(&s->a);

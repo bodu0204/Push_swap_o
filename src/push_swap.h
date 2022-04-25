@@ -49,7 +49,7 @@ typedef struct s_situation
 	struct s_stack	a;
 	struct s_stack	b;
 	struct s_stack	g;
-}	t_situation;
+}	t_situ;
 
 typedef struct s_dividing
 {
@@ -57,7 +57,7 @@ typedef struct s_dividing
 	size_t	mut;
 	size_t	inc;
 	size_t	use;
-}	t_dividing;
+}	t_divid;
 
 typedef struct s_manipulate_header
 {
@@ -75,16 +75,16 @@ typedef struct s_manipulate_content
 int		isover(char *s);
 int		isdup(size_t argc, char *argv[]);
 
-void	push_swap(t_situation	*s, t_mplh *h, int ms);
+void	push_swap(t_situ	*s, t_mplh *h, int ms);
 
-void	divide(t_situation *s, t_mplh *h, t_dividing *d, int ms);
+void	divide(t_situ *s, t_mplh *h, t_divid *d, int ms);
 
-void	raise(t_situation	*s);
-void	set_divide_fmt(t_dividing *d, t_stack *g, int flag);
-void	treatstack(t_situation	*s, t_mplh *h);
-void	set_next_stack(t_situation	*s, t_situation	*next, int ms);
+void	raise(t_situ	*s);
+void	set_divide_fmt(t_divid *d, t_stack *g, int flag);
+void	treatstack(t_situ	*s, t_mplh *h);
+void	set_next_stack(t_situ	*s, t_situ	*next, int ms);
 
-void	manipulate(int cmd, t_situation *s, t_mplh *h);
+void	manipulate(int cmd, t_situ *s, t_mplh *h);
 
 char	*mkout(t_mplh *h);
 

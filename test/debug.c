@@ -1,6 +1,6 @@
 #include "debug.h"
 #include "push_swap.h"
-void tests(t_situation *s)
+void tests(t_situ *s)
 {
 	showstack(&s->a, 'a');
 	showstack(&s->b, 'b');

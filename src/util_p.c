@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void	raise(t_situation	*s)
+void	raise(t_situ	*s)
 {
 	while (s->a.len && getn(&s->a, 0, DEAL) == getn(&s->g, 0, DEAL))
 	{
@@ -12,7 +12,7 @@ void	raise(t_situation	*s)
 	return ;
 }
 
-void	set_divide_fmt(t_dividing *d, t_stack *g, int flag)
+void	set_divide_fmt(t_divid *d, t_stack *g, int flag)
 {
 	size_t	i;
 
@@ -34,7 +34,7 @@ void	set_divide_fmt(t_dividing *d, t_stack *g, int flag)
 	return ;
 }
 
-void	treatstack(t_situation	*s, t_mplh *h)
+void	treatstack(t_situ	*s, t_mplh *h)
 {
 	while (s->a.udr && s->b.udr)
 		manipulate(rrr, s, h);
@@ -45,9 +45,9 @@ void	treatstack(t_situation	*s, t_mplh *h)
 	raise(s);
 }
 
-void	set_next_stack(t_situation	*s, t_situation	*next, int ms)
+void	set_next_stack(t_situ	*s, t_situ	*next, int ms)
 {
-	ft_memcpy(next, s, sizeof(t_situation));
+	ft_memcpy(next, s, sizeof(t_situ));
 	next->a.udr = 0;
 	next->b.udr = 0;
 	if (ms == _a)

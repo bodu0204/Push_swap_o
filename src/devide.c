@@ -1,12 +1,12 @@
 #include "push_swap.h"
-void	divide_from_a(t_situation *s, t_mplh *h, t_dividing *d, t_dividing *next);
-void	divide_from_b(t_situation *s, t_mplh *h, t_dividing *d, t_dividing *next);
-size_t	rotate_mount_a(t_situation *s, t_dividing *d);
-size_t	rotate_mount_b(t_situation *s, t_dividing *d);
+void	divide_from_a(t_situ *s, t_mplh *h, t_divid *d, t_divid *next);
+void	divide_from_b(t_situ *s, t_mplh *h, t_divid *d, t_divid *next);
+size_t	rotate_mount_a(t_situ *s, t_divid *d);
+size_t	rotate_mount_b(t_situ *s, t_divid *d);
 
-void divide(t_situation *s, t_mplh *h, t_dividing *d, int ms)
+void	divide(t_situ *s, t_mplh *h, t_divid *d, int ms)
 {
-	t_dividing	next;
+	t_divid	next;
 
 	if (ms == _a)
 	{
@@ -21,7 +21,7 @@ void divide(t_situation *s, t_mplh *h, t_dividing *d, int ms)
 	return ;
 }
 
-void	divide_from_a(t_situation *s, t_mplh *h, t_dividing *d, t_dividing *next)
+void	divide_from_a(t_situ *s, t_mplh *h, t_divid *d, t_divid *next)
 {
 	next->use = rotate_mount_a(s, d);
 	while (d->use < d->mut)
@@ -49,7 +49,7 @@ void	divide_from_a(t_situation *s, t_mplh *h, t_dividing *d, t_dividing *next)
 	return ;
 }
 
-void	divide_from_b(t_situation *s, t_mplh *h, t_dividing *d, t_dividing *next)
+void	divide_from_b(t_situ *s, t_mplh *h, t_divid *d, t_divid *next)
 {
 	next->use = rotate_mount_b(s, d);
 	while (d->use < d->mut + d->inc)
@@ -77,7 +77,7 @@ void	divide_from_b(t_situation *s, t_mplh *h, t_dividing *d, t_dividing *next)
 	return ;
 }
 
-size_t	rotate_mount_a(t_situation *s, t_dividing *d)
+size_t	rotate_mount_a(t_situ *s, t_divid *d)
 {
 	size_t	i;
 	size_t	pi;
@@ -86,7 +86,7 @@ size_t	rotate_mount_a(t_situation *s, t_dividing *d)
 	i = s->a.len;
 	pi = 0;
 	ri = 0;
-	while(pi < d->mut && i)
+	while (pi < d->mut && i)
 	{
 		if (getn(&s->a, i - 1, DEAL) >= d->num)
 			ri++;
@@ -99,7 +99,7 @@ size_t	rotate_mount_a(t_situation *s, t_dividing *d)
 	return (ri);
 }
 
-size_t	rotate_mount_b(t_situation *s, t_dividing *d)
+size_t	rotate_mount_b(t_situ *s, t_divid *d)
 {
 	size_t	i;
 	size_t	pi;
@@ -108,7 +108,7 @@ size_t	rotate_mount_b(t_situation *s, t_dividing *d)
 	i = s->b.len;
 	pi = 0;
 	ri = 0;
-	while(pi < d->mut + d->inc && i)
+	while (pi < d->mut + d->inc && i)
 	{
 		if (getn(&s->a, i - 1, DEAL) < d->num)
 			ri++;

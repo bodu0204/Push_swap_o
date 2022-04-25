@@ -1,11 +1,11 @@
 #include "push_swap.h"
-int	push_swap_five(t_situation	*s, t_mplh *h, t_dividing	*d);
-int	swap_thrtwo(t_situation	*s, t_mplh *h);
+int	push_swap_five(t_situ	*s, t_mplh *h, t_divid	*d);
+int	swap_thrtwo(t_situ	*s, t_mplh *h);
 
-void	push_swap(t_situation	*s, t_mplh *h, int ms)
+void	push_swap(t_situ	*s, t_mplh *h, int ms)
 {
-	t_situation	next;
-	t_dividing	d;
+	t_situ	next;
+	t_divid	d;
 
 	raise(s);
 	set_divide_fmt(&d, &s->g, _none);
@@ -24,7 +24,7 @@ void	push_swap(t_situation	*s, t_mplh *h, int ms)
 	return ;
 }
 
-int	push_swap_five(t_situation	*s, t_mplh *h, t_dividing	*d)
+int	push_swap_five(t_situ	*s, t_mplh *h, t_divid	*d)
 {
 	size_t	i;
 
@@ -47,7 +47,7 @@ int	push_swap_five(t_situation	*s, t_mplh *h, t_dividing	*d)
 	return (1);
 }
 
-int	swap_thrtwo(t_situation	*s, t_mplh *h)
+int	swap_thrtwo(t_situ	*s, t_mplh *h)
 {
 	raise(s);
 	if (!((s->a.len == 3 && !s->a.grd) || s->a.len <= 2 ) || s->b.len > 2 )
