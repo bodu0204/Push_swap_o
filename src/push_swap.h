@@ -106,33 +106,3 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 
 #endif
-
-
-//ショートカット
-
-/*
-
-
-t_stack *s
-
-t_situation	*s
-
-t_mplh *h
-
-t_mplc	*m;
-
-
-manipulate(, s, h);
-
-
-{printf("found error");TEST exit(2);}
-
-
-	{
-		free_all(h);
-		write(STDOUT_FILENO, "malloc Error\n", 13);
-		exit(1);
-	}
-
-
- */

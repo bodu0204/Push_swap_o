@@ -8,10 +8,9 @@ int		checkarg(size_t argc, char *argv[]);
 int	main(int argc, char *argv[])
 {
 	t_situ	s;
-	t_mplh		h;
-	char		*op;
-	int			r;
-
+	t_mplh	h;
+	char	*op;
+	int		r;
 	if (argc == 1 || checkarg(argc, argv))
 	{
 		write(STDOUT_FILENO, "Error\n", 6);
@@ -91,9 +90,6 @@ int	set_stack(int argc, char *argv[], t_situ *s, t_mplh *h)
 	s->g.phl = argc;
 	s->a.phl = argc;
 	s->b.phl = argc;
-	*(s->a.img) = 0;
-	*(s->b.img) = 0;
-	*(s->g.img) = 0;
 	return (0);
 }
 

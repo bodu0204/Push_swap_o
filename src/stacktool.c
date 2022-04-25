@@ -1,8 +1,8 @@
 #include "push_swap.h"
 
-void push(t_stack *o, t_stack *u)
+void	push(t_stack *o, t_stack *u)
 {
-	int i;
+	int	i;
 
 	o->len--;
 	i = o->phs[(*(o->img) + o->udr + o->grd + o->len) % o->phl];
@@ -11,10 +11,10 @@ void push(t_stack *o, t_stack *u)
 	return ;
 }
 
-void swap(t_stack *s)
+void	swap(t_stack *s)
 {
-	int i;
-	int ii;
+	int	i;
+	int	ii;
 
 	i = s->phs[(*(s->img) + s->udr + s->grd + s->len - 1) % s->phl];
 	ii = s->phs[(*(s->img) + s->udr + s->grd + s->len - 2) % s->phl];
@@ -25,7 +25,7 @@ void swap(t_stack *s)
 
 void rotate(t_stack *s)
 {
-	int i;
+	int	i;
 
 	i = s->phs[(*(s->img) + s->udr + s->grd + s->len + s->phl - 1) % s->phl];
 	*(s->img) = (*(s->img) + s->phl - 1) % s->phl;
@@ -38,9 +38,9 @@ void rotate(t_stack *s)
 	return ;
 }
 
-void revrotate(t_stack *s)
+void	revrotate(t_stack *s)
 {
-	int i;
+	int	i;
 
 	i = s->phs[*(s->img)];
 	*(s->img) = (*(s->img) + 1) % s->phl;
@@ -61,7 +61,7 @@ int	getn(t_stack *s, size_t l, int flag)
 		l += *(s->img) + s->udr + s->grd;
 	else if (flag == GIRD)
 		l += *(s->img) + s->udr;
-	else if(flag == UNDER)
+	else if (flag == UNDER)
 		l += *(s->img);
 	else
 		l = *(s->img);
