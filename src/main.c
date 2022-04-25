@@ -44,6 +44,7 @@ TEST_
 		return (1);
 TESTn("*(s->g.img)", *(s->g.img))
 	mkgoal(s->g.phs, argc);
+TESTn("*(s->g.img)", *(s->g.img))
 	return (0);
 }
 
