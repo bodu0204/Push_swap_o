@@ -44,7 +44,7 @@ TEST_
 		return (1);
 TESTn("*(s->g.img)", *(s->g.img))
 showstack(&s->g, 'g');
-	mkgoal(s->g.phs, argc);
+	mkgoal(s->g.phs, argc - 1);
 TESTn("*(s->g.img)", *(s->g.img))
 showstack(&s->g, 'g');
 	return (0);
