@@ -3,6 +3,7 @@ t_mplc	*omitmpl1(t_mplc	*one, t_mplc	*two, int *flag);
 t_mplc	*omitmpl2(t_mplc	*one, t_mplc	*two, int *flag);
 t_mplc	*omitmpl3(t_mplc	*one, t_mplc	*two, int *flag);
 t_mplc	*omitmpl4(t_mplc	*one, t_mplc	*two, int *flag);
+t_mplc	*omitmpl5(t_mplc	*one, t_mplc	*two, int *flag);
 
 t_mplc	*omitmpl(t_mplc	*one, int *flag)
 {
@@ -51,7 +52,14 @@ t_mplc	*omitmpl1(t_mplc	*one, t_mplc	*two, int *flag)
 		free(one);
 		return (two);
 	}
-	else if ((one->mpl == ss && two->mpl == sb) \
+	else
+		return (omitmpl2(one, two, flag));
+}
+
+t_mplc	*omitmpl2(t_mplc	*one, t_mplc	*two, int *flag)
+
+{
+	if ((one->mpl == ss && two->mpl == sb) \
 	|| (one->mpl == sb && two->mpl == ss))
 	{
 		*flag = 1;
@@ -59,13 +67,7 @@ t_mplc	*omitmpl1(t_mplc	*one, t_mplc	*two, int *flag)
 		free(one);
 		return (two);
 	}
-	else
-		return (omitmpl2(one, two, flag));
-}
-
-t_mplc	*omitmpl2(t_mplc	*one, t_mplc	*two, int *flag)
-{
-	if ((one->mpl == rr && two->mpl == rra) \
+	else if ((one->mpl == rr && two->mpl == rra) \
 	|| (one->mpl == rra && two->mpl == rr))
 	{
 		*flag = 1;
@@ -73,7 +75,14 @@ t_mplc	*omitmpl2(t_mplc	*one, t_mplc	*two, int *flag)
 		free(one);
 		return (two);
 	}
-	else if ((one->mpl == rr && two->mpl == rrb) \
+	else
+		return (omitmpl3(one, two, flag));
+}
+
+t_mplc	*omitmpl3(t_mplc	*one, t_mplc	*two, int *flag)
+{
+
+	if ((one->mpl == rr && two->mpl == rrb) \
 	|| (one->mpl == rrb && two->mpl == rr))
 	{
 		*flag = 1;
@@ -90,9 +99,10 @@ t_mplc	*omitmpl2(t_mplc	*one, t_mplc	*two, int *flag)
 		return (two);
 	}
 	else
-		return (omitmpl3(one, two, flag));
+		return (omitmpl4(one, two, flag));
 }
-t_mplc	*omitmpl3(t_mplc	*one, t_mplc	*two, int *flag)
+
+t_mplc	*omitmpl4(t_mplc	*one, t_mplc	*two, int *flag)
 {
 	if ((one->mpl == rrr && two->mpl == ra) \
 	|| (one->mpl == ra && two->mpl == rrr))
@@ -103,9 +113,10 @@ t_mplc	*omitmpl3(t_mplc	*one, t_mplc	*two, int *flag)
 		return (two);
 	}
 	else
-		return (omitmpl4(one, two, flag));
+		return (omitmpl5(one, two, flag));
 }
-t_mplc	*omitmpl4(t_mplc	*one, t_mplc	*two, int *flag)
+
+t_mplc	*omitmpl5(t_mplc	*one, t_mplc	*two, int *flag)
 {
 	t_mplc	*rtn;
 
