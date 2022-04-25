@@ -1,6 +1,6 @@
 
 #include "push_swap.h"
-//#include "debug.h" //test
+#include "debug.h" //test
 int		mkenv(int argc, char *argv[], t_situation *s, t_mplh *h);
 void	mkgoal(int	*nums, size_t	len);
 int		set_stack(int argc, char *argv[], t_situation *s, t_mplh *h);
@@ -23,6 +23,7 @@ int	main(int argc, char *argv[])
 		write(STDOUT_FILENO, "Error\n", 6);
 		return (1);
 	}
+showstack(&s.g, 'g');
 //TESTp("s.img", s.a.img)
 //TESTp("s.img", s.b.img)
 //TESTp("s.img", s.g.img)
