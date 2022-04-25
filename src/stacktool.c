@@ -1,5 +1,5 @@
 #include "push_swap.h"
-//#include "debug.h"/* test */
+#include "debug.h"/* test */
 
 void push(t_stack *o, t_stack *u)
 {
