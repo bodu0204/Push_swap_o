@@ -77,6 +77,7 @@ int	getn(t_stack *s, size_t l, int flag)
 //TESTn("s->grd", s->grd)
 //TESTn("s->udr", s->udr)
 //TESTn("*(s->img)", *(s->img))
+TESTn("*(s->img)", *(s->img))
 	if (flag == TOP)
 		l = *(s->img) + s->udr + s->grd + s->len + s->phl - 1;
 	else if (flag == DEAL)
