@@ -62,7 +62,7 @@ t_mplc	*omitmpl1(t_mplc	*one, t_mplc	*two, int *flag)
 		return (two);
 	}
 	else
-		return(omitmpl2(one, two, flag));
+		return (omitmpl2(one, two, flag));
 }
 
 t_mplc	*omitmpl2(t_mplc	*one, t_mplc	*two, int *flag)
@@ -122,5 +122,5 @@ t_mplc	*omitmpl3(t_mplc	*one, t_mplc	*two, int *flag)
 		return (two);
 	}
 	else
-		return(one);
+		return (one);
 }
