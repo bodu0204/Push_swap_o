@@ -26,7 +26,7 @@ int	main(int argc, char *argv[])
 showstack(&s.g, 'g');
 //TESTp("s.img", s.a.img)
 //TESTp("s.img", s.b.img)
-TESTp("*(s.g.img)", *(s.g.img))
+TESTn("*(s.g.img)", *(s.g.img))
 	push_swap(&s, &h, _a);
 	op = mkout(&h);//確保できなかった時はexit
 	free_all(&h);
