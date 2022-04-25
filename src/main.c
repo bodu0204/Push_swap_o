@@ -78,15 +78,15 @@ int	set_stack(int argc, char *argv[], t_situation *s, t_mplh *h)
 {
 	int	i;
 
-	h->freefrom = malloc(((argc * sizeof(int)) + sizeof(size_t)) * 3);
+	h->freefrom = malloc(((argc * sizeof(int)) + sizeof(size_t) + 16) * 3);
 	if (!h->freefrom)
 		return (1);
 	s->a.phs = h->freefrom;
-	s->a.img = (void *)s->a.phs + (argc * sizeof(int));
-	s->b.phs = (void *)s->a.img + sizeof(size_t);
-	s->b.img = (void *)s->b.phs + (argc * sizeof(int));
-	s->g.phs = (void *)s->b.img + sizeof(size_t);
-	s->g.img = (void *)s->g.phs + (argc * sizeof(int));
+	s->a.img = (void *)s->a.phs + (argc * sizeof(int)) + 8;
+	s->b.phs = (void *)s->a.img + sizeof(size_t) + 8;
+	s->b.img = (void *)s->b.phs + (argc * sizeof(int)) + 8;
+	s->g.phs = (void *)s->b.img + sizeof(size_t) + 8;
+	s->g.img = (void *)s->g.phs + (argc * sizeof(int)) + 8;
 	i = 0;
 	while (i < argc)
 	{
