@@ -37,11 +37,11 @@ int	push_swap_five(t_situ	*s, t_mplh *h, t_divid	*d)
 	{
 		if (getn(&s->a, 0, TOP) < d->num)
 		{
-			manipulate(pb, s , h);
+			manipulate(pb, s, h);
 			i++;
 		}
 		else
-			manipulate(ra, s , h);
+			manipulate(ra, s, h);
 	}
 	swap_thrtwo(s, h);
 	return (1);
@@ -55,9 +55,9 @@ int	swap_thrtwo(t_situ	*s, t_mplh *h)
 	if (s->a.len == 3)
 	{
 		if (getn(&s->a, 1, DEAL) == getn(&s->g, 0, DEAL))
-		manipulate(rra, s , h);
+			manipulate(rra, s , h);
 		else if (getn(&s->a, 2, DEAL) == getn(&s->g, 0, DEAL))
-			manipulate(ra, s , h);
+			manipulate(ra, s, h);
 	}
 	raise(s);
 	if (s->a.len == 2)
