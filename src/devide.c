@@ -64,7 +64,7 @@ char xxx;
 read(0, &xxx, 1);
 		if (d->use + 1 == d->mut + d->inc && s->b.len >= 2)
 		{
-			if (getn(&s->b, s->b.len - 2, DEAL) < d->num)
+			if (getn(&s->b, s->b.len - 2, DEAL) >= d->num)
 				manipulate(sb, s, h);
 		}
 		if (getn(&s->b, 0, TOP) < d->num)
