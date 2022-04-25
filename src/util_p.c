@@ -17,6 +17,7 @@ TEST_
 void	set_divide_fmt(t_dividing *d, t_stack *g, int flag)
 {
 TEST_
+showstack(g);
 //TESTn("flag", flag)
 	size_t	i;
 
