@@ -72,7 +72,6 @@ void	mkgoal(int	*nums, size_t	len)
 
 int	set_stack(int argc, char *argv[], t_situation *s, t_mplh *h)
 {
-TEST_
 	int	i;
 
 	h->freefrom = malloc(((argc * sizeof(int)) + sizeof(size_t)) * 3);
