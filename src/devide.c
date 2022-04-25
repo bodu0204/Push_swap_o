@@ -55,11 +55,13 @@ TEST_
 void	divide_from_b(t_situation *s, t_mplh *h, t_dividing *d, t_dividing *next)
 {
 TEST_
-tests(s);
 	next->use = rotate_mount_b(s, d);
 TESTn("d->num", d->num)
 	while (d->use < d->mut + d->inc)
 	{
+tests(s);
+char xxx;
+read(0, &xxx, 1);
 		if (d->use + 1 == d->mut + d->inc && s->b.len >= 2)
 		{
 			if (getn(&s->a, s->b.len - 2, DEAL) < d->num)
