@@ -23,9 +23,9 @@ int	main(int argc, char *argv[])
 		write(STDOUT_FILENO, "Error\n", 6);
 		return (1);
 	}
-TESTn("s.img", s.a.img)
-TESTn("s.img", s.b.img)
-TESTn("s.img", s.g.img)
+TESTp("s.img", s.a.img)
+TESTp("s.img", s.b.img)
+TESTp("s.img", s.g.img)
 	push_swap(&s, &h, _a);
 	op = mkout(&h);//確保できなかった時はexit
 	free_all(&h);
