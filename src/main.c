@@ -37,8 +37,10 @@ TESTn("*(s.g.img)", *(s.g.img))
 
 int	mkenv(int argc, char *argv[], t_situation *s, t_mplh *h)
 {
+TEST_
 	ft_bzero(s, sizeof(t_situation));
 	ft_bzero(h, sizeof(t_mplh));
+TESTn("*(s->g.img)", *(s->g.img));
 	if (set_stack(argc - 1, argv + 1, s, h))
 		return (1);
 showstack(&s->g, 'g');
