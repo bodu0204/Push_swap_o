@@ -26,8 +26,8 @@ $(NAME) : submitfile
 
 bonus : submitfile
 	cd "$(SUBMIT_d)" && make bonus
-	rm -rf $(SUBMIT_d)
 	cp $(SUBMIT_d)$(BONUS_NAME) ./
+	rm -rf $(SUBMIT_d)
 
 push : fclean
 	git add .
