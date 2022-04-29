@@ -6,12 +6,11 @@
 /*   By: ryoakira <ryoakira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 08:34:37 by ryoakira          #+#    #+#             */
-/*   Updated: 2022/04/30 07:38:25 by ryoakira         ###   ########.fr       */
+/*   Updated: 2022/04/30 07:57:33 by ryoakira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "debug.h"/* test */
 
 t_mplc	*omitmpl5(t_mplc	*one, t_mplc	*two, int *flag)
 {
@@ -29,7 +28,6 @@ t_mplc	*omitmpl5(t_mplc	*one, t_mplc	*two, int *flag)
 	|| (one->mpl == rr && two->mpl == rrr) \
 	|| (one->mpl == rrr && two->mpl == rr))
 	{
-TEST
 		*flag = 1;
 		rtn = two->next;
 		free(one);

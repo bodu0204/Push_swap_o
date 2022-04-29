@@ -6,12 +6,11 @@
 /*   By: ryoakira <ryoakira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 08:34:10 by ryoakira          #+#    #+#             */
-/*   Updated: 2022/04/30 07:31:56 by ryoakira         ###   ########.fr       */
+/*   Updated: 2022/04/30 07:56:03 by ryoakira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "debug.h"/* test */
 void	befor_push_swap(int argc, char *argv[], t_situ *s, t_mplh *h);
 int		treat_arg(int *argc, char **argv[]);
 int		mkenv(int argc, char *argv[], t_situ *s, t_mplh *h);
@@ -27,17 +26,11 @@ int	main(int argc, char *argv[])
 	int		r;
 
 	befor_push_swap(argc, argv, &s, &h);
-tests(&s);
-TEST
 	push_swap(&s, &h, _a);
-TEST
 	op = mkout(&h);
-TEST
 	free_all(&h);
 	r = write(STDOUT_FILENO, op, ft_strlen(op));
-TEST
 	free(op);
-TEST
 	return (r < 0);
 }
 
@@ -62,13 +55,11 @@ void	befor_push_swap(int argc, char *argv[], t_situ *s, t_mplh *h)
 	}
 	if (r)
 		freesplit(argv);
-TEST
 	return ;
 }
 
 int treat_arg(int *argc, char **argv[])
 {
-TEST_
 	int r;
 
 	if (*argc == 1)
@@ -95,7 +86,6 @@ TEST_
 
 int	mkenv(int argc, char *argv[], t_situ *s, t_mplh *h)
 {
-TEST_
 	ft_bzero(s, sizeof(t_situ));
 	ft_bzero(h, sizeof(t_mplh));
 	if (set_stack(argc, argv, s, h))
@@ -106,7 +96,6 @@ TEST_
 
 void	mkgoal(int	*nums, size_t	len)
 {
-TEST_
 	size_t	i;
 	size_t	ii;
 	size_t	max;
@@ -133,7 +122,6 @@ TEST_
 
 int	set_stack(int argc, char *argv[], t_situ *s, t_mplh *h)
 {
-TEST_
 	int	i;
 
 	h->freefrom = ft_calloc((argc * sizeof(int)) + sizeof(size_t) + 16, 3);
@@ -162,7 +150,6 @@ TEST_
 
 int	checkarg(size_t argc, char *argv[])
 {
-TEST_
 	size_t	i;
 	size_t	ii;
 	char	*s;

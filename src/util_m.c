@@ -6,16 +6,14 @@
 /*   By: ryoakira <ryoakira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 08:35:12 by ryoakira          #+#    #+#             */
-/*   Updated: 2022/04/30 07:22:30 by ryoakira         ###   ########.fr       */
+/*   Updated: 2022/04/30 07:57:52 by ryoakira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "debug.h"/* test */
 
 int	isover(char *s)
 {
-TEST_
 	int		i;
 	size_t	len;
 
@@ -37,7 +35,6 @@ TEST_
 
 int	isdup(size_t argc, char *argv[])
 {
-TEST_
 	size_t	i;
 	size_t	ii;
 	size_t	l;
