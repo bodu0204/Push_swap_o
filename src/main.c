@@ -6,7 +6,7 @@
 /*   By: ryoakira <ryoakira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 08:34:10 by ryoakira          #+#    #+#             */
-/*   Updated: 2022/04/29 21:45:11 by ryoakira         ###   ########.fr       */
+/*   Updated: 2022/04/29 21:46:39 by ryoakira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,7 @@ TEST_
 
 void	mkgoal(int	*nums, size_t	len)
 {
+TEST_
 	size_t	i;
 	size_t	ii;
 	size_t	max;
