@@ -6,7 +6,7 @@
 /*   By: ryoakira <ryoakira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 08:34:10 by ryoakira          #+#    #+#             */
-/*   Updated: 2022/04/30 07:21:12 by ryoakira         ###   ########.fr       */
+/*   Updated: 2022/04/30 07:25:09 by ryoakira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	main(int argc, char *argv[])
 	int		r;
 
 	befor_push_swap(argc, argv, &s, &h);
+tests(&s);
 	push_swap(&s, &h, _a);
 	op = mkout(&h);
 	free_all(&h);
