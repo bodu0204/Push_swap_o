@@ -1,16 +1,21 @@
 #include <unistd.h>
 #include <stdio.h>
+#include<string.h>
 #define BUFFER 32
 void show(char* s);
 
 int main (void)
 {
 	char buf[BUFFER];
-	int i = 3;
+	int i = 1;
 
-	printf("%d\n", i);
-	printf("%d\n", i);
-	return (0);
+	bzero(buf, sizeof(buf));
+	while(i)
+		i = read(0, buf, BUFFER);
+	printf("%d", i);
+	show(buf);
+	read(0, buf, BUFFER);
+B	return (0);
 }
 
 void show(char* s)

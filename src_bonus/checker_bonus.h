@@ -6,7 +6,7 @@
 /*   By: ryoakira <ryoakira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 05:21:23 by ryoakira          #+#    #+#             */
-/*   Updated: 2022/04/21 05:21:24 by ryoakira         ###   ########.fr       */
+/*   Updated: 2022/04/29 17:51:47 by ryoakira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,12 @@ int		ft_memcmp(const void	*s1, const void	*s2, size_t	n);
 void	ft_bzero(void *s, size_t n);
 size_t	ft_strlen(const char *str);
 int		ft_strncmp(const char	*s1, const char	*s2, size_t	n);
+char	**ft_split(char const *s, char c);
+
 int		manipulate(t_checker	*s, char *order, int *ko);
 int		checker(t_checker *s);
 int		check(t_checker *s);
+
+size_t	splitlen(char **s);
+void	freesplit(char **s);
 #endif

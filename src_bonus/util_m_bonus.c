@@ -6,7 +6,7 @@
 /*   By: ryoakira <ryoakira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 05:20:18 by ryoakira          #+#    #+#             */
-/*   Updated: 2022/04/21 05:20:19 by ryoakira         ###   ########.fr       */
+/*   Updated: 2022/04/29 17:55:47 by ryoakira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,30 @@ int	isdup(size_t argc, char *argv[])
 		i++;
 	}
 	return (0);
+}
+
+size_t	splitlen(char **s)
+{
+	size_t	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}
+
+void	freesplit(char **s)
+{
+	size_t	i;
+
+	i = 0;
+	if (!s)
+		return ;
+	while (*(s + i))
+	{
+		free(*(s + i));
+		i++;
+	}
+	free(s);
+	return ;
 }

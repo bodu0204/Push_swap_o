@@ -6,7 +6,7 @@
 /*   By: ryoakira <ryoakira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 05:20:01 by ryoakira          #+#    #+#             */
-/*   Updated: 2022/04/21 05:20:02 by ryoakira         ###   ########.fr       */
+/*   Updated: 2022/04/29 18:35:38 by ryoakira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(int argc, char *argv[])
 {
 	t_checker	s;
 
-	if (argc == 1 || checkarg(argc, argv))
+	if (checkarg(argc, argv))
 	{
 		write(STDOUT_FILENO, "Error\n", 6);
 		return (1);
@@ -41,8 +41,23 @@ int	main(int argc, char *argv[])
 
 int	mkenv(int argc, char *argv[], t_checker *s)
 {
-	if (set_stack(argc - 1, argv + 1, s))
-		return (1);
+	if (argc == 2)
+	{
+		argv = ft_split(argv[1], ' ');
+		if (!argv)
+			return (1);
+		if (set_stack(splitlen(argv), argv, s))
+		{
+			freesplit(argv);
+			return (1);
+		}
+		freesplit(argv);
+	}
+	else
+	{
+		if (set_stack(argc - 1, argv + 1, s))
+			return (1);
+	}
 	return (0);
 }
 

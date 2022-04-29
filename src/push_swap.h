@@ -6,7 +6,7 @@
 /*   By: ryoakira <ryoakira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 08:34:54 by ryoakira          #+#    #+#             */
-/*   Updated: 2022/04/26 08:34:55 by ryoakira         ###   ########.fr       */
+/*   Updated: 2022/04/29 17:48:48 by ryoakira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,8 @@ void	revrotate(t_stack *s);
 int		getn(t_stack *s, size_t l, int flag);
 
 void	free_all(t_mplh *h);
+size_t	splitlen(char **s);
+void	freesplit(char **s);
 
 void	ft_bzero(void *s, size_t n);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
@@ -117,5 +119,6 @@ int		ft_atoi(const char *str);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 void	*ft_calloc(size_t count, size_t size);
+char	**ft_split(char const *s, char c);
 
 #endif

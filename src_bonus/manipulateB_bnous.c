@@ -6,7 +6,7 @@
 /*   By: ryoakira <ryoakira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 05:20:12 by ryoakira          #+#    #+#             */
-/*   Updated: 2022/04/21 05:20:13 by ryoakira         ###   ########.fr       */
+/*   Updated: 2022/04/29 16:56:37 by ryoakira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int	check(t_checker *s)
 		s->a[(s->a_base + i - 1) % s->buf_len] >= \
 		s->a[(s->a_base + i) % s->buf_len])
 			i++;
-		if (i == s->a_len)
+		if (i >= s->a_len)
 			return (0);
 	}
 	return (1);
