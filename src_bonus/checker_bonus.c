@@ -6,7 +6,7 @@
 /*   By: ryoakira <ryoakira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 05:19:35 by ryoakira          #+#    #+#             */
-/*   Updated: 2022/04/21 23:22:10 by ryoakira         ###   ########.fr       */
+/*   Updated: 2022/04/30 07:13:12 by ryoakira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ char	*get_order(size_t	len)
 	char	*ret;
 
 	new = read(STDIN_FILENO, buf, BUFFER);
-	if (new == BUFFER)
-		ret = get_order(len + BUFFER);
+	if (new)
+		ret = get_order(len + new);
 	else
 	{
 		ret = malloc(len + new + 1);
