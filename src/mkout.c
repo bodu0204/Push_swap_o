@@ -6,7 +6,7 @@
 /*   By: ryoakira <ryoakira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 08:34:24 by ryoakira          #+#    #+#             */
-/*   Updated: 2022/04/30 07:35:15 by ryoakira         ###   ########.fr       */
+/*   Updated: 2022/04/30 07:36:23 by ryoakira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,12 @@ TEST_
 	{
 		flag = 0;
 		h->cnt = omitmpl(h->cnt, &flag);
+TEST
 		m = h->cnt;
 		while (m)
 		{
 			m->next = omitmpl(m->next, &flag);
+TEST
 			m = m->next;
 		}
 	}
