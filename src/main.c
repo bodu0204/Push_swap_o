@@ -6,7 +6,7 @@
 /*   By: ryoakira <ryoakira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 08:34:10 by ryoakira          #+#    #+#             */
-/*   Updated: 2022/04/29 21:46:39 by ryoakira         ###   ########.fr       */
+/*   Updated: 2022/04/29 21:48:45 by ryoakira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,7 @@ TEST_
 	size_t	max;
 	int		buf;
 
+TESTn("len", len)
 	i = 0;
 	while (i < len)
 	{
