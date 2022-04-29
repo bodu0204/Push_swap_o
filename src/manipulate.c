@@ -6,7 +6,7 @@
 /*   By: ryoakira <ryoakira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 08:34:16 by ryoakira          #+#    #+#             */
-/*   Updated: 2022/04/30 07:52:38 by ryoakira         ###   ########.fr       */
+/*   Updated: 2022/04/30 07:53:50 by ryoakira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ TEST_
 	t_mplc	*new;
 	t_mplc	*m;
 
-	new = malloc(sizeof(t_mplc));
+	new = ft_calloc(sizeof(t_mplc), 1);
 	if (!new)
 	{
 		free_all(h);
