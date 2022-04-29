@@ -6,7 +6,7 @@
 /*   By: ryoakira <ryoakira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 08:34:10 by ryoakira          #+#    #+#             */
-/*   Updated: 2022/04/29 21:43:44 by ryoakira         ###   ########.fr       */
+/*   Updated: 2022/04/29 21:45:11 by ryoakira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,6 +150,7 @@ TEST_
 	s->g.phl = argc;
 	s->a.phl = argc;
 	s->b.phl = argc;
+TEST
 	return (0);
 }
 
