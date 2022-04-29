@@ -6,7 +6,7 @@
 /*   By: ryoakira <ryoakira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 08:34:16 by ryoakira          #+#    #+#             */
-/*   Updated: 2022/04/30 07:51:24 by ryoakira         ###   ########.fr       */
+/*   Updated: 2022/04/30 07:52:38 by ryoakira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	operation1(int cmd, t_situ *s);
 
 void	manipulate(int cmd, t_situ *s, t_mplh *h)
 {
+TEST_
 	t_mplc	*new;
 	t_mplc	*m;
 
