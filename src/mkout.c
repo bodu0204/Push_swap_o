@@ -6,17 +6,19 @@
 /*   By: ryoakira <ryoakira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 08:34:24 by ryoakira          #+#    #+#             */
-/*   Updated: 2022/04/26 08:34:25 by ryoakira         ###   ########.fr       */
+/*   Updated: 2022/04/30 07:35:15 by ryoakira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "debug.h"
 size_t	mpllen(t_mplc	*m);
 void	mkoutstr(char	*s, t_mplc	*m);
 size_t	mpltoa(int mpl, char *buf);
 
 char	*mkout(t_mplh *h)
 {
+TEST_
 	int		flag;
 	t_mplc	*m;
 	char	*s;
@@ -65,6 +67,7 @@ size_t	mpllen(t_mplc	*m)
 
 void	mkoutstr(char	*s, t_mplc	*m)
 {
+TEST_
 	while (m)
 	{
 		s += mpltoa(m->mpl, s);

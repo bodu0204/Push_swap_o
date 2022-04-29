@@ -6,11 +6,12 @@
 /*   By: ryoakira <ryoakira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 08:34:30 by ryoakira          #+#    #+#             */
-/*   Updated: 2022/04/26 08:34:31 by ryoakira         ###   ########.fr       */
+/*   Updated: 2022/04/30 07:34:43 by ryoakira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "debug.h"
 t_mplc	*omitmpl1(t_mplc	*one, t_mplc	*two, int *flag);
 t_mplc	*omitmpl2(t_mplc	*one, t_mplc	*two, int *flag);
 t_mplc	*omitmpl3(t_mplc	*one, t_mplc	*two, int *flag);
@@ -19,6 +20,7 @@ t_mplc	*omitmpl5(t_mplc	*one, t_mplc	*two, int *flag);
 
 t_mplc	*omitmpl(t_mplc	*one, int *flag)
 {
+TEST_
 	t_mplc	*two;
 
 	if (!one)
