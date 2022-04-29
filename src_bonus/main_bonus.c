@@ -6,7 +6,7 @@
 /*   By: ryoakira <ryoakira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 05:20:01 by ryoakira          #+#    #+#             */
-/*   Updated: 2022/04/29 18:35:38 by ryoakira         ###   ########.fr       */
+/*   Updated: 2022/04/30 07:09:39 by ryoakira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,47 +17,75 @@ int		set_stack(int argc, char *argv[], t_checker *s);
 int		checkarg(size_t argc, char *argv[]);
 int		isover(char *s);
 int		isdup(size_t argc, char *argv[]);
+void	befor_check(int argc, char *argv[], t_checker *s);
+int		treat_arg(int *argc, char **argv[]);
 
 int	main(int argc, char *argv[])
 {
 	t_checker	s;
 
-	if (checkarg(argc, argv))
-	{
-		write(STDOUT_FILENO, "Error\n", 6);
-		return (1);
-	}
-	if (mkenv(argc, argv, &s))
-	{
-		write(STDOUT_FILENO, "Error\n", 6);
-		free(s.freefrom);
-		return (1);
-	}
+	befor_check(argc, argv, &s);
 	if (checker(&s))
 		write(STDOUT_FILENO, "Error\n", 6);
 	free(s.freefrom);
 	return (0);
 }
 
-int	mkenv(int argc, char *argv[], t_checker *s)
+void	befor_check(int argc, char *argv[], t_checker *s)
 {
-	if (argc == 2)
+	int r;
+
+	r = treat_arg(&argc, &argv);
+	if (checkarg(argc, argv))
 	{
-		argv = ft_split(argv[1], ' ');
-		if (!argv)
-			return (1);
-		if (set_stack(splitlen(argv), argv, s))
-		{
+		if (r)
 			freesplit(argv);
-			return (1);
+		write(STDOUT_FILENO, "Error\n", 6);
+		exit (1);
+	}
+	if (mkenv(argc, argv, &s))
+	{
+		if (r)
+			freesplit(argv);
+		write(STDOUT_FILENO, "Error\n", 6);
+		free(s->freefrom);
+		exit (1);
+	}
+		if (r)
+			freesplit(argv);
+	return ;
+}
+
+int		treat_arg(int *argc, char **argv[])
+{
+	int r;
+
+	if (*argc == 1)
+		exit (0);
+	r = 0;
+	if (*argc == 2)
+	{
+		r = 1;
+		*argv = ft_split((*argv)[1], ' ');
+		if (!(*argv))
+		{
+			write(STDOUT_FILENO, "malloc Error\n", 13);
+			exit(1);
 		}
-		freesplit(argv);
+		*argc =splitlen((*argv));
 	}
 	else
 	{
-		if (set_stack(argc - 1, argv + 1, s))
-			return (1);
+		(*argv)++;
+		(*argc)--;
 	}
+	return (r);
+}
+
+int	mkenv(int argc, char *argv[], t_checker *s)
+{
+	if (set_stack(argc, argv, s))
+		return (1);
 	return (0);
 }
 
@@ -88,7 +116,7 @@ int	checkarg(size_t argc, char *argv[])
 	size_t	ii;
 	char	*s;
 
-	i = 1;
+	i = 0;
 	while (i < argc)
 	{
 		s = argv[i];
