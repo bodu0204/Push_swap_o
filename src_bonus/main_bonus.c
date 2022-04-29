@@ -6,7 +6,7 @@
 /*   By: ryoakira <ryoakira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 05:20:01 by ryoakira          #+#    #+#             */
-/*   Updated: 2022/04/30 07:09:39 by ryoakira         ###   ########.fr       */
+/*   Updated: 2022/04/30 07:10:00 by ryoakira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	befor_check(int argc, char *argv[], t_checker *s)
 		write(STDOUT_FILENO, "Error\n", 6);
 		exit (1);
 	}
-	if (mkenv(argc, argv, &s))
+	if (mkenv(argc, argv, s))
 	{
 		if (r)
 			freesplit(argv);
