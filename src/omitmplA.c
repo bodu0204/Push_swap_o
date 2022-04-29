@@ -6,7 +6,7 @@
 /*   By: ryoakira <ryoakira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 08:34:30 by ryoakira          #+#    #+#             */
-/*   Updated: 2022/04/30 07:38:19 by ryoakira         ###   ########.fr       */
+/*   Updated: 2022/04/30 07:41:23 by ryoakira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,10 @@ TEST_
 	t_mplc	*two;
 
 	if (!one)
+{
+TEST
 		return (NULL);
+}
 	two = one->next;
 	if (!two)
 		return (one);
