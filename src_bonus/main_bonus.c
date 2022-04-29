@@ -6,7 +6,7 @@
 /*   By: ryoakira <ryoakira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 05:20:01 by ryoakira          #+#    #+#             */
-/*   Updated: 2022/04/30 07:10:00 by ryoakira         ###   ########.fr       */
+/*   Updated: 2022/04/30 07:11:24 by ryoakira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,6 @@ int		treat_arg(int *argc, char **argv[])
 {
 	int r;
 
-	if (*argc == 1)
-		exit (0);
 	r = 0;
 	if (*argc == 2)
 	{
