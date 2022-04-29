@@ -6,7 +6,7 @@
 /*   By: ryoakira <ryoakira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 08:34:30 by ryoakira          #+#    #+#             */
-/*   Updated: 2022/04/30 07:45:51 by ryoakira         ###   ########.fr       */
+/*   Updated: 2022/04/30 07:46:27 by ryoakira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_mplc	*omitmpl(t_mplc	*one, int *flag)
 {
 TEST_
 TESTn("one->mpl",one->mpl)
-TESTn("one->next",one->next)
+TESTp("one->next",one->next)
 	t_mplc	*two;
 
 	if (!one)
