@@ -6,7 +6,7 @@
 /*   By: ryoakira <ryoakira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 08:34:10 by ryoakira          #+#    #+#             */
-/*   Updated: 2022/04/29 21:49:36 by ryoakira         ###   ########.fr       */
+/*   Updated: 2022/04/29 21:50:33 by ryoakira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ TEST_
 	ft_bzero(h, sizeof(t_mplh));
 	if (set_stack(argc, argv, s, h))
 		return (1);
-	mkgoal(s->g.phs, argc - 1);
+	mkgoal(s->g.phs, argc);
 	return (0);
 }
 
