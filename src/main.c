@@ -6,7 +6,7 @@
 /*   By: ryoakira <ryoakira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 08:34:10 by ryoakira          #+#    #+#             */
-/*   Updated: 2022/04/30 07:31:02 by ryoakira         ###   ########.fr       */
+/*   Updated: 2022/04/30 07:31:56 by ryoakira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ TEST
 	push_swap(&s, &h, _a);
 TEST
 	op = mkout(&h);
+TEST
 	free_all(&h);
 	r = write(STDOUT_FILENO, op, ft_strlen(op));
 TEST
