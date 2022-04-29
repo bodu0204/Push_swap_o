@@ -6,7 +6,7 @@
 /*   By: ryoakira <ryoakira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 08:35:12 by ryoakira          #+#    #+#             */
-/*   Updated: 2022/04/29 21:18:47 by ryoakira         ###   ########.fr       */
+/*   Updated: 2022/04/30 07:21:45 by ryoakira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int	isover(char *s)
 {
+TEST_
 	int		i;
 	size_t	len;
 
@@ -35,6 +36,7 @@ int	isover(char *s)
 
 int	isdup(size_t argc, char *argv[])
 {
+TEST_
 	size_t	i;
 	size_t	ii;
 	size_t	l;
