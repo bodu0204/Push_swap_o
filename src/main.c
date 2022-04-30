@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ryoakira <ryoakira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: blyu <blyu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 08:34:10 by ryoakira          #+#    #+#             */
-/*   Updated: 2022/04/30 07:56:03 by ryoakira         ###   ########.fr       */
+/*   Updated: 2022/04/30 10:51:43 by blyu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 void	befor_push_swap(int argc, char *argv[], t_situ *s, t_mplh *h);
 int		treat_arg(int *argc, char **argv[]);
 int		mkenv(int argc, char *argv[], t_situ *s, t_mplh *h);
-void	mkgoal(int	*nums, size_t	len);
-int		set_stack(int argc, char *argv[], t_situ *s, t_mplh *h);
 int		checkarg(size_t argc, char *argv[]);
 
 int	main(int argc, char *argv[])
@@ -36,7 +34,7 @@ int	main(int argc, char *argv[])
 
 void	befor_push_swap(int argc, char *argv[], t_situ *s, t_mplh *h)
 {
-	int r;
+	int	r;
 
 	r = treat_arg(&argc, &argv);
 	if (checkarg(argc, argv))
@@ -58,9 +56,9 @@ void	befor_push_swap(int argc, char *argv[], t_situ *s, t_mplh *h)
 	return ;
 }
 
-int treat_arg(int *argc, char **argv[])
+int	treat_arg(int *argc, char **argv[])
 {
-	int r;
+	int	r;
 
 	if (*argc == 1)
 		exit (0);
@@ -74,7 +72,7 @@ int treat_arg(int *argc, char **argv[])
 			write(STDOUT_FILENO, "malloc Error\n", 13);
 			exit(1);
 		}
-		*argc =splitlen((*argv));
+		*argc = splitlen((*argv));
 	}
 	else
 	{
@@ -91,60 +89,6 @@ int	mkenv(int argc, char *argv[], t_situ *s, t_mplh *h)
 	if (set_stack(argc, argv, s, h))
 		return (1);
 	mkgoal(s->g.phs, argc);
-	return (0);
-}
-
-void	mkgoal(int	*nums, size_t	len)
-{
-	size_t	i;
-	size_t	ii;
-	size_t	max;
-	int		buf;
-
-	i = 0;
-	while (i < len)
-	{
-		max = i;
-		ii = i;
-		while (ii < len)
-		{
-			if (nums[ii] > nums[max])
-				max = ii;
-			ii++;
-		}
-		buf = nums[i];
-		nums[i] = nums[max];
-		nums[max] = buf;
-		i++;
-	}
-	return ;
-}
-
-int	set_stack(int argc, char *argv[], t_situ *s, t_mplh *h)
-{
-	int	i;
-
-	h->freefrom = ft_calloc((argc * sizeof(int)) + sizeof(size_t) + 16, 3);
-	if (!h->freefrom)
-		return (1);
-	s->a.phs = h->freefrom;
-	s->a.img = (void *)s->a.phs + (argc * sizeof(int)) + 8;
-	s->b.phs = (void *)s->a.img + sizeof(size_t) + 8;
-	s->b.img = (void *)s->b.phs + (argc * sizeof(int)) + 8;
-	s->g.phs = (void *)s->b.img + sizeof(size_t) + 8;
-	s->g.img = (void *)s->g.phs + (argc * sizeof(int)) + 8;
-	i = 0;
-	while (i < argc)
-	{
-		s->g.phs[i] = ft_atoi(argv[argc - i - 1]);
-		i++;
-	}
-	ft_memcpy(s->a.phs, s->g.phs, (argc * sizeof(int)));
-	s->g.len = argc;
-	s->a.len = argc;
-	s->g.phl = argc;
-	s->a.phl = argc;
-	s->b.phl = argc;
 	return (0);
 }
 

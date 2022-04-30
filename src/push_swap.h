@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ryoakira <ryoakira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: blyu <blyu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 08:34:54 by ryoakira          #+#    #+#             */
-/*   Updated: 2022/04/29 17:48:48 by ryoakira         ###   ########.fr       */
+/*   Updated: 2022/04/30 10:51:59 by blyu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,8 @@ typedef struct s_manipulate_content
 
 int		isover(char *s);
 int		isdup(size_t argc, char *argv[]);
+void	mkgoal(int	*nums, size_t	len);
+int		set_stack(int argc, char *argv[], t_situ *s, t_mplh *h);
 
 void	push_swap(t_situ	*s, t_mplh *h, int ms);
 
