@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mkout.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ryoakira <ryoakira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: blyu <blyu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 08:34:24 by ryoakira          #+#    #+#             */
-/*   Updated: 2022/04/30 07:56:42 by ryoakira         ###   ########.fr       */
+/*   Updated: 2022/04/30 10:54:26 by blyu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char	*mkout(t_mplh *h)
 			m = m->next;
 		}
 	}
-	s = malloc(mpllen(h->cnt) + 1);
+	s = ft_calloc(mpllen(h->cnt) + 1, 1);
 	if (!s)
 	{
 		free_all(h);
