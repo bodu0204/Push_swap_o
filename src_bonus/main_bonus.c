@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ryoakira <ryoakira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: blyu <blyu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 05:20:01 by ryoakira          #+#    #+#             */
-/*   Updated: 2022/04/30 07:11:24 by ryoakira         ###   ########.fr       */
+/*   Updated: 2022/04/30 11:01:09 by blyu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 int		mkenv(int argc, char *argv[], t_checker *s);
 void	mkgoal(int	*nums, size_t	len);
 int		set_stack(int argc, char *argv[], t_checker *s);
-int		checkarg(size_t argc, char *argv[]);
 int		isover(char *s);
 int		isdup(size_t argc, char *argv[]);
 void	befor_check(int argc, char *argv[], t_checker *s);
@@ -33,7 +32,7 @@ int	main(int argc, char *argv[])
 
 void	befor_check(int argc, char *argv[], t_checker *s)
 {
-	int r;
+	int	r;
 
 	r = treat_arg(&argc, &argv);
 	if (checkarg(argc, argv))
@@ -51,14 +50,14 @@ void	befor_check(int argc, char *argv[], t_checker *s)
 		free(s->freefrom);
 		exit (1);
 	}
-		if (r)
-			freesplit(argv);
+	if (r)
+		freesplit(argv);
 	return ;
 }
 
-int		treat_arg(int *argc, char **argv[])
+int	treat_arg(int *argc, char **argv[])
 {
-	int r;
+	int	r;
 
 	r = 0;
 	if (*argc == 2)
@@ -70,7 +69,7 @@ int		treat_arg(int *argc, char **argv[])
 			write(STDOUT_FILENO, "malloc Error\n", 13);
 			exit(1);
 		}
-		*argc =splitlen((*argv));
+		*argc = splitlen((*argv));
 	}
 	else
 	{
@@ -106,30 +105,4 @@ int	set_stack(int argc, char *argv[], t_checker *s)
 	s->buf_len = argc;
 	s->a_len = argc;
 	return (0);
-}
-
-int	checkarg(size_t argc, char *argv[])
-{
-	size_t	i;
-	size_t	ii;
-	char	*s;
-
-	i = 0;
-	while (i < argc)
-	{
-		s = argv[i];
-		ii = 0;
-		if (!*s)
-			return (1);
-		while (s[ii])
-		{
-			if (!((s[ii] >= '0' && s[ii] <= '9') || (s[ii] == '-' && !ii)))
-				return (1);
-			ii++;
-		}
-		if (isover(s))
-			return (1);
-		i++;
-	}
-	return (isdup(argc, argv));
 }

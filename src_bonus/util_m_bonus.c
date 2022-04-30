@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   util_m_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ryoakira <ryoakira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: blyu <blyu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 05:20:18 by ryoakira          #+#    #+#             */
-/*   Updated: 2022/04/30 07:03:09 by ryoakira         ###   ########.fr       */
+/*   Updated: 2022/04/30 11:00:57 by blyu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,4 +83,30 @@ void	freesplit(char **s)
 	}
 	free(s);
 	return ;
+}
+
+int	checkarg(size_t argc, char *argv[])
+{
+	size_t	i;
+	size_t	ii;
+	char	*s;
+
+	i = 0;
+	while (i < argc)
+	{
+		s = argv[i];
+		ii = 0;
+		if (!*s)
+			return (1);
+		while (s[ii])
+		{
+			if (!((s[ii] >= '0' && s[ii] <= '9') || (s[ii] == '-' && !ii)))
+				return (1);
+			ii++;
+		}
+		if (isover(s))
+			return (1);
+		i++;
+	}
+	return (isdup(argc, argv));
 }

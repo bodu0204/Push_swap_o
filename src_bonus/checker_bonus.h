@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ryoakira <ryoakira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: blyu <blyu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 05:21:23 by ryoakira          #+#    #+#             */
-/*   Updated: 2022/04/29 17:51:47 by ryoakira         ###   ########.fr       */
+/*   Updated: 2022/04/30 11:01:41 by blyu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ int		manipulate(t_checker	*s, char *order, int *ko);
 int		checker(t_checker *s);
 int		check(t_checker *s);
 
+int		checkarg(size_t argc, char *argv[]);
 size_t	splitlen(char **s);
 void	freesplit(char **s);
 #endif
